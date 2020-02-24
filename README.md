@@ -1,8 +1,8 @@
 # project_maze_challenge
 # CS50 Winter 2020, Final Project
 
-## Team name:
-## Team Members:
+## Team name: We_free
+## Team Members: Jacob Werzinsky, 
 
 GitHub usernames:
 
