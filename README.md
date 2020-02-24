@@ -4,7 +4,7 @@
 ## Team name: We_free
 ## Team Members: Jacob Werzinsky, Sebastian Saker, Chris Sykes, Ben Matejka
 
-GitHub usernames:
+GitHub usernames: jts307, 
 
 To build, run `make`.
 
