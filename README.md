@@ -2,7 +2,7 @@
 # CS50 Winter 2020, Final Project
 
 ## Team name: We_free
-## Team Members: Jacob Werzinsky, 
+## Team Members: Jacob Werzinsky, Sebastian Saker, Chris Sykes, Ben Matejka
 
 GitHub usernames:
 
