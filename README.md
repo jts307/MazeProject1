@@ -4,7 +4,7 @@
 ## Team name: We_free
 ## Team Members: Jacob Werzinsky
 
-GitHub usernames:
+GitHub usernames: jts307, chriscsykes
 
 To build, run `make`.
 
