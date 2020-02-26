@@ -1,16 +1,15 @@
 /* 
- * inclient - an example Internet client.
+ * AMStartup.c
  *
- * Makes a connection to the given host/port and sends a message 
- * to that socket.
+ * Handles the startup process, validating parameters, 
+ * creating a connection to the server, creating a log 
+ * file, and starting up threads with the parameters
+ * they need. 
  * 
- * usage: inclient hostname port
  * 
- * David Kotz, 1987, 1992, 2016
- * Adapted from Figure 7a in Introductory 4.3bsd IPC, PS1:7-15.
- *
- * updated by Xia Zhou, August 2016, 2017, 2018
- * updated by Temi Prioleau, 2020
+ * usage: ./AMStartup -n nAvatars -d Difficulty -h Hostname 
+ * 
+ * We_free (Christopher Sykes, Sebastian Saker, Ben Matejka, Jacob Werzinsky), February 2020
  */
 
 #include <stdio.h>
@@ -18,3 +17,14 @@
 #include <unistd.h>	      // read, write, close
 #include <string.h>	      // memcpy, memset
 #include <netdb.h>	      // socket-related structures
+
+
+/**************** main() ****************/
+int
+main(const int argc, char *argv[])
+{
+  char *program;	  // this program's name
+  char *hostname;	  // server hostname
+  int port;		      // server port
+
+  // Check arguments
