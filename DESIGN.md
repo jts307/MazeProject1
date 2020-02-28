@@ -1,6 +1,7 @@
 # Maze Project Design Spec
 
-## Benjamin Matejka, Sebastian Saker, Christopher Sykes, Jacob Werzinsky, CS50, Winter 2020
+## Benjamin Matejka, Sebastian Saker, Christopher Sykes, Jacob Werzinsky
+## CS50, Winter 2020
 
 ## Overview
 
