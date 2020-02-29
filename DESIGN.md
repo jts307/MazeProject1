@@ -40,17 +40,17 @@ Output(s):
 ##### In amazing_client.c:
 
 Inputs: 
-- The program takes the following command line arguments, given by AMStartup.c:
+- The program takes the following command line arguments, given by *AMStartup.c*:
   - `AvatarId`
   - `nAvatars`
   - `Difficulty`
   - Host name or IP address of the server
   - `MazePort`
-- The log file listed in the outputs for AMStartup.c.
+- The log file listed in the outputs for *AMStartup.c*.
 - The program takes input from the maze server in the form of the messages defined in [amazing.h](amazing.h). These include `AM_MAZE_SOLVED`, `AM_UNKNOWN_MSG_TYPE`, `AM_UNEXPECTED_MSG_TYPE`, `AM_AVATAR_OUT_OF_TURN`, `AM_TOO_MANY_MOVES`, `AM_SERVER_TIMEOUT`, `AM_SERVER_DISK_QUOTA`, and `AM_SERVER_OUT_OF_MEM`.
 
 Outputs:
-- Each avatar will log their success/progress into the log file, including the `AM_MAZE_SOLVED` message .
+- Each avatar will log their success/progress into the log file, including the `AM_MAZE_SOLVED` message.
 - An ASCII drawn image of the maze is printed to standard output during each avatar’s turn.
 - Messages to the server, these can be found in [amazing.h](amazing.h). These include `AM_AVATAR_READY` and `AM_AVATAR_MOVE`.
 		
@@ -149,8 +149,8 @@ The *priority_queue* module provides the *priority_queue* structure…
   - If `TurnID` equals this thread’s `AvatarId` then…
     - Update all avatar positions in the destinations priority queue according to the Avatar Positions received.
     - If the last avatar that moved position was not updated then...
-      - Within the maze structure, update the directions that have states of ‘being explored by an avatar’ to states of ‘no connection/wall’.
-      - Within the maze structure, update all directions that must exist given the new state of `no connection/wall` and the fact all places in the maze are accessible.
+      - Within the maze structure, update the directions that have states of ‘being explored by an avatar’ to states of ‘no connection’.
+      - Within the maze structure, update all directions that must exist given the new state of 'no connection' and the fact all places in the maze are accessible.
       - Write to the log file indicating that the last avatar ran into a wall.
     - If the last avatar that moved position was updated then...
       - Within the maze structure, update the directions that have states of ‘being explored by an avatar’ to states of ‘there is a connection’.
@@ -178,19 +178,19 @@ The *priority_queue* module provides the *priority_queue* structure…
       - Set next move to the direction that this node is in.
   - Else set next move the avatar will make to `M_NULL_MOVE` i.e. it will not make a move.
   - Encode the next move and `AvatarId` into `AM_AVATAR_MOVE` using `htonl()` and send this message to the server.
-- If any of the exit conditions occur, do any necessary clean up: close the log file and free any memory used by the maze structure and close sockets. 
+- If any of the exit conditions occur, do any necessary clean up: close the log file and free any memory used by the *maze/priority queue* structures and close sockets. 
 
 ### Dataflow through modules
 #### In AMStartup.c:
 - Only one function, Main, which validates arguments, establishes a connection with the server, creates a log file, and creates/initializes avatar threads.  
 #### In amazing_client.c:
-1. Main will take arguments from AM_STARTUP, opens the log file, and initializes the maze structure through calling an appropriate function from the *maze* module. It will then wait for a message from the server.
-2. If the message received is AM_AVATAR_TURN then *main* calls methods from the *maze* module which will handle all logic that pertains to updating nodes within the maze structure and guessing which directions must exist. The *maze* functions will return control to *main*.
+1. Main will take arguments from *AM_STARTUP.c*, opens the log file, and initializes the maze structure through calling an appropriate function from the *maze* module. It will then wait for a message from the server.
+2. If the message received is `AM_AVATAR_TURN` then *main* calls methods from the *maze* module which will handle all logic that pertains to updating nodes within the maze structure and guessing which directions must exist. The *maze* functions will return control to *main*.
 3. *main* will write any updates of the avatars’ positions to the log file.
 4. *main* will call functions from the *graphics* module, two to be exact. One will draw to standard output the current maze structure and another will draw the avatars within that maze structure. They both will return control to *main*.
 5. *main* then calls the *determine_goal* function which will find the closest node out of the other avatars and center point, and set that as an avatar’s goal node. After this, the function returns control to *main*.
-6. *main* then calls *calculate_next_move* which will calculate an avatar’s next ‘best’ move given an avatar and its goal node. This returns control to *main*, which sends this best move to the server.
-7. If *main* receives any error messages or `AM_MAZE_SOLVED`, it will do any necessary clean up to free up memory used by the priority queues and maze structure, and close the log file. 
+6. *main* then calls *calculate_next_move* which will calculate an avatar’s next ‘best’ move given an avatar, its goal node and the maze structure. This returns control to *main*, which sends this best move to the server.
+7. If *main* receives any error messages or `AM_MAZE_SOLVED`, it will do any necessary clean up to free up memory used by the priority queues and maze structures, and close the log file. 
 
 ### Testing Plan
 #### *Unit Testing*
