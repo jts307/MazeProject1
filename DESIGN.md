@@ -3,7 +3,7 @@
 ## Benjamin Matejka, Sebastian Saker, Christopher Sykes, Jacob Werzinsky
 ## CS50, Winter 2020
 
-## Overview
+### Overview
 
 
 ### User Interface 
