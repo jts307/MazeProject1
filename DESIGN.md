@@ -95,9 +95,9 @@ The *priority_queue* module provides the *priority_queue* structure…
 - Execute from the command line as show in the User Interface
 - Parse the command line by their flags (-n/d/h) and store the information in variables
 ##### Validate the parameters (may call on another function to do this). 
-    -n n Avatars: must be an integer, and less than a set value
-    -d Difficulty: must be an integer greater than 0 and less than 10.
-    -h Hostname: must be (char *) to flume.cs.dartmouth.edu
+   -n n Avatars: must be an integer, and less than a set value
+   -d Difficulty: must be an integer greater than 0 and less than 10.
+   -h Hostname: must be (char *) to flume.cs.dartmouth.edu
 - Send the `AM_INIT` message to the server at the `AM_SERVER_PORT`
     - Use `htonl()` to construct a message in mask the bits of the message in a way that the server can read them. In the message, specify:
       - The desired number of avatars
