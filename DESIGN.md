@@ -192,7 +192,7 @@ The *priority_queue* module provides the *priority_queue* structure…
 7. If *main* receives any error messages or `AM_MAZE_SOLVED`, it will do any necessary clean up to free up memory used by the priority queues and maze structure, and close the log file. 
 
 ### Testing Plan
-#### *Unit testing*
+#### *Unit Testing*
 #### In AM_Startup.c:
 1. Test to see if reading and validating command line correctly by inputting a variety of incorrect parameters.
 2. Test to see if the program is able to connect to the server and receive the appropriate messages, by printing them to the standard output as they are received and sent.
