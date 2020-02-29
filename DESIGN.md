@@ -61,11 +61,12 @@ We anticipate the following modules or functions:
 ##### In AMStartup.c:
 1. *main*, which validates arguments, establishes a connection with the server, creates a log file, and creates/initializes avatar threads.
 ##### In amazing_client.c:
-2. *main*, which communicates with the server, sending and receiving messages.
-3. *calculate_next_move*, which determines based on an avatar’s current position and heuristics which move, north, south, west or east, is best.
-4. *maze* module, which defines the maze structure and its methods.
-5. *priority_queue* module, which defines the priority queue structure and its methods.
-6. *graphics* module, which contains all functions needed to display the ASCII UI.
+2. *main*, which communicates with the server, sending and receiving messages, initializes data structures and writes to the log file.
+3. *determine_goal*, which determines the goal for an avatar at the beginning of its turn.
+4. *calculate_next_move*, which determines, based on an avatar’s current position and heuristics, which move, north, south, west or east, is best.
+5. *maze* module, which defines the maze structure and its methods.
+6. *priority_queue* module, which defines the priority queue structure and its methods.
+7. *graphics* module, which contains all functions needed to display the ASCII UI.
 
 
 ### Major data structures
@@ -80,15 +81,11 @@ The *maze* module provides two structures, the maze and the node…
 
 *node*, a structure that represents a one by one square within the maze that will be solved. A *node* contains x and y coordinates representing its position on the maze grid and four cardinal direction variables that represent up to each of four neighbor maze squares. The direction variables will have four states: a state that indicates there is a connection to a node in that direction, a state that indicates there is no such connection i.e. there is a wall, a state that indicates the status of such a connection is unknown, and a state that indicates the connection is being explored by an avatar.
 
-
-*maze*, a structure that represents a maze that will be solved. A *maze* is a collection of *node* structures, with the number of nodes being equal to the number of one by one spaces within a maze, each node being representative of a one by one space within a maze grid. *Nodes* within a *maze* structure will always be initialized with their respective x and y coordinates, and a status of unknown for their cardinal direction variables except in the case of the border *nodes*. The border *nodes*, those *nodes* representing spaces on the border of the maze grid, will have their cardinal direction variables that face outward from the center of the maze have a state indicating there is a wall. The unknown variables will have their statuses updated as the avatars navigate through the maze gathering more information.
-
+*maze*, a structure that represents a maze that will be solved. A *maze* is a collection of *node* structures, with the number of nodes being equal to the number of one by one spaces within a maze, each node being representative of a one by one space within a maze grid. *Nodes* within a *maze* structure will always be initialized with their respective x and y coordinates, and a status of unknown for their cardinal direction variables except in the case of the border *nodes*. The border *nodes*, those *nodes* representing spaces on the border of the maze grid, will have their cardinal direction variables that face outward from the center of the maze have a state indicating there is a wall. The unknown variables will have their statuses updated as the avatars navigate through the maze gathering more information. The maze structure will always form a tree, so if any predictions as to whether or not a connection must exist can be made the maze structure will make them.
 
 The *priority_queue* module provides the *priority_queue* structure…
 
 *priority_queue*, a structure that starts out empty and grows as (item, integer) pairs are added to it one at a time. Each item is given a priority in the queue based off of the passed integer, lower integers are given higher priority. Items are extracted, i.e. removed from the queue and returned to a caller, one at a time and the item with the current highest priority in the queue is always extracted. The item with the highest priority can be returned to a caller without removing it from the queue. Each item within the queue must be unique, and the priority for an item can be changed if needed.
-
-
 
 ### Pseudo code for logic/algorithmic flow
 
