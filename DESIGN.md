@@ -27,12 +27,15 @@ ASCII User Interface:
 
 ##### In AMStartup.c:
 
-Inputs: the only inputs are command-line parameters; see the User Interface above.
+Inputs:
+- Input in the form of the command-line parameters; see the User Interface above.
+- Messages from the server including `AM_INIT_OK`, `AM_INIT_FAILED`, etc. These can be found in [amazing.h](amazing.h).
 
 Output(s): 
 - one file to log the actions of all avatars, in the form of:
 - The name will be in the form: Amazing_$USER_N_D.log, where $USER is the current user id, N is the value of nAvatars and D is the value of Difficulty.
 - The first line of the file should contain $USER, the `MazePort`, and the date & time.
+- Messages to the server: `AM_INIT` which can be found in [amazing.h](amazing.h).
 
 ##### In amazing_client.c:
 
@@ -44,12 +47,12 @@ Inputs:
   - Host name or IP address of the server
   - `MazePort`
 - The log file listed in the outputs for AMStartup.c.
-- The program takes input from the maze server in the form of the messages defined in [amazing.h](amazing.h).
+- The program takes input from the maze server in the form of the messages defined in [amazing.h](amazing.h). These include `AM_MAZE_SOLVED`, `AM_UNKNOWN_MSG_TYPE`, `AM_UNEXPECTED_MSG_TYPE`, `AM_AVATAR_OUT_OF_TURN`, `AM_TOO_MANY_MOVES`, `AM_SERVER_TIMEOUT`, `AM_SERVER_DISK_QUOTA`, and `AM_SERVER_OUT_OF_MEM`.
 
 Outputs:
 - Each avatar will log their success/progress into the log file, including the `AM_MAZE_SOLVED` message .
 - An ASCII drawn image of the maze is printed to standard output during each avatar’s turn.
-- Messages to the server, examples of these can be found in [amazing.h](amazing.h).
+- Messages to the server, these can be found in [amazing.h](amazing.h). These include `AM_AVATAR_READY` and `AM_AVATAR_MOVE`.
 		
 ### Functional decomposition into modules:
 
