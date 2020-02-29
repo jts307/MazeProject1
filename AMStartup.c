@@ -17,13 +17,17 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <unistd.h>	      // read, write, close
-#include <string.h>	      // memcpy, memset
-#include <netdb.h>	      // socket-related structures
-#include <time.h>         // to find the time for log file
+#include <unistd.h>	          // read, write, close
+#include <string.h>	          // memcpy, memset
+#include <netdb.h>	          // socket-related structures
+#include <time.h>             // to find the time for log file
+#include <pthread.h>          // for threads
 #include "amazing.h"
 #include "getopt.h"
+// #include "amazing_client.h"   
 
+/**************** file-local constants ****************/
+#define BUFSIZE 1024     // read/write buffer size
 
 /**************** main() ****************/
 int
@@ -34,7 +38,7 @@ main(const int argc, char *argv[]) {
 
   int nAvatars;
   int Difficulty;
-  char Hostname[100];
+  char Hostname[100];         // the server will be running on flume.cs.dartmouth.edu 
 
   int c;
 
@@ -73,7 +77,7 @@ main(const int argc, char *argv[]) {
   }
 
   // Difficulty must be an integer greater than 0 and less than 10
-  if ( Difficulty <0 || Difficulty >= 10 ) { 
+  if ( Difficulty < 0 || Difficulty >= 10 ) { 
     fprintf(stderr, "error: Difficulty must be an integer greater than 0 and less than 10");
     exit(3);
   }
@@ -95,7 +99,7 @@ main(const int argc, char *argv[]) {
   }
   
   // Initialize the fields of the server address
-  struct sockaddr_in server;  // address of the server
+  struct sockaddr_in server;                        // address of the server
   server.sin_family = AF_INET;
   server.sin_port = htons(port);
 
@@ -120,7 +124,7 @@ main(const int argc, char *argv[]) {
   message.type = htonl(AM_INIT);
   uint32_t difficulty = Difficulty; 
   uint32_t number_of_avatars = nAvatars;
-  message.init.Difficulty = ntohl(difficulty);
+  message.init.Difficulty = ntohl(difficulty);            // use ntohl to convert the bytes
   message.init.nAvatars = ntohl(number_of_avatars);
 
   // send the message to the server 
@@ -181,9 +185,45 @@ main(const int argc, char *argv[]) {
   fclose(fp);
 
 
-  /*************** create threads *******************/
+  // /*************** create threads *******************/
   
+  // pthread_t avatars[nAvatars];
+
+  // int num_threads = 0;            // keep track of number of threads
 
 
+  // // create a thread for each avatar
+  // for ( int i = 0; i < nAvatars; i++ ) {
+  //   // TODO: Figure out what funciton to call, and how to pass all of the parameters
+  //   avatar_params *avatar = malloc(sizeof(avatar_params));
+  //   avatar->AvatarId = i;
+  //   avatar->nAvatars = nAvatars;
+  //   avatar->difficulty = Difficulty;
+  //   avatar->Hostname = Hostname;
+  //   avatar->MazePort = MazePort;
+  //   avatar->logfile = fp;
+  //   avatar->MazeHeight = MazeHeight;
+  //   avatar->MazeWidth = MazeWidth;
+
+  //   pthread_create(&avatars[i], NULL, function?, avatar);
+  //   num_threads++;
+  // }
+
+  // // main will run as long as the threads still exist
+  // while ( num_threads > 0 ) {
+  //   sleep(1);
+  // }
+
+  // // when no more threads, close socket and free memory
+  // close(comm_sock);
+  // for ( int i = 0; i < nAvatars; i++ ) {
+  //   if ( pthread_detach(avatars[i]) == 0 ) {
+  //     printf("succssfully detatched avatar thread");
+  //   }
+  //   else {
+  //     fprintf(stderr, "error: could not detatch avatar thread");
+  //   }
+  // }
+  // exit(0);
 
 }
