@@ -138,6 +138,7 @@ The *priority_queue* module provides the *priority_queue* structure…
       - Break from the loop
     - If the thread’s connection to the server is broken, print an error message, and break the loop.
     - If `AM_SERVER_DISK_QUOTA` and `AM_SERVER_OUT_OF_MEM` messages are read then print an error message, and break the loop.
+    
   - If the priority queue containing possible avatar goals for this thread’s avatar does not exist then…
     - Write to the log file indicating that this avatar was inserted at its current position.
     - Initialize a priority queue for the avatar’s possible goals. 
@@ -175,7 +176,7 @@ The *priority_queue* module provides the *priority_queue* structure…
       - Extract a node from the to be visited priority queue.
       - Save node.
       - Set next move to the direction that this node is in.
-  - Else set next move the avatar will make to M_NULL_MOVE.
+  - Else set next move the avatar will make to `M_NULL_MOVE` i.e. it will not make a move.
   - Encode the next move and `AvatarId` into `AM_AVATAR_MOVE` using `htonl()` and send this message to the server.
 - If any of the exit conditions occur, do any necessary clean up: close the log file and free any memory used by the maze structure and close sockets. 
 
