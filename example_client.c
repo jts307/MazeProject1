@@ -85,7 +85,7 @@ main(const int argc, char *argv[])
       exit(5);
     } else {
       
-        if(IS_AM_ERROR(ntohl(initokmess.init_failed.ErrNum))){
+        if(IS_AM_ERROR(ntohl(initokmess.init_failed.ErrNum))){  //might check with given type
           int err = ntohl(initokmess.init_failed.ErrNum); 
           printf("%d\n", err); 
            printf("%d\n", ntohl(AM_INIT_BAD_DIFFICULTY)); 
