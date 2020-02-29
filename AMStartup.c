@@ -20,6 +20,7 @@
 #include <unistd.h>	      // read, write, close
 #include <string.h>	      // memcpy, memset
 #include <netdb.h>	      // socket-related structures
+#include <time.h>         // to find the time for log file
 #include "amazing.h"
 #include "getopt.h"
 
@@ -141,16 +142,48 @@ main(const int argc, char *argv[]) {
   // if initialized, recover the Mazeport, MazeHeight, and MazeWidth
   if (response.type == ntohl(AM_INIT_OK)) {
     printf("Initialized!\n");
-
-    // store the following variables for future use
-    uint32_t MazePort = ntohl(response.init_ok.MazePort);
-    uint32_t MazeHeight = ntohl(response.init_ok.MazeHeight);
-    uint32_t MazeWidth = ntohl(response.init_ok.MazeWidth);
-
-    // test to see getting the right message
-    printf("MazePort: %d\n", ntohl(response.init_ok.MazePort));
-    printf("MazeHeight: %d\n", ntohl(response.init_ok.MazeHeight));
-    printf("MazeWith: %d\n", ntohl(response.init_ok.MazeWidth));
-
   }
+  else {
+    fprintf(stderr, "Not able to intialize program");
+  }
+
+  // store the following variables for future use
+  uint32_t MazePort = ntohl(response.init_ok.MazePort);
+  uint32_t MazeHeight = ntohl(response.init_ok.MazeHeight);
+  uint32_t MazeWidth = ntohl(response.init_ok.MazeWidth);
+
+  // test to see getting the right message
+  printf("MazePort: %d\n", MazePort);
+  printf("MazeHeight: %d\n", MazeHeight);
+  printf("MazeWith: %d\n", MazeWidth);
+
+
+  /************* create a log file *****************/
+  printf("Creating a log file to keep track of all of the runs...\n");
+  
+  char *user_name = getenv("USER");
+
+  char logfile[100];
+
+  // create path to file with the name in the correct format
+  sprintf(logfile, "Amazing_$%s_%d_%d.log", user_name, nAvatars, Difficulty);
+
+  // create the file to write to 
+  FILE *fp = fopen(logfile, "w");
+
+  // get time and date 
+  time_t current_time;
+  time(&current_time);
+
+  // write the required info to the log file
+  fprintf(fp, "$%s %d %s", user_name, MazePort, ctime(&current_time));
+
+  fclose(fp);
+
+
+  /*************** create threads *******************/
+  
+
+
+
 }
