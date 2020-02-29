@@ -210,3 +210,4 @@ The *priority_queue* module provides the *priority_queue* structure…
 8. Do the same test as test 2 but on the level 1 maze. 
 #### *Integration Testing (includes both AM_Startup.c and avatar_client.c)*
 1. Since avatars spawn in the mazes randomly, to get an idea of whether or not our program works we must do several tests on each difficulty level. As a completely random guess, we will say that if our program makes it successfully through a maze at difficulty n 30 times without any errors and with the `AM_MAZED_SOLVED` message written to the log file each time then it works at that difficulty. We will do these tests starting at difficulty 0 with 0-4 avatars and work our way up to each progressively harder difficulty.
+
