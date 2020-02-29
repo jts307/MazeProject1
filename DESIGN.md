@@ -172,10 +172,10 @@ The *priority_queue* module provides the *priority_queue* structure…
         - If a direction has a connection then perform a depth-first search on that direction, using a priority queue as the stack (give higher priority to those added later on).
           - If the goal is found then set the next move to this direction
           - If there are no unknown directions explored during the search and the goal was not found then remove this direction’s node from the to be visited priority queue.
-    - If the next move was not determined then…
-      - Extract a node from the to be visited priority queue.
-      - Save node.
-      - Set next move to the direction that this node is in.
+      - If the next move was not determined then…
+        - Extract a node from the to be visited priority queue.
+        - Save node.
+        - Set next move to the direction that this node is in.
   - Else set next move the avatar will make to `M_NULL_MOVE` i.e. it will not make a move.
   - Encode the next move and `AvatarId` into `AM_AVATAR_MOVE` using `htonl()` and send this message to the server.
 - If any of the exit conditions occur, do any necessary clean up: close the log file and free any memory used by the *maze/priority queue* structures and close sockets. 
