@@ -33,12 +33,12 @@ main(const int argc, char *argv[])
     fprintf(stderr, "usage: %s wrong number of arguments\n", program);
     exit(1);
   } else {
-    AvatarId = atoi(argv[1]);
-    nAvatars = atoi(argv[2]); 
-    Difficulty = atoi(argv[3]);  
-    hostname = argv[4];
-    MazePort = atoi(argv[5]);
-    logfilename = argv[6]; 
+      AvatarId = atoi(argv[1]); 
+      nAvatars = atoi(argv[2]); 
+      Difficulty = atoi(argv[3]);  
+      hostname = argv[4];
+      MazePort = atoi(argv[5]);
+      logfilename = argv[6];                                                                                                                                                              
   }
 
   // 1. Create socket
@@ -47,7 +47,7 @@ main(const int argc, char *argv[])
     perror("opening socket");
     exit(2);
   }
-
+                                                                                                                                                                                                                                                                                                                                                                                                                                    
   // 2. Initialize the fields of the server address
   struct sockaddr_in server;  // address of the server
   server.sin_family = AF_INET;
@@ -72,33 +72,35 @@ main(const int argc, char *argv[])
   int bytes_read;       // #bytes read from socket
   //memset(buf, 0, BUFSIZE); // clear up the buffer
   AM_Message avatar_r; 
-  avatar_r.avatar_ready.AvatarId = htonl(AvatarId); 
+  avatar_r.type = htonl(AM_AVATAR_READY); 
+  //uint32_t avatar_id = AvatarId; 
+  //avatar_r.avatar_ready.AvatarId = htonl(AvatarId); 
   
   //AM_Message 
   // Sends avatar_ready to the server
-  if (write(comm_sock, &avatar_r, sizeof(avatar_r)) < 0){
-      perror("reading from stdin");
+  if (write(comm_sock, (void*) &avatar_r, sizeof(avatar_r)) < 0){
       exit(5);
   }
 
   AM_Message avatar_play; 
   int TurnID; 
-  XYPos    Pos[nAvatars];
+  XYPos Pos[nAvatars];
   // receives message back from server (after avatar_ready)
   do {
-    if ((bytes_read = read(comm_sock, &avatar_play, sizeof(avatar_play))) < 0) {
+    if ((bytes_read = read(comm_sock, (void*) &avatar_play, sizeof(avatar_play))) < 0) {
       perror("reading from stdin");
       exit(5);
-    } else {
-        //int error = ntohl(avatar_play.avatar_turn.TurnId); 
+    } else { 
         //checks if it was successful 
         if(ntohl(avatar_play.type) == AM_NO_SUCH_AVATAR){
           printf("failure\n"); 
         }
         else{   //gets the TurnID from the server and the XYPOS of each of the avatars 
             TurnID = ntohl(avatar_play.avatar_turn.TurnId); 
+            printf("turnid: %d\n", TurnID); 
             for (int i = 0; i < nAvatars; i++){
               Pos[i] = avatar_play.avatar_turn.Pos[i]; 
+              printf("%d", (int) sizeof((Pos))); 
             }
         }
         /*
