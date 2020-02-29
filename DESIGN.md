@@ -181,30 +181,31 @@ The *priority_queue* module provides the *priority_queue* structure…
 
 ### Dataflow through modules
 #### In AMStartup.c:
-- Only one function, Main, which validates arguments, establishes a connection with the server, creates a log file, and creates/initializes avatar threads. 
+- Only one function, Main, which validates arguments, establishes a connection with the server, creates a log file, and creates/initializes avatar threads.  
 #### In amazing_client.c:
-- Main will take arguments from AM_STARTUP and initialize the maze structure through calling an appropriate function from the *maze* module. It will then wait for a message from the server.
-- If the message received is AM_AVATAR_TURN then *main* calls methods from the *maze* module which will handle all logic that pertains to updating nodes within the maze structure and guessing which directions must exist. The *maze* functions will return control to *main*
-- *main* will call functions from the *graphics* module, two to be exact. One will draw to standard output the current maze structure and another will draw the avatars within that maze structure.
-- *determine_goal* will calculate the most optimal move for each avatar according to the A-star-inspired priorityqueue.
-- *calculate_next_move*
-- If *main* receives any error messages or `AM_MAZE_SOLVED`, it will do any necessary clean up to free up memory used by the priority queues and maze structure, and close the log file.
+1. Main will take arguments from AM_STARTUP, opens the log file, and initializes the maze structure through calling an appropriate function from the *maze* module. It will then wait for a message from the server.
+2. If the message received is AM_AVATAR_TURN then *main* calls methods from the *maze* module which will handle all logic that pertains to updating nodes within the maze structure and guessing which directions must exist. The *maze* functions will return control to *main*.
+3. *main* will write any updates of the avatars’ positions to the log file.
+4. *main* will call functions from the *graphics* module, two to be exact. One will draw to standard output the current maze structure and another will draw the avatars within that maze structure. They both will return control to *main*.
+5. *main* then calls the *determine_goal* function which will find the closest node out of the other avatars and center point, and set that as an avatar’s goal node. After this, the function returns control to *main*.
+6. *main* then calls *calculate_next_move* which will calculate an avatar’s next ‘best’ move given an avatar and its goal node. This returns control to *main*, which sends this best move to the server.
+7. If *main* receives any error messages or `AM_MAZE_SOLVED`, it will do any necessary clean up to free up memory used by the priority queues and maze structure, and close the log file. 
 
 ### Testing Plan
 Unit testing
-#### Server side:
-1. Test to see if reading and validating command line correctly by inputting edge cases
-2. Test to see if able to connect to the server and receive the appropriate message
-3. Test to see if able to create log file of the proper format and name
-4. Test to see if able to create avatar threads
-
-##### Client(avatar) side:
-1. Test to see if we can calculate the average distance between 4 avatars within a given maze, then check to see if our goal coordinate is correct.
-2. Test to see if the A-star-inspired search works by creating a game with 2 avatars, then have one of those avatars remain in place in order to act as the goal for the other avatar which will move. That avatar should move according to an A-star search. In order to validate this, we will display the avatars path to see if it is moving correctly.
-3. Test to see if our priority queue works. 
-
-
-##### Integration Testing
-- Test if information between server and client in creating maze is successful
-- Also test to see if the maze is able to be solved
-
+In AM_Startup.c:
+Test to see if reading and validating command line correctly by inputting a variety of incorrect parameters.
+Test to see if the program is able to connect to the server and receive the appropriate messages, by printing them to the standard output as they are received and sent.
+Test to see if the program is able to create a log file of the proper format and name by doing a run of the program and killing it just after it starts up the avatar threads. Then manually checking if the log file is in the proper format.
+Test to see if the program is able to create multiple avatar threads by calling print statements within the avatar threads and counting how many print statements occured and see if they meet expectations. Ideally, this would be done with the code to communicate with the server, calculate the next move, etc. within the `avatar_client.c` commented out.
+In avatar_client.c:
+Test to see if *main* is sending and receiving the proper messages by printing the messages to standard output right before they get sent or right after they are received. 
+Test the *maze* module by manually creating a maze structure and using all its methods, and printing it out in a human friendly format. Then seeing if the printed out maze structure meets expectations. 
+Do the same thing for the *priority_queue* module, i.e. use all its methods and print out a queue in a human friendly format to make sure all its methods and such work.
+Run the program on the level 0 maze with 2 avatars while printing to standard output the current positions of the avatars each time they are received. Compare this to what the ASCII UI is outputting and what is in the log file to see if these are displaying information properly.
+Test to see if we can calculate the average distance between 4 avatars within a given maze, then check to see if our goal coordinate is correct in all situations, i.e. test if *determine_goal* works.
+Test to see if the move calculation algorithm works by creating a game with 2 avatars on the level 0 maze. Run through the algorithm by hand and see if it follows exactly how the program runs it. Determine if the algorithm succeeded or failed the maze game.
+Do the same test as test 2 but with 3 avatars instead.
+Do the same test as test 2 but on the level 1 maze. 
+Integration Testing (includes both AM_Startup.c and avatar_client.c)
+Since avatars spawn in the mazes randomly, to get an idea of whether or not our program works we must do several tests on each difficulty level. As a completely random guess, we will say that if our program makes it successfully through a maze at difficulty n 30 times without any errors and with the `AM_MAZED_SOLVED` message written to the log file each time then it works at that difficulty. We will do these tests starting at difficulty 0 with 0-4 avatars and work our way up to each progressively harder difficulty.
