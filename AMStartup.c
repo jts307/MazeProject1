@@ -13,6 +13,7 @@
  * 
  * NOTE: The section in which I connect to the server is take from the inclient.c program we 
  *  were told we could reference
+ * 
  */
 
 #include <stdio.h>
@@ -30,6 +31,25 @@
 #define BUFSIZE 1024     // read/write buffer size
 
 /**************** main() ****************/
+/* Purpose: 
+ *  There is only one function in AMStartup.c, 
+ *  and that is main(). Main validates parameters, 
+ *  creates a connection to the server, creates a 
+ *  log file, and starts up threads, passing them 
+ *  the parameters that they need. 
+ * 
+ * Input:
+ *  This function takes its input from the command
+ *  line. See usage for more info
+ * 
+ * Output:
+ *  A log file containg info about the outcome of 
+ *  the avatars in the maze.
+ * 
+ * Possible Failures:
+ *  Not aware of any. Program will exit if invalid
+ *  parameter is passed.
+ */
 int
 main(const int argc, char *argv[]) {
   
