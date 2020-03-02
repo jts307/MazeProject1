@@ -209,6 +209,30 @@ main(const int argc, char *argv[]) {
   fclose(fp);
 
 
+  /*************** connect to MazePort ***************/
+  // close old socket
+  close(comm_sock);
+  
+  
+  // create a new socket
+  int port_sock = socket(AF_INET, SOCK_STREAM, 0);
+  if (port_sock < 0) {
+    perror("opening socket");
+    exit(9);
+  }
+  
+  // Initialize the fields of the server address
+  struct sockaddr_in server_address;                        // address of the server
+  server_address.sin_family = AF_INET;
+  server_address.sin_port = htons(MazePort);
+
+  // connect the socket to the MazePort
+  if (connect(comm_sock, (struct sockaddr *) &server_address, sizeof(server_address)) < 0) {
+    perror("connecting stream socket");
+    exit(10);
+  }
+  printf("Connected to MazePort: %d\n", MazePort);
+
   /*************** create threads *******************/
   
   pthread_t avatars[nAvatars];
@@ -252,22 +276,24 @@ main(const int argc, char *argv[]) {
   // exit(0);
 
   
-  for ( int i = 1; i < nAvatars; i++ ) {
-    int iret1 = pthread_create(&avatars[i], NULL, print_i, NULL);
-    while (1) {
-      sleep(2);
-      i = i + 1;
-    }
-  }
-  exit(0);
+//   for ( int i = 1; i < nAvatars; i++ ) {
+//     int iret1 = pthread_create(&avatars[i], NULL, print_i, NULL);
+//     while (1) {
+//       sleep(2);
+//       i = i + 1;
+//       printf("hello");
+//     }
+//   }
+//   exit(0);
 
 
-}
+// }
 
 
-void* print_i(void *ptr) {
-  while (1) {
-    sleep(1);
-    printf("%d\n", i);
-  }
+// void* print_i(void *ptr) {
+//   while (1) {
+//     sleep(1);
+//     printf("%d\n", i);
+//     // printf("hello");
+//   }
 }
