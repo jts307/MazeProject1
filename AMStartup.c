@@ -30,6 +30,10 @@
 /**************** file-local constants ****************/
 #define BUFSIZE 1024     // read/write buffer size
 
+int i;
+
+void* print_i(void *ptr);
+
 /**************** main() ****************/
 /* Purpose: 
  *  There is only one function in AMStartup.c, 
@@ -205,9 +209,9 @@ main(const int argc, char *argv[]) {
   fclose(fp);
 
 
-  // /*************** create threads *******************/
+  /*************** create threads *******************/
   
-  // pthread_t avatars[nAvatars];
+  pthread_t avatars[nAvatars];
 
   // int num_threads = 0;            // keep track of number of threads
 
@@ -215,7 +219,7 @@ main(const int argc, char *argv[]) {
   // // create a thread for each avatar
   // for ( int i = 0; i < nAvatars; i++ ) {
   //   // TODO: Figure out what funciton to call, and how to pass all of the parameters
-  //   avatar_params *avatar = malloc(sizeof(avatar_params));
+  //   avatar_params *avatar_info = malloc(sizeof(avatar_params));
   //   avatar->AvatarId = i;
   //   avatar->nAvatars = nAvatars;
   //   avatar->difficulty = Difficulty;
@@ -224,8 +228,9 @@ main(const int argc, char *argv[]) {
   //   avatar->logfile = fp;
   //   avatar->MazeHeight = MazeHeight;
   //   avatar->MazeWidth = MazeWidth;
+  //   avatar->comm_sock = comm_sock;
 
-  //   pthread_create(&avatars[i], NULL, function?, avatar);
+  //   pthread_create(&avatars[i], NULL, avatar_play, avatar_info);
   //   num_threads++;
   // }
 
@@ -246,4 +251,23 @@ main(const int argc, char *argv[]) {
   // }
   // exit(0);
 
+  
+  for ( int i = 1; i < nAvatars; i++ ) {
+    int iret1 = pthread_create(&avatars[i], NULL, print_i, NULL);
+    while (1) {
+      sleep(2);
+      i = i + 1;
+    }
+  }
+  exit(0);
+
+
+}
+
+
+void* print_i(void *ptr) {
+  while (1) {
+    sleep(1);
+    printf("%d\n", i);
+  }
 }

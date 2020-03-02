@@ -5,6 +5,7 @@
 PROG = AMStartup
 LIBS = 
 LLIBS = amazing.h 
+LDFLAGS = -pthread
 
 CFLAGS = -Wall -pedantic -std=c11 -ggdb $(FLAGS) -I$L -I$C
 CC = gcc
@@ -13,7 +14,7 @@ MAKE = make
 all: $(PROG)
 
 querier: querier.o $(LLIBS)
-	$(CC) $(CFLAGS) $^ $(LIBS) -o $@
+	$(CC) $(CFLAGS) $^ $(LIBS) -o $@ $(LDFLAGS)
 
 AMStartup.o: amazing.h 
 
@@ -31,3 +32,4 @@ clean:
 	rm -f *~ *.o *.dSYM
 	rm -f $(PROG)
 	rm -f stocks
+	rm -f Amazing_*
