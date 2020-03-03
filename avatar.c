@@ -33,6 +33,7 @@ Avatar *avatar_new(char* p, int aID, int nAv, int diff, char *host, int mPort, c
 bool is_end_game(Avatar *avatar)
 {
   if (avatar->endgame == true){
+    //close the comm_sock
     return true; 
   }
   else {
@@ -46,8 +47,15 @@ static bool end_program(AM_Message resp);
 static bool maze_solved(AM_Message resp, Avatar *avatar); 
 
 
-void avatar_play(Avatar *avatar)
+void* avatar_play(void *avatar_p)
 {
+  while(true)
+  {
+    printf("next");
+  }
+    Avatar *avatar = avatar_p; 
+    int a = 1; 
+    void *p = (void*)&a; 
     FILE* fp = fopen(avatar->logfilename, "a"); 
     int bytes_read;       // #bytes read from socket
     //memset(buf, 0, BUFSIZE); // clear up the buffer
@@ -131,6 +139,7 @@ void avatar_play(Avatar *avatar)
         }
       } while (bytes_read > 0);
     }
+    return p; 
 }
 static bool error_msgs(AM_Message resp)
 {

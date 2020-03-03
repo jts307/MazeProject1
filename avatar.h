@@ -11,4 +11,4 @@ Avatar *avatar_new(char* p, int aID, int nAv, int diff, char *host, int mPort, c
 
 bool is_end_game(Avatar *avatar); 
 
-void avatar_play(Avatar *avatar); 
+void* avatar_play(void*); 
