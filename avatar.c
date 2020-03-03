@@ -21,7 +21,8 @@ Avatar *avatar_new(char* p, int aID, int nAv, int diff, char *host, int mPort, c
     avatar->fd = sock; 
     avatar->endgame = false; 
 
-    if (avatar->program == NULL || avatar->AvatarId == NULL || avatar->nAvatars == NULL || avatar->Difficulty == NULL || avatar->hostname == NULL || avatar->MazePort == NULL || avatar->logfilename == NULL){
+    //if (avatar->program == NULL || avatar->AvatarId == NULL || avatar->nAvatars == NULL || avatar->Difficulty == NULL || avatar->hostname == NULL || avatar->MazePort == NULL || avatar->logfilename == NULL){
+    if (avatar == NULL){
         return NULL; 
     }
     else {
@@ -47,6 +48,7 @@ static bool maze_solved(AM_Message resp, Avatar *avatar);
 
 void avatar_play(Avatar *avatar)
 {
+    FILE* fp = fopen(avatar->logfilename, "a"); 
     int bytes_read;       // #bytes read from socket
     //memset(buf, 0, BUFSIZE); // clear up the buffer
     AM_Message avatar_r; 
@@ -69,17 +71,20 @@ void avatar_play(Avatar *avatar)
       } else { 
         //checks if it was successful 
         if(ntohl(avatar_play.type) == AM_NO_SUCH_AVATAR){
-          printf("failure\n"); 
+          fprintf(stderr,"No such avatar\n"); 
         }
         else if (ntohl(avatar_play.type) == AM_AVATAR_TURN){   //gets the TurnID from the server and the XYPOS of each of the avatars 
             TurnID = ntohl(avatar_play.avatar_turn.TurnId); 
             printf("turnid: %d\n", TurnID); 
+            //FILE* fp = fopen(avatar->logfilename, "a"); 
             for (int i = 0; i < avatar->nAvatars; i++){
               pos_array[i].x = ntohl(avatar_play.avatar_turn.Pos[i].x); //might not need ntohl
               pos_array[i].y = ntohl(avatar_play.avatar_turn.Pos[i].y);
             } 
             avatar->pos.x = ntohl(avatar_play.avatar_turn.Pos[avatar->AvatarId].x);  //update the avatar struct 
             avatar->pos.y = ntohl(avatar_play.avatar_turn.Pos[avatar->AvatarId].y);
+            fprintf(fp,"Inserted avatar %d at %d,%d\n",TurnID, avatar->pos.x, avatar->pos.y); 
+            fprintf(fp, "avatar locations:\n"); // todo
         }
       }
     } while (bytes_read > 0);
@@ -119,6 +124,7 @@ void avatar_play(Avatar *avatar)
                 TurnID = ntohl(move_resp.avatar_turn.TurnId);  //the updated TurnID  
               }
               avatar->endgame = true; 
+              fclose(fp); 
               // todo: free memory 
             }
           }
@@ -170,7 +176,7 @@ static bool end_program(AM_Message resp)
 static bool maze_solved(AM_Message resp, Avatar *avatar)
 {
   if(ntohl(resp.type) == AM_MAZE_SOLVED){
-    FILE* fp = fopen(avatar->logfilename, "a"); 
+    FILE* fp = fopen(avatar->logfilename, "a"); //change this 
     fprintf(fp, "%d, %d, %d, %d\n", ntohl(resp.maze_solved.nAvatars), ntohl(resp.maze_solved.Difficulty), ntohl(resp.maze_solved.nMoves), ntohl(resp.maze_solved.Hash)); 
     fclose(fp); 
     // todo: need to write to the log for each move (up above) --> use "a"

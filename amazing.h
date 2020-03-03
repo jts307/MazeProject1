@@ -21,6 +21,7 @@
 
 // ---------------- Prerequisites e.g., Requires "math.h"
 #include <stdint.h>                          // uint32_t
+#include <stdbool.h> 
 
 // ---------------- Constants
 /* Server parameters */
