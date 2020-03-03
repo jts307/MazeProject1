@@ -23,9 +23,9 @@
 #include <netdb.h>	          // socket-related structures
 #include <time.h>             // to find the time for log file
 #include <pthread.h>          // for threads
-#include "amazing.h"
-#include "getopt.h"
-// #include "amazing_client.h"   
+#include "amazing.h"          // for communicating with server
+#include "getopt.h"           // to parse command line by options
+// #include "avatar.h"           // 
 
 /**************** file-local constants ****************/
 #define BUFSIZE 1024     // read/write buffer size
@@ -145,6 +145,7 @@ main(const int argc, char *argv[]) {
 
   // create the AM_INIT message to send to the server
   AM_Message message;
+  memset(&message, 0, sizeof(message));
   message.type = htonl(AM_INIT);
   uint32_t difficulty = Difficulty; 
   uint32_t number_of_avatars = nAvatars;
@@ -223,6 +224,7 @@ main(const int argc, char *argv[]) {
   
   // Initialize the fields of the server address
   struct sockaddr_in server_address;                        // address of the server
+  memset(&server_address, 0, sizeof(server_address));
   server_address.sin_family = AF_INET;
   server_address.sin_port = htons(MazePort);
 
@@ -237,63 +239,93 @@ main(const int argc, char *argv[]) {
   
   pthread_t avatars[nAvatars];
 
-  // int num_threads = 0;            // keep track of number of threads
+  int num_threads = 0;            // keep track of number of threads
 
 
-  // // create a thread for each avatar
-  // for ( int i = 0; i < nAvatars; i++ ) {
-  //   // TODO: Figure out what funciton to call, and how to pass all of the parameters
-  //   avatar_params *avatar_info = malloc(sizeof(avatar_params));
-  //   avatar->AvatarId = i;
-  //   avatar->nAvatars = nAvatars;
-  //   avatar->difficulty = Difficulty;
-  //   avatar->Hostname = Hostname;
-  //   avatar->MazePort = MazePort;
-  //   avatar->logfile = fp;
-  //   avatar->MazeHeight = MazeHeight;
-  //   avatar->MazeWidth = MazeWidth;
-  //   avatar->comm_sock = comm_sock;
+//   // // create a thread for each avatar
+//   // for ( int i = 0; i < nAvatars; i++ ) {
+//   //   // TODO: Figure out what funciton to call, and how to pass all of the parameters
+//   //   // avatar_params *avatar_info = malloc(sizeof(avatar_params));
+//   //   // avatar->AvatarId = i;
+//   //   // avatar->nAvatars = nAvatars;
+//   //   // avatar->difficulty = Difficulty;
+//   //   // avatar->Hostname = Hostname;
+//   //   // avatar->MazePort = MazePort;
+//   //   // avatar->logfile = fp;
+//   //   // avatar->MazeHeight = MazeHeight;
+//   //   // avatar->MazeWidth = MazeWidth;
+//   //   // avatar->comm_sock = comm_sock;
+//   //   // avatar_initialize();
 
-  //   pthread_create(&avatars[i], NULL, avatar_play, avatar_info);
-  //   num_threads++;
-  // }
+//   //   pthread_create(&avatars[i], NULL, print_i, NULL);
+//   //   num_threads++;
+//   // }
 
-  // // main will run as long as the threads still exist
-  // while ( num_threads > 0 ) {
-  //   sleep(1);
-  // }
+//   // main will run as long as the threads still exist
+//   while ( num_threads > 0 ) {
+//     sleep(1);
+//   }
 
-  // // when no more threads, close socket and free memory
-  // close(comm_sock);
-  // for ( int i = 0; i < nAvatars; i++ ) {
-  //   if ( pthread_detach(avatars[i]) == 0 ) {
-  //     printf("succssfully detatched avatar thread");
-  //   }
-  //   else {
-  //     fprintf(stderr, "error: could not detatch avatar thread");
-  //   }
-  // }
-  // exit(0);
-
-  
-//   for ( int i = 1; i < nAvatars; i++ ) {
-//     int iret1 = pthread_create(&avatars[i], NULL, print_i, NULL);
-//     while (1) {
-//       sleep(2);
-//       i = i + 1;
-//       printf("hello");
+//   // when no more threads, close socket and free memory
+//   close(comm_sock);
+//   for ( int i = 0; i < nAvatars; i++ ) {
+//     if ( pthread_detach(avatars[i]) == 0 ) {
+//       printf("succssfully detatched avatar thread");
+//     }
+//     else {
+//       fprintf(stderr, "error: could not detatch avatar thread");
 //     }
 //   }
 //   exit(0);
+  
+
+  int iret1;
+  for ( int i = 0; i < nAvatars; i++ ) {
+
+    // TODO: call function that Ben creates to initialize the contents of the avatar struct
+
+    iret1 = pthread_create(&avatars[i], NULL, print_i, NULL);
+    num_threads++;    
+    printf("thread %d created...\n", num_threads);
+    
+    // check to see that the thread was created
+    if ( iret1 != 0 ) {
+      printf("pthread_create failed");
+      exit(iret1);
+    }
+  }
+  exit(0);
+
+  printf("I got here");
+  // main will run as long as the threads still exist
+  while ( num_threads > 0 ) {
+    sleep(1);
+  }
+
+  // when no more threads, close socket and free memory
+  close(comm_sock);
+  for ( int i = 0; i < nAvatars; i++ ) {
+    if ( pthread_detach(avatars[i]) == 0 ) {
+      printf("succssfully detatched avatar thread");
+    }
+    else {
+      fprintf(stderr, "error: could not detatch avatar thread");
+    }
+  }
+  exit(0);
+
+}
 
 
-// }
-
-
-// void* print_i(void *ptr) {
-//   while (1) {
-//     sleep(1);
-//     printf("%d\n", i);
-//     // printf("hello");
-//   }
+void* print_i(void *ptr) {
+  printf("HELLO");
+  // while (1) {
+  //   sleep(1);
+  //   printf("%d\n", i);
+  // }
+  return 0;
+  
+  // // printf("%d\n", i);
+  // printf("hello");
+  // return 0;
 }
