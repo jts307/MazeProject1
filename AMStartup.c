@@ -11,8 +11,8 @@
  * 
  * We_free (Christopher Sykes, Sebastian Saker, Ben Matejka, Jacob Werzinsky), February 2020
  * 
- * NOTE: The section in which I connect to the server is take from the inclient.c program we 
- *  were told we could reference
+ * NOTE: The sections in which I connect to the server and MazePort are take from the inclient.c 
+ * program we were told we could reference
  * 
  */
 
@@ -33,6 +33,8 @@
 int i;
 
 void* print_i(void *ptr);
+
+pthread_mutex_t mutex1 = PTHREAD_MUTEX_INITIALIZER;
 
 /**************** main() ****************/
 /* Purpose: 
@@ -282,11 +284,13 @@ main(const int argc, char *argv[]) {
   int iret1;
   for ( int i = 0; i < nAvatars; i++ ) {
 
-    // TODO: call function that Ben creates to initialize the contents of the avatar struct
+    // initialize the contents of the avatar struct
+    avatar_new(program, i, nAvatars, Difficulty, Hostname, MazePort, logfile, comm_sock);
 
-    iret1 = pthread_create(&avatars[i], NULL, print_i, NULL);
+    iret1 = pthread_create(&avatars[i], NULL, avatar_play, NULL);
     num_threads++;    
-    printf("thread %d created...\n", num_threads);
+    // printf("thread %d created...\n", num_threads);
+    sleep(1);
     
     // check to see that the thread was created
     if ( iret1 != 0 ) {
@@ -294,9 +298,10 @@ main(const int argc, char *argv[]) {
       exit(iret1);
     }
   }
+  printf("got here\n");
   exit(0);
 
-  printf("I got here");
+  // printf("I got here");
   // main will run as long as the threads still exist
   while ( num_threads > 0 ) {
     sleep(1);
@@ -318,12 +323,16 @@ main(const int argc, char *argv[]) {
 
 
 void* print_i(void *ptr) {
-  printf("HELLO");
+  pthread_mutex_lock(&mutex1);
+  
+  printf("thread created...\n");
+
+  pthread_mutex_unlock(&mutex1);
   // while (1) {
   //   sleep(1);
   //   printf("%d\n", i);
   // }
-  return 0;
+  
   
   // // printf("%d\n", i);
   // printf("hello");
