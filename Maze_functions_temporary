@@ -2,7 +2,7 @@
 // a function or functions that returns whether each direction from a node is a wall, being explored by an avatar, has a connection or is unknown.
 
 2.
-// a function or functions that allow you to change the state of a direction, e.g. from being unknown to having a connection
+// a function or functions that allow you to change the state of a direction, e.g. from being unknown to having a connection, from being explored by an avatar to a wall, etc.
 //  OPTIONAL:
 //  if a state is updated from unknown to wall, then fill in the connections that must exist given this new wall. 
 //  (This should not be too hard, however finish the other functions first before implementing this so we can get the algorithm
