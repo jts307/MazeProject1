@@ -20,27 +20,59 @@ typedef struct priority_queue priority_queue_t;
 
 /**************** functions ****************/
 
-/* Create a new (empty) priority queue; return NULL if error. */
+/* Create a new (empty) priority queue; return NULL if error. 
+*  Input: Nothing
+*  Output: priority queue structure
+*/
 priority_queue_t* priority_queue_new(void)
 
-/* Add new item to the queue with a priority; a NULL queue is ignored; a NULL item is ignored. */
+/* Add new item to the queue with a priority where lower priority are put 
+*  closer to the front of the queue; a NULL queue is ignored; a NULL item is ignored. 
+*  Input:
+*     -pq: the priority queue structure in question, must have memory already allocated for it
+*     -item: pointer to an item to be stored
+*     -priority: number that determines order in queue, 
+*                     lower numbered item get put closer to front
+*  Output:
+*     -returns nothing
+*/
 void priority_queue_insert(priority_queue_t *pq, void *item, int priority);
 
-/* Return any data item from the bag; return NULL if bag is NULL or empty. */
+/* Returns the item in the front of the queue, i.e. the item with the lowest priority; 
+*  return NULL if bag is NULL or empty. Removes item from queue upon inspection.
+*  Input: 
+*      -pq: the priority queue structure in question, must have memory already allocated for it
+*  Output: Described in purpose of function above
+*/
 void* priority_queue_extract(priority_queue_t *pq);
 
-/* */
+/* Returns the item in the front of the queue, i.e. the item with the lowest priority; 
+*  return NULL if bag is NULL or empty. 
+*  Input: 
+*      -pq: the priority queue structure in question, must have memory already allocated for it
+*  Output: Described in purpose of function above
+*/
 void* priority_queue_view(priority_queue_t *pq);
 
 
-/* Print the whole bag; provide the output file and func to print each item.
- * If fp==NULL; do nothing. If bag==NULL, print (null). 
- * If itemprint==NULL, print nothing for each item.
+/* Print all items within a priority queue to a file stream.
+ * Input: 
+ *     -pq: the priority queue structure in question, must have memory already allocated for it
+ *     -fp: pointer to file stream that queue will be printed to.
+ *     -itemprint: function that prints an item to a file stream
+ * Output:
+ *     -a file with the priority queue printed to it, in the format: { item1 item2 item3... }
+ * If fp==NULL; nothing is printed. If bag==NULL, (null) is printed. 
+ * If itemprint==NULL, nothing is printed for each item.
  */
 void priority_queue_print(priority_queue_t *pq, FILE *fp, void (*itemprint)(FILE *fp, void *item));
 
-/* Delete the whole bag; ignore NULL bag.
- * Provide a function that will delete each item (may be NULL).
+/* Delete the priority queue, i.e. free any memory it is using; ignores NULL priority queue.
+ * Input:
+ *      -pq: the priority queue structure in question
+ *      -itemdelete: a function that will delete each item (may be NULL).
+ * Output:
+ *      -returns nothing
  */
 void priority_queue_delete(priority_queue_t *pq, void (*itemdelete)(void *item));
 
