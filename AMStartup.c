@@ -25,7 +25,7 @@
 #include <pthread.h>          // for threads
 #include "amazing.h"          // for communicating with server
 #include "getopt.h"           // to parse command line by options
-// #include "avatar.h"           // 
+#include "avatar.h"           // for avatar_play
 
 /**************** file-local constants ****************/
 #define BUFSIZE 1024     // read/write buffer size

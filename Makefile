@@ -4,7 +4,7 @@
 
 PROG = AMStartup
 LIBS = 
-LLIBS = amazing.h 
+LLIBS = amazing.h avatar.h
 LDFLAGS = -pthread
 
 CFLAGS = -Wall -pedantic -std=c11 -ggdb $(FLAGS) -I$L -I$C
@@ -13,10 +13,10 @@ MAKE = make
 
 all: $(PROG)
 
-querier: querier.o $(LLIBS)
+AMStartup: AMStartup.o $(LLIBS)
 	$(CC) $(CFLAGS) $^ $(LIBS) -o $@ $(LDFLAGS)
 
-AMStartup.o: amazing.h 
+AMStartup.o: amazing.h avatar.h
 
 
 .PHONY: valgrind clean
