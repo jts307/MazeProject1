@@ -46,39 +46,52 @@ static bool error_msgs(AM_Message resp);
 static bool end_program(AM_Message resp); 
 static bool maze_solved(AM_Message resp, Avatar *avatar); 
 
-
 void* avatar_play(void *avatar_p)
 {
-  while(true)
-  {
-    printf("next");
+  Avatar *avatar = avatar_p; 
+  int a = 1; 
+  void *p = (void*)&a; 
+ // while (!is_end_game(avatar)){
+  int port_sock = socket(AF_INET, SOCK_STREAM, 0);
+  if (port_sock < 0) {
+    perror("opening socket");
+    exit(9);
   }
-    Avatar *avatar = avatar_p; 
-    int a = 1; 
-    void *p = (void*)&a; 
-    FILE* fp = fopen(avatar->logfilename, "a"); 
+  
+  // Initialize the fields of the server address
+  struct sockaddr_in server_address;                        // address of the server
+  memset(&server_address, 0, sizeof(server_address));
+  server_address.sin_family = AF_INET;
+  server_address.sin_port = htons(avatar->MazePort);
+
+  // connect the socket to the MazePort
+  if (connect(port_sock, (struct sockaddr *) &server_address, sizeof(server_address)) < 0) {
+    perror("connecting stream socket");
+    exit(10);
+  }
+  printf("Connected to MazePort: %d\n", avatar->MazePort);
+ 
+    FILE* fp = fopen(avatar->logfilename, "a");   //open the logfile 
     int bytes_read;       // #bytes read from socket
-    //memset(buf, 0, BUFSIZE); // clear up the buffer
     AM_Message avatar_r; 
     avatar_r.type = htonl(AM_AVATAR_READY); 
     avatar_r.avatar_ready.AvatarId = htonl(avatar->AvatarId); //send AvatarId to server 
-  
-    //AM_Message 
+   
     // Sends avatar_ready to the server
-    if (write(avatar->fd, (void*) &avatar_r, sizeof(avatar_r)) < 0){
+    if (write(port_sock, (void*) &avatar_r, sizeof(avatar_r)) < 0){
       exit(5);
-    }
-
+    } 
     AM_Message avatar_play; 
     int TurnID; 
     XYPos pos_array[avatar->nAvatars];
     // receives message back from server (after avatar_ready)
-    do {
-      if ((bytes_read = read(avatar->fd, (void*) &avatar_play, sizeof(avatar_play))) < 0) {
+    //do {
+      if ((bytes_read = read(port_sock, (void*) &avatar_play, sizeof(avatar_play))) < 0) {
+        printf("err here\n"); 
         exit(5);
       } else { 
         //checks if it was successful 
-        if(ntohl(avatar_play.type) == AM_NO_SUCH_AVATAR){
+        if(ntohl(avatar_play.type) == AM_NO_SUCH_AVATAR){     
           fprintf(stderr,"No such avatar\n"); 
         }
         else if (ntohl(avatar_play.type) == AM_AVATAR_TURN){   //gets the TurnID from the server and the XYPOS of each of the avatars 
@@ -92,13 +105,15 @@ void* avatar_play(void *avatar_p)
             avatar->pos.x = ntohl(avatar_play.avatar_turn.Pos[avatar->AvatarId].x);  //update the avatar struct 
             avatar->pos.y = ntohl(avatar_play.avatar_turn.Pos[avatar->AvatarId].y);
             fprintf(fp,"Inserted avatar %d at %d,%d\n",TurnID, avatar->pos.x, avatar->pos.y); 
-            fprintf(fp, "avatar locations:\n"); // todo
-        }
-      }
-    } while (bytes_read > 0);
-
+            printf("Inserted avatar %d at %d,%d\n",avatar->AvatarId, avatar->pos.x, avatar->pos.y); 
+            //fprintf(fp, "avatar locations:\n"); // todo
+        } 
+      } 
+  while (!is_end_game(avatar)){         //***** might need to move the while loop to where all the threads are recieving messages (with the updated turnID)
+     AM_Message move_resp;
+    //} while (bytes_read > 0);
     //if it's the avatar's turn to move
-    if (avatar->AvatarId == TurnID){
+    if (avatar->AvatarId == TurnID){ 
       AM_Message avatar_m; 
       avatar_m.type = htonl(AM_AVATAR_MOVE);
       avatar_m.avatar_move.AvatarId = htonl(avatar->AvatarId);  
@@ -106,39 +121,62 @@ void* avatar_play(void *avatar_p)
         insert algorithm function that determines the move 
         int direction = algorithm_function(); 
       */ 
-      int direction = 1; // **** just for testing ****
-      avatar_m.avatar_move.AvatarId = htonl(direction); 
-      if (write(avatar->fd, (void*) &avatar_m, sizeof(avatar_m)) < 0){  //send message to avatar 
+      int direction = M_SOUTH; // **** just for testing ****
+      avatar_m.avatar_move.Direction = htonl(direction); 
+
+      if (write(port_sock, (void*) &avatar_m, sizeof(avatar_m)) < 0){  //send message to avatar 
         exit(5);
       }
-
-      AM_Message move_resp; 
-      do {
-        if ((bytes_read = read(avatar->fd, (void*) &move_resp, sizeof(move_resp))) < 0) {
+      //AM_Message move_resp; 
+        if ((bytes_read = read(port_sock, (void*) &move_resp, sizeof(move_resp))) < 0) {
           exit(5);
         } 
         else { 
           //checks if it was successful 
           if (!error_msgs(move_resp)){
             if (!end_program(move_resp) && !maze_solved(move_resp, avatar)){
-              if (ntohl(avatar_play.type) == AM_AVATAR_TURN){   //gets the TurnID from the server and the XYPOS of each of the avatars 
+              if (ntohl(avatar_play.type) == AM_AVATAR_TURN){   //gets the TurnID from the server and the XYPOS of each of the avatars  
                 if (pos_array[TurnID].x == ntohl(move_resp.avatar_turn.Pos[TurnID].x) && pos_array[TurnID].y == ntohl(move_resp.avatar_turn.Pos[TurnID].y)){
                   // ******if the position of the avatar did not change, do something ***** 
+                  direction = M_EAST; 
+                  printf("pos didnt change\n"); 
                 }
                 pos_array[TurnID].x = ntohl(move_resp.avatar_turn.Pos[TurnID].x); //might not need ntohl
                 pos_array[TurnID].y = ntohl(move_resp.avatar_turn.Pos[TurnID].y); //updates the x,y position of avatar
                 avatar->pos.x = ntohl(move_resp.avatar_turn.Pos[TurnID].x);  //update the avatar struct 
                 avatar->pos.y = ntohl(move_resp.avatar_turn.Pos[TurnID].y);
+                printf("updated avatar %d at pos %d,%d\n",TurnID, avatar->pos.x, avatar->pos.y); 
                 TurnID = ntohl(move_resp.avatar_turn.TurnId);  //the updated TurnID  
+                printf("turnid: %d\n", TurnID); 
               }
+            }
+            else {
+              printf("its all over\n");
               avatar->endgame = true; 
               fclose(fp); 
+              //printf("its all over\n"); 
               // todo: free memory 
+              close(port_sock);
+              exit(0);
             }
           }
         }
-      } while (bytes_read > 0);
     }
+    else {  //get the turnID message from the server? (or maybe move the one from above to cover both???)
+         if ((bytes_read = read(port_sock, (void*) &move_resp, sizeof(move_resp))) < 0) {
+          exit(5);
+          } 
+        else { 
+          if (!error_msgs(move_resp)){
+            if (!end_program(move_resp) && !maze_solved(move_resp, avatar)){
+              if (ntohl(avatar_play.type) == AM_AVATAR_TURN){ 
+                TurnID = ntohl(move_resp.avatar_turn.TurnId);  //the updated TurnID  
+              } 
+            }
+          }
+        }
+    }
+  }
     return p; 
 }
 static bool error_msgs(AM_Message resp)
@@ -185,6 +223,7 @@ static bool end_program(AM_Message resp)
 static bool maze_solved(AM_Message resp, Avatar *avatar)
 {
   if(ntohl(resp.type) == AM_MAZE_SOLVED){
+    printf("it's solved\n"); 
     FILE* fp = fopen(avatar->logfilename, "a"); //change this 
     fprintf(fp, "%d, %d, %d, %d\n", ntohl(resp.maze_solved.nAvatars), ntohl(resp.maze_solved.Difficulty), ntohl(resp.maze_solved.nMoves), ntohl(resp.maze_solved.Hash)); 
     fclose(fp); 
