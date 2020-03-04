@@ -34,6 +34,7 @@ bool is_end_game(Avatar *avatar)
 {
   if (avatar->endgame == true){
     //close the comm_sock
+    printf("endgame error\n"); 
     return true; 
   }
   else {
@@ -74,6 +75,7 @@ void* avatar_play(void *avatar_p)
     FILE* fp = fopen(avatar->logfilename, "a");   //open the logfile 
     int bytes_read;       // #bytes read from socket
     AM_Message avatar_r; 
+    memset(&avatar_r, 0, sizeof(avatar_r)); 
     avatar_r.type = htonl(AM_AVATAR_READY); 
     avatar_r.avatar_ready.AvatarId = htonl(avatar->AvatarId); //send AvatarId to server 
    
@@ -115,6 +117,7 @@ void* avatar_play(void *avatar_p)
     //if it's the avatar's turn to move
     if (avatar->AvatarId == TurnID){ 
       AM_Message avatar_m; 
+      memset(&avatar_m, 0, sizeof(avatar_m));
       avatar_m.type = htonl(AM_AVATAR_MOVE);
       avatar_m.avatar_move.AvatarId = htonl(avatar->AvatarId);  
       /*
@@ -138,8 +141,8 @@ void* avatar_play(void *avatar_p)
               if (ntohl(avatar_play.type) == AM_AVATAR_TURN){   //gets the TurnID from the server and the XYPOS of each of the avatars  
                 if (pos_array[TurnID].x == ntohl(move_resp.avatar_turn.Pos[TurnID].x) && pos_array[TurnID].y == ntohl(move_resp.avatar_turn.Pos[TurnID].y)){
                   // ******if the position of the avatar did not change, do something ***** 
-                  direction = M_EAST; 
-                  printf("pos didnt change\n"); 
+                  //direction = M_EAST; 
+                  //printf("avatar %d ran into wall at %d,%d\n"); 
                 }
                 pos_array[TurnID].x = ntohl(move_resp.avatar_turn.Pos[TurnID].x); //might not need ntohl
                 pos_array[TurnID].y = ntohl(move_resp.avatar_turn.Pos[TurnID].y); //updates the x,y position of avatar
@@ -151,18 +154,20 @@ void* avatar_play(void *avatar_p)
               }
             }
             else {
-              printf("its all over\n");
+              printf("the game is over\n");
               avatar->endgame = true; 
               fclose(fp); 
               //printf("its all over\n"); 
               // todo: free memory 
+              free(avatar); 
               close(port_sock);
-              exit(0);
+              break; 
+              //exit(0);
             }
           }
         }
     }
-    else {  //get the turnID message from the server? (or maybe move the one from above to cover both???)
+    else {  //if the avatarid != turnid, get the updated turnid 
          if ((bytes_read = read(port_sock, (void*) &move_resp, sizeof(move_resp))) < 0) {
           exit(5);
           } 
@@ -177,6 +182,7 @@ void* avatar_play(void *avatar_p)
         }
     }
   }
+    printf("returning p");
     return p; 
 }
 static bool error_msgs(AM_Message resp)
