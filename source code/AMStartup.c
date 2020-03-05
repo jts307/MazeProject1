@@ -6,14 +6,14 @@
  * file, and starting up threads with the parameters
  * they need. 
  * 
- * 
  * usage: ./AMStartup -n nAvatars -d Difficulty -h Hostname 
  * 
  * We_free (Christopher Sykes, Sebastian Saker, Ben Matejka, Jacob Werzinsky), February 2020
  * 
- * NOTE: The sections in which I connect to the server and MazePort are take from the inclient.c 
- * program we were told we could reference
+ * NOTE: The sections in which I connect to the server and MazePort are taken from the inclient.c 
+ * program that we were told we could reference
  * 
+ * Possible failures:
  */
 
 #include <stdio.h>
@@ -25,16 +25,10 @@
 #include <pthread.h>          // for threads
 #include "amazing.h"          // for communicating with server
 #include "getopt.h"           // to parse command line by options
-#include "avatar.h"           // 
+#include "avatar.h"           // contains function to store avatar info
 
 /**************** file-local constants ****************/
 #define BUFSIZE 1024     // read/write buffer size
-
-int i;
-
-void* print_i(void *ptr);
-
-pthread_mutex_t mutex1 = PTHREAD_MUTEX_INITIALIZER;
 
 /**************** main() ****************/
 /* Purpose: 
@@ -68,18 +62,21 @@ main(const int argc, char *argv[]) {
 
   int c;
 
-/**************** parse the command line ********************/
+/************************ parse the command line **************************/
 
   // parse the command line by looping until no options left
   while ((c = getopt (argc, argv, "n:d:h:")) != -1)
     switch (c)
       {
+      // number of avatars
       case 'n':
         nAvatars = atoi(optarg);
         break;
+      // difficulty
       case 'd':
         Difficulty = atoi(optarg);
         break;
+      // hostname
       case 'h':
         strcpy(Hostname, optarg);
         break;
@@ -89,12 +86,7 @@ main(const int argc, char *argv[]) {
         break;
       }
 
-  // to test parsing
-  printf("nAvatars: %d\n", nAvatars);
-  printf("Difficulty: %d\n", Difficulty);
-  printf("Hostname: %s\n", Hostname);
-
-/******************* validate parameters *********************/
+/************************** validate parameters **************************/
 
   // nAvatars must be an integer less than a set value
   if ( nAvatars > AM_MAX_AVATAR ) {
@@ -114,8 +106,7 @@ main(const int argc, char *argv[]) {
     exit(4);
   }
 
-
-/******************* connect to the server *******************/
+/************************** connect to the server *************************/
 
   // create a socket
   int comm_sock = socket(AF_INET, SOCK_STREAM, 0);
@@ -127,10 +118,10 @@ main(const int argc, char *argv[]) {
   // Initialize the fields of the server address
   struct sockaddr_in server;                        // address of the server
   server.sin_family = AF_INET;
-  server.sin_port = htons(port);
+  server.sin_port = htons(port);                    // connect to the port
 
   // Look up the hostname specified on command line
-  struct hostent *hostp = gethostbyname(Hostname); // server hostname
+  struct hostent *hostp = gethostbyname(Hostname);  // server hostname
   if (hostp == NULL) {
     fprintf(stderr, "%s: unknown host '%s'\n", program, Hostname);
     exit(6);
@@ -147,7 +138,7 @@ main(const int argc, char *argv[]) {
 
   // create the AM_INIT message to send to the server
   AM_Message message;
-  memset(&message, 0, sizeof(message));
+  memset(&message, 0, sizeof(message));                   // clear the block of memory
   message.type = htonl(AM_INIT);
   uint32_t difficulty = Difficulty; 
   uint32_t number_of_avatars = nAvatars;
@@ -183,18 +174,11 @@ main(const int argc, char *argv[]) {
   uint32_t MazeHeight = ntohl(response.init_ok.MazeHeight);
   uint32_t MazeWidth = ntohl(response.init_ok.MazeWidth);
 
-  // test to see getting the right message
-  printf("MazePort: %d\n", MazePort);
-  printf("MazeHeight: %d\n", MazeHeight);
-  printf("MazeWith: %d\n", MazeWidth);
+  /*********************** create a log file ************************/
 
-
-  /************* create a log file *****************/
-  printf("Creating a log file to keep track of all of the runs...\n");
-  
   char *user_name = getenv("USER");
 
-  char logfile[100];
+  char logfile[100];                      // an array for the name of the logfile
 
   // create path to file with the name in the correct format
   sprintf(logfile, "Amazing_$%s_%d_%d.log", user_name, nAvatars, Difficulty);
@@ -206,56 +190,29 @@ main(const int argc, char *argv[]) {
   time_t current_time;
   time(&current_time);
 
-  // write the required info to the log file
+  // write the required info to the first line of the log file
   fprintf(fp, "$%s %d %s", user_name, MazePort, ctime(&current_time));
 
   fclose(fp);
-
-
-  /*************** connect to MazePort ***************/
-  // close old socket
   
+  /************************** create threads ***************************/
+  
+  // first close the old socket
   close(comm_sock);
-  //free(hostp);
-  
-  
-  // create a new socket
-  /*
-  int port_sock = socket(AF_INET, SOCK_STREAM, 0);
-  if (port_sock < 0) {
-    perror("opening socket");
-    exit(9);
-  }
-  
-  // Initialize the fields of the server address
-  struct sockaddr_in server_address;                        // address of the server
-  memset(&server_address, 0, sizeof(server_address));
-  server_address.sin_family = AF_INET;
-  server_address.sin_port = htons(MazePort);
 
-  // connect the socket to the MazePort
-  if (connect(port_sock, (struct sockaddr *) &server_address, sizeof(server_address)) < 0) {
-    perror("connecting stream socket");
-    exit(10);
-  }
-  printf("Connected to MazePort: %d\n", MazePort);
-*/
-  /*************** create threads *******************/
-  
-  pthread_t avatars[nAvatars];
-
+  pthread_t avatars[nAvatars];    // an array of threads
   int num_threads = 0;            // keep track of number of threads
   int iret1;
   Avatar *avatar; 
+
   for ( int i = 0; i < nAvatars; i++ ) {
 
     // initialize the contents of the avatar struct
     avatar = avatar_new(program, i, nAvatars, Difficulty, Hostname, MazePort, logfile, comm_sock);
 
+    // create a thread for the avatar
     iret1 = pthread_create(&avatars[i], NULL, avatar_play, avatar);
-    printf("Avatar play Occurred.");
     num_threads++;    
-    // printf("thread %d created...\n", num_threads);
     sleep(1);
     
     // check to see that the thread was created
@@ -265,45 +222,17 @@ main(const int argc, char *argv[]) {
       exit(iret1);
     }
   }
- 
-  // main will run as long as the threads still exist
 
-
-
-  // when no more threads, close socket and free memory
-
-//pthread_exit(0);
-
+  // detatch threads to get rid of warning in valgrind 
   for ( int i = 0; i < nAvatars; i++ ) {
     if ( pthread_detach(avatars[i]) == 0 ) {
-      printf("succssfully detatched avatar thread");
     }
     else {
       fprintf(stderr, "error: could not detatch avatar thread");
     }
   }
 
-//free(avatar); 
- //free(hostp);
- printf("Exiting thread");
+// Makes sure that the main thread doesn't finish until the avatar threads do
 pthread_exit(0);
 exit(0); 
-}
-
-
-void* print_i(void *ptr) {
-  pthread_mutex_lock(&mutex1);
-  
-  printf("thread created...\n");
-
-  pthread_mutex_unlock(&mutex1);
-  // while (1) {
-  //   sleep(1);
-  //   printf("%d\n", i);
-  // }
-  
-  return 0; 
-  // // printf("%d\n", i);
-  // printf("hello");
-  // return 0;
 }
