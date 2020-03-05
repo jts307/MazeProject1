@@ -84,6 +84,8 @@ typedef struct Avatar
     int MazePort;	  // server port
     char* logfilename;//log file 
     bool endgame;      //if the game is over or not 
+    XYPos  avatarsPos[AM_MAX_AVATAR]; 
+
 } Avatar;
 
 /* AM Message description */
