@@ -6,7 +6,6 @@
  * file, and starting up threads with the parameters
  * they need. 
  * 
- * 
  * usage: ./AMStartup -n nAvatars -d Difficulty -h Hostname 
  * 
  * We_free (Christopher Sykes, Sebastian Saker, Ben Matejka, Jacob Werzinsky), February 2020
@@ -14,6 +13,7 @@
  * NOTE: The sections in which I connect to the server and MazePort are taken from the inclient.c 
  * program that we were told we could reference
  * 
+ * Possible failures:
  */
 
 #include <stdio.h>
