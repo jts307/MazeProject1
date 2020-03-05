@@ -21,6 +21,7 @@
 
 // ---------------- Prerequisites e.g., Requires "math.h"
 #include <stdint.h>                          // uint32_t
+#include <stdbool.h> 
 
 // ---------------- Constants
 /* Server parameters */
@@ -73,8 +74,18 @@ typedef struct XYPos
 /* Maze avatar */
 typedef struct Avatar
 {
-    int fd;
-    XYPos pos;
+    int fd; //comm_sock # 
+    XYPos pos;        //avatar's position 
+    char *program;	  // this program's name
+    int AvatarId;     //avatar ID
+    int nAvatars;     //number of avatars 
+    int Difficulty;   // maze level
+    char *hostname;   // server hostname
+    int MazePort;	  // server port
+    char* logfilename;//log file 
+    bool endgame;      //if the game is over or not 
+    XYPos  avatarsPos[AM_MAX_AVATAR]; 
+
 } Avatar;
 
 /* AM Message description */
