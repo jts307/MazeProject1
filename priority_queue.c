@@ -15,7 +15,7 @@
 /* none */
 
 /**************** local types ****************/
-typedef struct queue_node {
+typedef struct pq_node {
   void *item;		      // pointer to data for this item
   int priority;		      // lower priority gets extracted first
   struct pq_node *next;       // link to next node
@@ -56,15 +56,21 @@ void priority_queue_insert(priority_queue_t *pq, void *item, int priority)
     pq_node_t *new = pq_node_new(item, priority);
     if (new != NULL) {
       // find first node that has less priority than new node
-      front = pq->front;
-
+      pq_node_t *front = pq->front;
+		
+      // if queue is empty then add item and return
+      if (pq->front  == NULL) {
+        pq->front = new;
+	return;
+      }
       // checking if new node has less priority than front
       if (priority < front->priority) {
-	pq->front = new;
 	new->next = front;
+	pq->front = new;
+	return;
       }
       // checking rest of nodes
-      while ((front->next != NULL) && (priority < front->next->priority)) {
+      while ((front->next != NULL) && (priority > front->next->priority)) {
         front = front->next;
       } 
       // insert before node that is found, unless node is not found
@@ -77,25 +83,6 @@ void priority_queue_insert(priority_queue_t *pq, void *item, int priority)
 #ifdef MEMTEST
   count_report(stdout, "After priority_queue_insert");
 #endif
-}
-
-
-/**************** pq_node_new ****************/
-/* Allocate and initialize a pq_node */
-static pq_node_t* pq_node_new(void *item, int priority)
-{
-  pq_node_t *node = count_malloc(sizeof(pq_node_t));
-
-  if (node == NULL) {
-      // error allocating memory for node; return error
-      return NULL;
-  } else {
-      // initialize node with info
-      node->item = item;
-      node->priority = priority;
-      node->next = NULL;
-      return node;
-  }
 }
 
 /**************** priority_queue_extract() ****************/
@@ -166,4 +153,29 @@ void priority_queue_delete(priority_queue_t *pq, void (*itemdelete)(void *item))
 #ifdef MEMTEST
   count_report(stdout, "End of priority_queue_delete");
 #endif
+}
+
+/**************** pq_node_new ****************/
+/* Allocate and initialize a pq_node 
+ * Input:
+ * 	-item: a void pointer to data 
+ * 	-priority: determines place in priority queue, 
+ * 	           lower gets put nearer to front.
+ * Output:
+ * 	Returns a node that contains the passed item and priority.
+ */
+static pq_node_t* pq_node_new(void *item, int priority)
+{
+  pq_node_t *node = count_malloc(sizeof(pq_node_t));
+
+  if (node == NULL) {
+      // error allocating memory for node; return error
+      return NULL;
+  } else {
+      // initialize node with info
+      node->item = item;
+      node->priority = priority;
+      node->next = NULL;
+      return node;
+  }
 }
