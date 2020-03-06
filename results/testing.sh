@@ -82,3 +82,4 @@ if ( ! test -x AMStartup )
     ./AMStartup -n 4 -d 7 -h flume.cs.dartmouth.edu
     ./AMStartup -n 4 -d 8 -h flume.cs.dartmouth.edu
     ./AMStartup -n 4 -d 9 -h flume.cs.dartmouth.edu
+fi
