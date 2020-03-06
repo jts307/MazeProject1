@@ -9,7 +9,7 @@ CFLAGS = -Wall -pedantic -std=c11 -ggdb $(FLAGS)
 CC = gcc
 MAKE = make
 # for memory-leak tests
-VALGRIND = valgrind --leak-check=full --show-leak-kinds=all
+VALGRIND = valgrind --leak-check=full --show-leak-kinds=all #not sure if we need this
 
 all: amazing_client amazing_client.o 
 
@@ -18,6 +18,16 @@ amazing_client: amazing_client.o $(LLIBS)
 	$(CC) $(CFLAGS) $^ -o $@
 
 amazing_client.o: amazing.h 
+
+############## testing #################
+test:
+	bash -v testing.sh
+
+
+############ valgrind ##################
+valgrind: myvalgrind $(PROG)
+	myvalgrind ./$(PROG)
+
 
 clean:
 	rm -rf *~ *.o *.dSYM

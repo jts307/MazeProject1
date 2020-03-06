@@ -9,7 +9,7 @@
 # USAGE: bash -v testing.sh
 
 
-#TODO: are 
+#TODO: Where are we directing the output? testing.out?
 
 if ( ! test -x AMStartup )
     then 
