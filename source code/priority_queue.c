@@ -3,7 +3,7 @@
  * 
  * see priority_queue.h for more information.
  *
- * Jacob Werzinsky, CS50, Winter 2020
+ * we_free, CS50, Winter 2020
  */
 
 #include <stdio.h>
