@@ -89,8 +89,8 @@ main(const int argc, char *argv[]) {
 /************************** validate parameters **************************/
 
   // nAvatars must be an integer less than a set value
-  if ( nAvatars > AM_MAX_AVATAR ) {
-    fprintf(stderr, "error: the nAvatars must be less than %d", AM_MAX_AVATAR);
+  if ( nAvatars > AM_MAX_AVATAR || nAvatars <= 0) {
+    fprintf(stderr, "error: the nAvatars must be less than %d, and greater than 0", AM_MAX_AVATAR);
     exit(2);
   }
 
