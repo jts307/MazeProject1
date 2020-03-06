@@ -9,7 +9,7 @@
  * one at a time and the item with the current lowest priority in the 
  * queue is always extracted. 
  *
- * Jacob Werzinsky, CS50, Winter 2020
+ * we_free, CS50, Winter 2020
  */
 
 #ifndef __PRIORITY_QUEUE_H
