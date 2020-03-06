@@ -33,12 +33,12 @@ Avatar *avatar_new(char* p, int aID, int nAv, int diff, char *host, int mPort, c
 //helper functions to handle messages 
 static bool error_msgs(AM_Message resp); 
 static bool end_program(AM_Message resp); 
-static bool maze_solved(AM_Message resp, Avatar *avatar, FILE* fp);
+static bool maze_solved(AM_Message resp, Avatar *avatar, pthread_mutex_t mutex1);
 static bool is_end_game(Avatar *avatar);  
-static void location_writer(Avatar *avatar, FILE* fp); 
+static void location_writer(Avatar *avatar, pthread_mutex_t mutex1); 
 static void update_positions(Avatar *avatar, AM_Message resp); 
-static void make_move(Avatar *avatar, AM_Message resp, FILE* fp); 
-static void insert_avatar(Avatar *avatar, FILE* fp); 
+static void make_move(Avatar *avatar, AM_Message resp, pthread_mutex_t mutex1); 
+static void insert_avatar(Avatar *avatar, pthread_mutex_t mutex1); 
 
 void* avatar_play(void *avatar_p)
 {
@@ -68,7 +68,7 @@ void* avatar_play(void *avatar_p)
   }
   printf("Connected to MazePort: %d\n", avatar->MazePort);
  
-  FILE* fp = fopen(avatar->logfilename, "a");   //open the logfile 
+  //FILE* fp = fopen(avatar->logfilename, "a");   //open the logfile 
   int bytes_read;       // #bytes read from socket
   AM_Message avatar_r; 
   memset(&avatar_r, 0, sizeof(avatar_r)); 
@@ -94,12 +94,12 @@ void* avatar_play(void *avatar_p)
     }
     else if (ntohl(avatar_play.type) == AM_AVATAR_TURN){   //gets the TurnID from the server and the XYPOS of each of the avatars 
       TurnID = ntohl(avatar_play.avatar_turn.TurnId); 
-      pthread_mutex_lock(&mutex1);
+      //pthread_mutex_lock(&mutex1);
       update_positions(avatar, avatar_play); //updates the avatar positions (taken from server)
       avatar->pos.x = ntohl(avatar_play.avatar_turn.Pos[avatar->AvatarId].x);  //update the avatar struct 
       avatar->pos.y = ntohl(avatar_play.avatar_turn.Pos[avatar->AvatarId].y);
-      insert_avatar(avatar, fp); // logs the avatar inserts and the locations 
-      pthread_mutex_unlock(&mutex1);
+      insert_avatar(avatar, mutex1); // logs the avatar inserts and the locations 
+      //pthread_mutex_unlock(&mutex1);
     } 
   } 
   while (!is_end_game(avatar)){ 
@@ -126,25 +126,30 @@ void* avatar_play(void *avatar_p)
           exit(5);
         } 
         else { 
+          //pthread_mutex_lock(&mutex2);
           //checks if it was successful 
           if (!error_msgs(move_resp)){
-            if (!end_program(move_resp) && !maze_solved(move_resp, avatar,fp)){
+            if (!end_program(move_resp) && !maze_solved(move_resp, avatar, mutex1)){
+              //pthread_mutex_lock(&mutex2);
               if (ntohl(move_resp.type) == AM_AVATAR_TURN){   //gets the TurnID from the server and the XYPOS of each of the avatars   
-                make_move(avatar, move_resp, fp); // avatar moves or hits a wall, logs its movement, and updates positions
-                location_writer(avatar, fp); // positions are logged 
+                //pthread_mutex_lock(&mutex2); 
+                make_move(avatar, move_resp, mutex1); // avatar moves or hits a wall, logs its movement, and updates positions
+                location_writer(avatar, mutex1); // positions are logged 
+                //pthread_mutex_unlock(&mutex2); 
                 TurnID = ntohl(move_resp.avatar_turn.TurnId);  //the updated TurnID 
-                pthread_mutex_unlock(&mutex2);
+                //pthread_mutex_unlock(&mutex2);
               }
             }
             else {
               printf("the game is over\n");
               avatar->endgame = true; 
-              fclose(fp); 
+              //fclose(fp); 
               free(avatar); 
               close(port_sock);
               break; 
             }
           }
+          pthread_mutex_unlock(&mutex2);
         }
     }
     else {  //if the avatarid != turnid, get the updated turnid 
@@ -153,16 +158,25 @@ void* avatar_play(void *avatar_p)
           } 
         else { 
           if (!error_msgs(move_resp)){
-            if (!end_program(move_resp) && !maze_solved(move_resp, avatar,fp)){
+            if (!end_program(move_resp) && !maze_solved(move_resp, avatar, mutex1)){
               if (ntohl(avatar_play.type) == AM_AVATAR_TURN){ 
                 update_positions(avatar, move_resp); 
                 TurnID = ntohl(move_resp.avatar_turn.TurnId);  //the updated TurnID  
               } 
             }
+            else {
+              printf("the game is over\n");
+              avatar->endgame = true; 
+              //fclose(fp); 
+              free(avatar); 
+              close(port_sock);
+              break;
+            }
           }
         }
+        pthread_mutex_unlock(&mutex2);
     }
-    pthread_mutex_unlock(&mutex2);  
+    //pthread_mutex_unlock(&mutex2);  
   }
   return p; 
 }
@@ -207,11 +221,15 @@ static bool end_program(AM_Message resp)
   return false; 
 }
 
-static bool maze_solved(AM_Message resp, Avatar *avatar, FILE* fp)
+static bool maze_solved(AM_Message resp, Avatar *avatar, pthread_mutex_t mutex1)
 {
   if(ntohl(resp.type) == AM_MAZE_SOLVED){
-    printf("it's solved\n"); 
+    pthread_mutex_lock(&mutex1); 
+    FILE* fp = fopen(avatar->logfilename, "a"); 
+    printf("it's solved\n");
     fprintf(fp, "%d, %d, %d, %d\n", ntohl(resp.maze_solved.nAvatars), ntohl(resp.maze_solved.Difficulty), ntohl(resp.maze_solved.nMoves), ntohl(resp.maze_solved.Hash)); 
+    fclose(fp);
+    pthread_mutex_unlock(&mutex1);  
     return true; 
   }
   return false; 
@@ -227,17 +245,23 @@ static bool is_end_game(Avatar *avatar)
   }
 }
 
-static void location_writer(Avatar *avatar, FILE* fp)
+static void location_writer(Avatar *avatar, pthread_mutex_t mutex1)
 {
+  pthread_mutex_lock(&mutex1); 
+  FILE* fp = fopen(avatar->logfilename, "a"); 
   fprintf(fp, "Avatar locations: ");
   for (int i = 0; i < avatar->nAvatars; i++){
     fprintf(fp,"%d: (%d, %d); ",i, avatar->avatarsPos[i].x, avatar->avatarsPos[i].y); 
   } 
   fprintf(fp,"\n"); 
+  fclose(fp); 
+  pthread_mutex_unlock(&mutex1); 
 }
 
-static void insert_avatar(Avatar *avatar, FILE* fp)
+static void insert_avatar(Avatar *avatar, pthread_mutex_t mutex1)
 {
+  pthread_mutex_lock(&mutex1); 
+  FILE* fp = fopen(avatar->logfilename, "a"); 
   //fprintf(fp,"Inserted avatar %d at %d,%d\n",avatar->AvatarId, avatar->pos.x, avatar->pos.y); 
   fprintf(fp,"Inserted avatar %d at %d,%d\n",avatar->AvatarId, avatar->pos.x, avatar->pos.y); 
   fprintf(fp,"Avatar locations: ");
@@ -245,6 +269,8 @@ static void insert_avatar(Avatar *avatar, FILE* fp)
     fprintf(fp,"%d: (%d, %d); ",i, avatar->avatarsPos[i].x, avatar->avatarsPos[i].y); 
   } 
   fprintf(fp,"\n");
+  fclose(fp); 
+  pthread_mutex_unlock(&mutex1); 
 }
 
 static void update_positions(Avatar *avatar, AM_Message resp)
@@ -255,7 +281,7 @@ static void update_positions(Avatar *avatar, AM_Message resp)
   } 
 }
 
-static void make_move(Avatar *avatar, AM_Message resp, FILE* fp)
+static void make_move(Avatar *avatar, AM_Message resp, pthread_mutex_t mutex1)
 {
   int tempX = avatar->pos.x; 
   int tempY = avatar->pos.y; 
@@ -270,7 +296,9 @@ static void make_move(Avatar *avatar, AM_Message resp, FILE* fp)
       avatar->avatarsPos[i].x = ntohl(resp.avatar_turn.Pos[i].x);
       avatar->avatarsPos[i].y = ntohl(resp.avatar_turn.Pos[i].y);
     }
-  } 
+  }
+  pthread_mutex_lock(&mutex1); 
+  FILE* fp = fopen(avatar->logfilename, "a"); 
   if (tempX == avatar->pos.x && tempY == avatar->pos.y){
     // ******if the position of the avatar did not change, do something *****  
     fprintf(fp, "avatar %d ran into wall at %d,%d\n", avatar->AvatarId, avatar->pos.x, avatar->pos.y);
@@ -278,4 +306,6 @@ static void make_move(Avatar *avatar, AM_Message resp, FILE* fp)
   else {
     fprintf(fp, "Avatar %d moved from %d,%d to %d,%d\n",avatar->AvatarId, tempX, tempY, avatar->pos.x, avatar->pos.y);
   } 
+  fclose(fp);
+  pthread_mutex_unlock(&mutex1);  
 }
