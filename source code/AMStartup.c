@@ -208,7 +208,7 @@ main(const int argc, char *argv[]) {
   for ( int i = 0; i < nAvatars; i++ ) {
 
     // initialize the contents of the avatar struct
-    avatar = avatar_new(program, i, nAvatars, Difficulty, Hostname, MazePort, logfile, comm_sock);
+    avatar = avatar_new(program, i, nAvatars, Difficulty, Hostname, MazePort, logfile, comm_sock, MazeHeight, MazeWidth);
 
     // create a thread for the avatar
     iret1 = pthread_create(&avatars[i], NULL, avatar_play, avatar);

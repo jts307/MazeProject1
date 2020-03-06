@@ -17,11 +17,12 @@
 /**************** local types ****************/
 typedef struct node
 {
-    const int x, y; // the x and y coordinates of the maze node
+    int x, y; // the x and y coordinates of the maze node
     struct node *n; // pointer to mazenode's north node
     struct node *s; // pointer to mazenode's south node
     struct node *e; // pointer to mazenode's east node
     struct node *w; // pointer to mazenode's west node
+    int avatar;     // what avatar is here, -1 if none
 } node_t;
 
 /**************** global types ****************/
@@ -30,7 +31,7 @@ typedef struct maze
     struct node *unknown;     //pointer for representing node's that have not been discovered yet
     struct node *wall;        //pointer for representing walls between nodes
     struct node **maze_nodes; // array of mazenodes for the maze discovered/seen/deduced so far
-    const int H, W;           // height and width of maze
+    int H, W;           // height and width of maze
 } maze_t;
 
 /**************** global functions ****************/
@@ -39,7 +40,7 @@ typedef struct maze
 
 /**************** local functions ****************/
 /* not visible outside this file */
-static node_t *node_new(const int x, const int y, const int border); //use border int to determine where the wall should be given a border node
+static node_t *node_new(maze_t *maze, const int x, const int y, const int border); //use border int to determine where the wall should be given a border node
 
 /**************** maze_new() ****************/
 
@@ -55,63 +56,65 @@ maze_t *maze_new(const int height, const int width)
     {
         // initialize contents of maze structure
         //wall and unknown placeholder nodes shall have impossible coordinates
-        maze->wall = node_new(-1, 0);                                           //initialize placeholder node for representing walls between nodes
-        maze->unknown = node_new(0, -1);                                        //initialize placeholder node for representing directions that have not been discovered/are unknown
-        maze->H = height;                                                       //height of maze
+        maze->wall = node_new(maze, -1, 0, 0); 	//initialize placeholder node for representing walls between nodes
+        node_t *wall = maze->wall;
+	maze->unknown = node_new(maze, 0, -1, 0);                                        //initialize placeholder node for representing directions that have not been discovered/are unknown
+	maze->H = height;                                                       //height of maze
         maze->W = width;                                                        //width of maze
-        node_t **mazeNodes = count_malloc((height * width) * (sizeof(node_t))); //check with jacob if it is sizeof pointer or just sizeof node
-        int numOfNodes = height * width;
+        maze->maze_nodes = count_malloc((height * width) * (sizeof(node_t))); //check with jacob if it is sizeof pointer or just sizeof node
+        node_t **mazeNodes = maze->maze_nodes;
+	int numOfNodes = height * width;
         int x;
         int y;
         for (int i = 0; i < numOfNodes; i++) //initialize mazeNodes
         {                                    //the nodes will be stored from bottom to top, left to right
             x = i % width;                   //x coordinate
             y = i / width;                   //y coordinate
-            if (x == 0 && y == 0)
-            {
-                mazeNodes[i] = node_new(x, y, 3); //south-west border node
-                mazeNode[i]->w = wall;
-                continue;
-            }
-            if (x == width - 1 && y == 0)
-            {
-                mazeNodes[i] = node_new(x, y, 3); //south-east border node
-                mazeNode[i]->e = wall;
-                continue;
-            }
             if (x == 0 && y == height - 1)
             {
-                mazeNodes[i] = node_new(x, y, 1); //north-west border node
-                mazeNode[i]->w = wall;
+                mazeNodes[i] = node_new(maze, x, y, 3); //south-west border node
+                mazeNodes[i]->w = wall;
                 continue;
             }
             if (x == width - 1 && y == height - 1)
             {
-                mazeNodes[i] = node_new(x, y, 1); //north-east border node
-                mazeNode[i]->e = wall;
+                mazeNodes[i] = node_new(maze, x, y, 3); //south-east border node
+                mazeNodes[i]->e = wall;
+                continue;
+            }
+            if (x == 0 && y == 0)
+            {
+                mazeNodes[i] = node_new(maze, x, y, 1); //north-west border node
+                mazeNodes[i]->w = wall;
+                continue;
+            }
+            if (x == width - 1 && y == 0)
+            {
+                mazeNodes[i] = node_new(maze, x, y, 1); //north-east border node
+                mazeNodes[i]->e = wall;
                 continue;
             }
             if (x == 0)
             {
-                mazeNodes[i] = node_new(x, y, 4); //west border node
+                mazeNodes[i] = node_new(maze, x, y, 4); //west border node
                 continue;
             }
             if (x == width - 1)
             {
-                mazeNodes[i] = node_new(x, y, 2); //east border node
-                continue;
-            }
-            if (y == 0)
-            {
-                mazeNodes[i] = node_new(x, y, 3); //south border node
+                mazeNodes[i] = node_new(maze, x, y, 2); //east border node
                 continue;
             }
             if (y == height - 1)
             {
-                mazeNodes[i] = node_new(x, y, 1); //north border node
+                mazeNodes[i] = node_new(maze, x, y, 3); //south border node
                 continue;
             }
-            mazeNodes[i] = node_new(x, y, 0); //node is not surrounded by border
+            if (y == 0)
+            {
+                mazeNodes[i] = node_new(maze, x, y, 1); //north border node
+                continue;
+            }
+            mazeNodes[i] = node_new(maze, x, y, 0); //node is not surrounded by border
         }
         return maze;
     }
@@ -121,7 +124,7 @@ maze_t *maze_new(const int height, const int width)
 /* Allocate and initialize a mazenode */
 // the 'static' modifier means this function is not visible
 // outside this file
-static node_t *node_new(const int x, const int y, const int border)
+static node_t *node_new(maze_t *maze, const int x, const int y, const int border)
 {
     node_t *node = count_malloc(sizeof(node_t));
 
@@ -134,25 +137,26 @@ static node_t *node_new(const int x, const int y, const int border)
     {
         node->x = x;       //node's y coordinate
         node->y = y;       //node's y coordinate
-        node->n = unknown; //default will point to unknown
-        node->s = unknown;
-        node->w = unknown;
-        node->e = unknown;
+	node->avatar = -1;
+        node->n = maze->unknown; //default will point to unknown
+        node->s = maze->unknown;
+        node->w = maze->unknown;
+        node->e = maze->unknown;
         if (border == 1) //node is on north border, therefore we know a wall is already there
         {
-            node->n = wall;
+            node->n = maze->wall;
         }
         if (border == 2) //node is on east border, therefore we know a wall is already there
         {
-            node->e = wall;
+            node->e = maze->wall;
         }
         if (border == 3) //node is on south border, therefore we know a wall is already there
         {
-            node->s = wall;
+            node->s = maze->wall;
         }
         if (border == 4) //node is on west border, therefore we know a wall is already there
         {
-            node->w = wall;
+            node->w = maze->wall;
         }
         if (border == 0) //node is not on a border, therefore we do not know where any walls are
         {                //do nothing
@@ -161,22 +165,72 @@ static node_t *node_new(const int x, const int y, const int border)
     }
 }
 
+/**************** get_node ****************/
+node_t *get_node(maze_t *maze, int x, int y) 
+{
+    // checking if passed parameters are null
+    if ((maze != NULL) && (maze->maze_nodes != NULL)) { 
+	// checking if passed x and y are within the bounds of the maze struct
+	if ((x >= 0) && (x < maze->W) && (y >= 0) && (y < maze->H)) {  
+            return maze->maze_nodes[x + y * maze->W];
+	}
+    }
+    return NULL;    
+}
+
+int get_avatar(node_t *node) {
+	return node->avatar;
+}
+
+void set_avatar(node_t *node, int avatar) {
+	node->avatar = avatar;
+}
+
+int get_height(maze_t *maze) {
+	return maze->H;
+}
+
+int get_width(maze_t *maze) {
+	return maze->W;
+}
+
+int get_node_x(node_t *node) {
+	return node->x;
+}
+
+int get_node_y(node_t *node) {
+	return node->y;
+}
+
 /**************** check_node ****************/
-int check_node(node_t *node) //return an int based on what the node is pointing to
+int check_node_dir(maze_t *maze, node_t *node, int dir) //return an int based on what the node is pointing to
 //return 0 if NULL
 //return 1 if node is pointing to unknown placeholder node
 //return 2 if node is pointing to wall placeholder node
 //return 3 if node has a connection to another node that we already discovered/inferred
 {
-    if (node == NULL)
+   
+    node_t *dir_node = NULL;
+
+    if (dir == 0) {
+       dir_node = node->w;
+    } else if (dir == 1) {
+       dir_node = node->n;
+    } else if (dir == 2) {
+       dir_node = node->e;
+    } else {
+       dir_node = node->s; 
+    } 
+
+    if (dir_node == NULL)
     {
         return 0; // error conditions: node cannot be NULL;
     }
-    if (node == unknown)
+    if (dir_node == maze->unknown)
     {
         return 1;
     }
-    if (node == wall)
+    if (dir_node == maze->wall)
     {
         return 2;
     }
@@ -195,43 +249,43 @@ void set_wall(node_t *node, maze_t *maze, const int dir) //dir will indicate whi
     node_t *otherNode;
     if (dir == 1) //set wall at north
     {
-        node->n = wall;
+        node->n = maze->wall;
         //set corresponding wall on other node
-        otherX = x;
-        otherY = y + 1;
-        indexInArr = x + y * W;
-        otherNode = maze_nodes[indexInArr];
-        otherNode->s = wall;
+        otherX = node->x;
+        otherY = node->y - 1;
+        indexInArr = otherX + otherY * maze->W;
+        otherNode = maze->maze_nodes[indexInArr];
+        otherNode->s = maze->wall;
     }
-    if (node == 2) //set wall at east
+    if (dir == 2) //set wall at east
     {
-        node->e = wall;
+        node->e = maze->wall;
         //set corresponding wall on other node
-        otherX = x + 1;
-        otherY = y;
-        indexInArr = x + y * W;
-        otherNode = maze_nodes[indexInArr];
-        otherNode->w = wall;
+        otherX = node->x + 1;
+        otherY = node->y;
+	indexInArr = otherX + otherY * maze->W;
+	otherNode = maze->maze_nodes[indexInArr];
+        otherNode->w = maze->wall;
     }
-    if (node == 3) //set wall at south
+    if (dir == 3) //set wall at south
     {
-        node->s = wall;
+        node->s = maze->wall;
         //set corresponding wall on other node
-        otherX = x;
-        otherY = y - 1;
-        indexInArr = x + y * W;
-        otherNode = maze_nodes[indexInArr];
-        otherNode->n = wall;
+        otherX = node->x;
+        otherY = node->y + 1;
+        indexInArr = otherX + otherY * maze->W;
+        otherNode = maze->maze_nodes[indexInArr];
+        otherNode->n = maze->wall;
     }
-    if (node == 4) //set wall at west
+    if (dir == 0) //set wall at west
     {
-        node->w = wall;
+        node->w = maze->wall;
         //set corresponding wall on other node
-        otherX = x - 1;
-        otherY = y;
-        indexInArr = x + y * W;
-        otherNode = maze_nodes[indexInArr];
-        otherNode->e = wall;
+        otherX = node->x - 1;
+        otherY = node->y;
+        indexInArr = otherX + otherY * maze->W;
+        otherNode = maze->maze_nodes[indexInArr];
+        otherNode->e = maze->wall;
     }
 }
 
@@ -244,40 +298,40 @@ void set_connection(node_t *node, maze_t *maze, const int dir) //dir will indica
     node_t *otherNode;
     if (dir == 1) //set connection at north node
     {
-        otherX = x;
-        otherY = y + 1;
-        indexInArr = x + y * W;
-        otherNode = maze_nodes[indexInArr];
+        otherX = node->x;
+        otherY = node->y - 1;
+        indexInArr = otherX + otherY * maze->W;
+        otherNode = maze->maze_nodes[indexInArr];
         node->n = otherNode;
         otherNode->s = node;
         //set corresponding connection on other node
     }
-    if (node == 2) //set connection at east node
+    if (dir == 2) //set connection at east node
     {
-        otherX = x + 1;
-        otherY = y;
-        indexInArr = x + y * W;
-        otherNode = maze_nodes[indexInArr];
+        otherX = node->x + 1;
+        otherY = node->y;
+        indexInArr = otherX + otherY * maze->W;
+        otherNode = maze->maze_nodes[indexInArr];
         node->e = otherNode;
         otherNode->w = node;
         //set corresponding connection on other node
     }
-    if (node == 3) //set connection at south node
+    if (dir == 3) //set connection at south node
     {
-        otherX = x;
-        otherY = y - 1;
-        indexInArr = x + y * W;
-        otherNode = maze_nodes[indexInArr];
+        otherX = node->x;
+        otherY = node->y + 1;
+        indexInArr = otherX + otherY * maze->W;
+        otherNode = maze->maze_nodes[indexInArr];
         node->s = otherNode;
         otherNode->n = node;
         //set corresponding connection on other node
     }
-    if (node == 4) //set connection at west node
+    if (dir == 0) //set connection at west node
     {
-        otherX = x - 1;
-        otherY = y;
-        indexInArr = x + y * W;
-        otherNode = maze_nodes[indexInArr];
+        otherX = node->x - 1;
+        otherY = node->y;
+        indexInArr = otherX + otherY * maze->W;
+        otherNode = maze->maze_nodes[indexInArr];
         node->w = otherNode;
         otherNode->e = node;
         //set corresponding connection on other node
@@ -289,7 +343,7 @@ void maze_delete(maze_t *maze)
 {
     if (maze != NULL)
     {
-        int numOfNodes = x * y;
+        int numOfNodes = maze->W * maze->H;
         for (int i = 0; i < numOfNodes; i++)
         {
             count_free(maze->maze_nodes[i]); // free the node

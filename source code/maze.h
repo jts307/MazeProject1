@@ -15,7 +15,7 @@ typedef struct maze maze_t; // opaque to users of the module
 typedef struct node node_t;
 /**************** functions ****************/
 
-/**************** FUNCTION ****************/
+/**************** maze_new ****************/
 /* Create a new maze structure.
  *
  * We return:
@@ -25,8 +25,24 @@ typedef struct node node_t;
  */
 maze_t *maze_new(const int height, const int width);
 
+/**************** get_node ****************/
+/* Get a node from the maze structure.
+ * We need:
+ *   -maze: the maze struct to get a node from
+ *   -x: x coordinate of the node 
+ *   -y: y coordinate of the node
+ * We return:
+ *   pointer to the specified node, NULL on any error
+ */
+node_t *get_node(maze_t *maze, int x, int y); 
+
+int get_avatar(node_t *node);
+void set_avatar(node_t *node, int avatar);
+int get_node_x(node_t *node);
+int get_node_y(node_t *node);
+
 /**************** check_node ****************/
-int check_node(node_t *node); //return an int based on what the node is pointing to
+int check_node_dir(maze_t *maze, node_t *node, int dir); //return an int based on what the node is pointing to
 //return 0 if NULL
 //return 1 if node is pointing to unknown placeholder node
 //return 2 if node is pointing to wall placeholder node
@@ -36,8 +52,7 @@ int check_node(node_t *node); //return an int based on what the node is pointing
 void set_wall(node_t *node, maze_t *maze, const int dir); //dir will indicate which direction we want to place a wall
 
 /**************** set_connection ****************/
-void set_connection(node_t *node, maze_t *maze, const int dir); //dir will indicate which direction we want to me a connection                                                                /**************** counters_set ****************/
-
+void set_connection(node_t *node, maze_t *maze, const int dir); //dir will indicate which direction we want to me a connection                                                              
 /**************** maze_delete ****************/
 /* Delete the whole maze.
  *
