@@ -8,9 +8,12 @@
 #
 # USAGE: bash -v testing.sh
 
+
+#TODO: Where are we directing the output? testing.out?
+
 if ( ! test -x AMStartup )
     then 
-        echo 1&>2 "The querier doesn't exist and/or is not executable"
+        echo 1&>2 "The AMStartup doesn't exist and/or is not executable"
         exit 1
     else
 
