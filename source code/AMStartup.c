@@ -203,12 +203,13 @@ main(const int argc, char *argv[]) {
   pthread_t avatars[nAvatars];    // an array of threads
   int num_threads = 0;            // keep track of number of threads
   int iret1;
-  Avatar *avatar; 
-
+  Avatar *avatar;
+  maze_t *maze=maze_new(MazeHeight, MazeWidth); 
+  assertp(maze, "Failure to allocate memory for maze struct");
   for ( int i = 0; i < nAvatars; i++ ) {
 
     // initialize the contents of the avatar struct
-    avatar = avatar_new(program, i, nAvatars, Difficulty, Hostname, MazePort, logfile, comm_sock, MazeHeight, MazeWidth);
+    avatar = avatar_new(program, i, nAvatars, Difficulty, Hostname, MazePort, logfile, comm_sock, maze);
 
     // create a thread for the avatar
     iret1 = pthread_create(&avatars[i], NULL, avatar_play, avatar);
@@ -234,5 +235,6 @@ main(const int argc, char *argv[]) {
 
 // Makes sure that the main thread doesn't finish until the avatar threads do
 pthread_exit(0);
+maze_delete(maze);
 exit(0); 
 }

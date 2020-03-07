@@ -178,6 +178,7 @@ node_t *get_node(maze_t *maze, int x, int y)
     return NULL;    
 }
 
+
 int get_avatar(node_t *node) {
 	return node->avatar;
 }
@@ -200,6 +201,14 @@ int get_node_x(node_t *node) {
 
 int get_node_y(node_t *node) {
 	return node->y;
+}
+
+int get_node_index(maze_t *maze, node_t *node) {
+	return node->x + node->y * maze->W;
+}
+
+int get_L1_distance(node_t *node1, node_t *node2) {
+	return abs(node1->x - node2->x) + abs(node1->y - node2->y);
 }
 
 /**************** check_node ****************/
@@ -238,6 +247,21 @@ int check_node_dir(maze_t *maze, node_t *node, int dir) //return an int based on
     {
         return 3;
     }
+}
+
+node_t *get_neighbor(maze_t *maze, node_t *node, int dir) {
+  if (check_node_dir(maze, node, dir) != 2) {	
+    if (dir == 0) {
+      return get_node(maze, node->x - 1, node->y); 
+    } else if (dir == 1) {
+      return get_node(maze, node->x, node->y - 1);
+    } else if (dir == 2) {
+      return get_node(maze, node->x + 1, node->y);
+    } else if (dir == 3) {
+      return get_node(maze, node->x, node->y + 1);
+    } 
+  }
+  return NULL;
 }
 
 /**************** set_wall ****************/

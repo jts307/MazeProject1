@@ -23,6 +23,7 @@
 #include <stdint.h>                          // uint32_t
 #include <stdbool.h>
 #include "priority_queue.h"
+#include "maze.h"
 
 // ---------------- Constants
 /* Server parameters */
@@ -84,11 +85,12 @@ typedef struct Avatar
     char *hostname;   // server hostname
     int MazePort;	  // server port
     char* logfilename;//log file
-    int mWidth;
-    int mHeight;
+    maze_t *maze;	// shared maze between avatars
     priority_queue_t *goals;
     bool endgame;      //if the game is over or not 
     int leader;	// avatar leading this avatar, -1 if noone
+    int centerX;
+    int centerY;
 
     XYPos  avatarsPos[AM_MAX_AVATAR]; 
 

@@ -9,9 +9,10 @@
 #include <pthread.h>
 #include "maze.h"
 #include "graphics.h"
+#include "hashtable.h"
 
 //create a new avatar struct (as defined in amazing.h)
-Avatar *avatar_new(char* p, int aID, int nAv, int diff, char *host, int mPort, char* log, int sock, int mHeight, int mWidth)
+Avatar *avatar_new(char* p, int aID, int nAv, int diff, char *host, int mPort, char* log, int sock, maze_t *maze)
 {
     Avatar *avatar = malloc(sizeof(Avatar)); 
     avatar->program = p; 
@@ -22,11 +23,12 @@ Avatar *avatar_new(char* p, int aID, int nAv, int diff, char *host, int mPort, c
     avatar->MazePort = mPort;
     avatar->logfilename = log;
     avatar->fd = sock;
-    avatar->mWidth = mWidth;
-    avatar->mHeight = mHeight;
+    avatar->maze = maze;
     avatar->goals = NULL; 
     avatar->leader = -1;
     avatar->endgame = false; 
+    avatar->centerX = 0;
+    avatar->centerY = 0;
 
     if (avatar == NULL){
         return NULL; 
@@ -54,17 +56,6 @@ void* avatar_play(void *avatar_p)
 
   int a = 1; 
   void *p = (void*)&a;
-
-  // center point (x,y) between all the avatars
-  //int centerX;        
-  //int centerY;
-  
-  // maze shared between avatars
-  //maze_t *maze; 
-  if (avatar->AvatarId == 0) {
-    // initialize maze structure
-    maze_t *maze = maze_new(avatar->mHeight, avatar->mWidth);
-  }
 
   int port_sock = socket(AF_INET, SOCK_STREAM, 0);
   if (port_sock < 0) {
@@ -116,29 +107,24 @@ void* avatar_play(void *avatar_p)
       avatar->pos.x = ntohl(avatar_play.avatar_turn.Pos[avatar->AvatarId].x);  //update the avatar struct 
       avatar->pos.y = ntohl(avatar_play.avatar_turn.Pos[avatar->AvatarId].y);
 
-      // only one avatar should do this
-      if (avatar->AvatarId == 0) {
-        centerX=0;
-        centerY=0;
-
-        // loop through all the avatars' x and y positions
-        for (int i=0; i < avatar->nAvatars; i++) {
-          // add them up
-	  centerX += ntohl(avatar_play.avatar_turn.Pos[i].x); 
-          centerY += ntohl(avatar_play.avatar_turn.Pos[i].y);	
-        }
-        // divide by number of avatars to get average
-        centerX /= avatar->nAvatars;
-        centerY /= avatar->nAvatars;
+      // loop through all the avatars' x and y positions
+      for (int i=0; i < avatar->nAvatars; i++) {
+        // add them up
+	avatar->centerX += avatar->avatarsPos[i].x; 
+        avatar->centerY += avatar->avatarsPos[i].y;	
       }
-      insert_avatar(avatar, maze, fp); // logs the avatar inserts and the locations 
-      maze_draw(maze);
+      // divide by number of avatars to get average
+      avatar->centerX /= avatar->nAvatars;
+      avatar->centerY /= avatar->nAvatars;
+      
+      insert_avatar(avatar, avatar->maze, fp); // logs the avatar inserts and the locations 
+      maze_draw(avatar->maze);
       pthread_mutex_unlock(&mutex1);
-    } 
+    }
   } 
   while (!is_end_game(avatar)){ 
     pthread_mutex_lock(&mutex2);      
-     AM_Message move_resp;
+    AM_Message move_resp;
     //if it's the avatar's turn to move
     if (avatar->AvatarId == TurnID){ 
       AM_Message avatar_m; 
@@ -151,6 +137,7 @@ void* avatar_play(void *avatar_p)
       */ 
      
       avatar->goals = priority_queue_new();
+      assertp(avatar->goals, "Failure to allocate memory for avatar's goals priority queue\n");
       int direction = -1;
       node_t *goal = NULL;
 
@@ -158,21 +145,21 @@ void* avatar_play(void *avatar_p)
       // with priority based off of L1 distance from avatar
       if (avatar->leader == -1) {
 	// center
-	int L1 = abs(centerX - avatar->pos.x) + abs(centerY - avatar->pos.y); 
+	int L1 = abs(avatar->centerX - avatar->pos.x) + abs(avatar->centerY - avatar->pos.y); 
         if (L1 != 0) {
-	  priority_queue_insert(avatar->goals, get_node(maze, centerX, centerY), L1);
+	  priority_queue_insert(avatar->goals, get_node(avatar->maze, centerX, centerY), L1);
 	}
 	// other avatars
         for (int i=0; i < avatar->nAvatars; i++) {
           if (i != avatar->avatarId) {
-	    int otherAvaX = ntohl(avatar_play.avatar_turn.Pos[i].x);
-	    int otherAvaY = ntohl(avatar_play.avatar_turn.Pos[i].y);
+	    int otherAvaX = avatar->avatarsPos[i].x;
+	    int otherAvaY = avatar->avatarsPos[i].y;
 	    L1 = abs(otherAvaX - avatar->pos.x) + abs(otherAvaY - avatar->pos.y);
 	    if (L1 == 0 && avatar->AvatarId < i) {
 		avatar->leader = i;
 		break;
 	    } else {
-              priority_queue_insert(avatar->goals, get_node(maze, otherAvaX, otherAvaY), L1);  
+              priority_queue_insert(avatar->goals, get_node(avatar->maze, otherAvaX, otherAvaY), L1);  
 	    } 
 	  }
         }
@@ -181,44 +168,88 @@ void* avatar_play(void *avatar_p)
 	}
       } 
       if (leader != -1) {
-          int leaderAvaX = ntohl(avatar_play.avatar_turn.Pos[avatar->leader].x);
-          int leaderAvaY = ntohl(avatar_play.avatar_turn.Pos[avatar->leader].y);
-	  goal = get_node(maze, leaderAvaX, leaderAvaY);
+          int leaderAvaX = avatar->avatarsPos[avatar->leader].x;
+          int leaderAvaY = avatar->avatarsPos[avatar->leader].y;
+	  goal = get_node(avatar->maze, leaderAvaX, leaderAvaY);
 	  if (leaderAvaX = avatar->pos.x && leaderAvaY == avatar->pos.y) {
 	    direction = M_NULL_MOVE;
 	  }
       }
       if (goal != NULL && direction == -1) {
         priority_queue_t *maybeVisit = priority_queue_new();
-	
-	if (check_node_dir(maze, node, 1) != 2) {
-	int L1 = abs(avatar->pos.x - get_node_x(goal)) + abs(avatar->pos.y - 1 - get_node_y(goal));
-        priority_queue_insert(maybeVisit, get_node(maze, avatar->pos.x, avatar->pos.y - 1), L1);
-	}
-	else if (check_node_dir(maze, node, 3) != 2) {
-	L1 = abs(avatar->pos.x - get_node_x(goal)) + abs(avatar->pos.y + 1 - get_node_y(goal));
-        priority_queue_insert(maybeVisit, get_node(maze, avatar->pos.x, avatar->pos.y + 1), L1);
-	} else if (check_node_dir(maze, node, 0) != 2) {
-	L1 = abs(avatar->pos.x - 1 - get_node_x(goal)) + abs(avatar->pos.y - get_node_y(goal));
-        priority_queue_insert(maybeVisit, get_node(maze, avatar->pos.x - 1, avatar->pos.y), L1);
-	} else if (check_node_dir(maze, node, 2) != 2) {
-	L1 = abs(avatar->pos.x + 1 - get_node_x(goal)) + abs(avatar->pos.y - get_node_y(goal));
-        priority_queue_insert(maybeVisit, get_node(maze, avatar->pos.x + 1, avatar->pos.y), L1);
-	}
-        for ( )
+	assertp(maybeVisit, "Failure to allocate memory for maybeVisit priority queue");
+	priority_queue_t *toBeVisited = priority_queue_new();
+	assertp(toBeVisited, "Failure to allocate memory for toBeVisited priority queue");
+	hashtable_t *visited = hashtable_new();
+	assertp(visited, "Failure to allocate memory for visited hashtable");
+	int numDigits = ceil(log10(get_node_index(avatar->maze, node)));
+        char *stringInt = (char*)count_malloc((numDigits+2)*sizeof(char));
+	assertp(stringInt, "Failure to allocate space for stringInt pointer\n");
+	sprintf(stringInt, "%d", get_node_index(avatar->maze, curr));
+	hashtable_insert(visited, stringInt, "");
+	free(stringInt);
+
+        for (int i=0; i < 4; i++) {
+	  int directionState = check_node_dir(avatar->maze, node, i);
+	  node_t *nodeNeighbor = get_neighbor(avatar->maze, node, i);
+	  if(directionState == 3) {
+             int unknowns=0;
+	     int priority=0;
+	     priority_queue_insert(toBeVisited, nodeNeighbor, priority++);
+	     node_t *curr=NULL;
+	     while ((curr=priority_queue_extract(toBeVisited)) != NULL) {
+	       if (curr == goal) {
+	         if (i == 0) {
+		   direction = M_WEST;
+		 } else if (i == 1) {
+		   direction = M_NORTH;
+		 } else if (i == 2) {
+		   direction = M_EAST;
+		 } else if (i == 3) {
+		   direction = M_SOUTH;
+		 }
+		 break;
+	       }
+	       for (int j=0; j < 4; j++) {
+		 if (check_node_dir(avatar->maze, curr, j) == 1) {
+		   unknowns++;
+		 }
+		 node_t *neighbor = get_neighbor(curr, j);
+		 numDigits = ceil(log10(get_node_index(avatar->maze, neighbor)));
+                 stringInt = (char*)count_malloc((numDigits+2)*sizeof(char));
+                 assertp(stringInt, "Failure to allocate space for stringInt pointer\n");
+                 sprintf(stringInt, "%d", get_node_index(avatar->maze, neighbor));
+	         if (hashtable_insert(visited, stringInt, "")) {
+		   priority_queue_insert(toBeVisited, neighbor, priority++);
+		 }
+		 count_free(stringInt);
+	       }
+	     }
+	     if (direction != -1) {
+	       break;
+	     }
+	     if (unknowns != 0) {
+               priority_queue_insert(maybeVisit, nodeNeighbor, get_L1_distance(nodeNeighbor, goal));	       
+	     } 
+	  } else if (directionState == 1) {
+	    priority_queue_insert(maybeVisit, nodeNeighbor, get_L1_distance(nodeNeighbor, goal));
+	  }
+        }
         if (direction == -1) {
 	  node_t *node = priority_queue_extract(maybeVisit);
-          if ((get_node_x(node) == avatar->pos.x + 1)&& get_node_y(node) == avatar->pos.y) {
+          if (get_neighbor(avatar->maze, node, 2) == node) {
 	     direction = M_EAST;
-	  } else if ((get_node_x(node) == avatar->pos.x - 1) && get_node_y(node) == avatar->pos.y) {
+	  } else if (get_neighbor(avatar->maze, node, 0) == node) {
 	     direction = M_WEST;
-	  } else if (get_node_x(node) == avatar->pos.x && (get_node_y(node) == avatar->pos.y - 1)) {
+	  } else if (get_neighbor(avatar->maze, node, 1) == node) {
 	     direction = M_NORTH;
-	  } else if (get_node_x(node) == avatar->pos.x && (get_node_y(node) == avatar->pos.y + 1)) {
+	  } else if (get_neighbor(avatar->maze, node, 3) == node) {
 	     direction = M_SOUTH;
 	  }
 	}	
-        priority_queue_delete(maybeVisit);	
+        priority_queue_delete(maybeVisit, NULL);	
+	priority_queue_delete(toBeVisited, NULL);
+	hashtable_delete(visited, NULL);
       } else {
           direction = M_NULL_MOVE;
       }
@@ -237,22 +268,19 @@ void* avatar_play(void *avatar_p)
           if (!error_msgs(move_resp)){
             if (!end_program(move_resp) && !maze_solved(move_resp, avatar,fp)){
               if (ntohl(move_resp.type) == AM_AVATAR_TURN){   //gets the TurnID from the server and the XYPOS of each of the avatars   
-                make_move(avatar, move_resp, direction, maze, fp); // avatar moves or hits a wall, logs its movement, and updates positions
-                maze_draw(maze);
+                make_move(avatar, move_resp, direction, avatar->maze, fp); // avatar moves or hits a wall, logs its movement, and updates positions
+                maze_draw(avatar->maze);
 		location_writer(avatar, fp); // positions are logged 
                 TurnID = ntohl(move_resp.avatar_turn.TurnId);  //the updated TurnID 
                 pthread_mutex_unlock(&mutex2);
               }
             }
             else {
-	      maze_draw(maze);
+	      maze_draw(avatar->maze);
               printf("the game is over\n");
               avatar->endgame = true; 
               fclose(fp); 
               free(avatar);
-	      if (avatar->AvatarId == 0) { 
-	        maze_delete(maze);
-	      }
               close(port_sock);
               break; 
             }
