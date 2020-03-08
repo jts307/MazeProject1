@@ -10,8 +10,6 @@ To build, run `make`.
 
 To clean up, run `make clean`.
 
-*Please replace this text with any comments you have about the overall project.*
-
 ### Directory Structure
 The repository is organized as follows:
 
