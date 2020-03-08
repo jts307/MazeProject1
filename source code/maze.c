@@ -196,15 +196,24 @@ int get_width(maze_t *maze) {
 }
 
 int get_node_x(node_t *node) {
+ if (node == NULL) {
+    return -5;
+ }
 	return node->x;
 }
 
 int get_node_y(node_t *node) {
+  if (node == NULL) {
+     return -5;
+  }
 	return node->y;
 }
 
 int get_node_index(maze_t *maze, node_t *node) {
-	return node->x + node->y * maze->W;
+       if (maze == NULL || node == NULL) {
+         return 1000000;
+       }
+       return node->x + node->y * maze->W;
 }
 
 int get_L1_distance(node_t *node1, node_t *node2) {

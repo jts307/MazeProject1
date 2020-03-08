@@ -20,8 +20,8 @@ void maze_draw(maze_t *maze)
 {
   printf("******************************\n");
 
-  h = get_height(maze);
-  w = get_width(maze);
+  int h = get_height(maze);
+  int w = get_width(maze);
 
   printf("   ");
   for (int i=0; i < w; i++) {
@@ -68,7 +68,7 @@ void direction_print(maze_t *maze, int x, int y, int dir)
    } else if (check_node_dir(maze, node, dir) == 2) {
       printf("|");
    } else if (check_node_dir(maze, node, dir) == 3) {
-      printf("-");
+      printf(" ");
    }
  // north and south
  } else if (dir == 1 || dir == 3) {
@@ -77,7 +77,7 @@ void direction_print(maze_t *maze, int x, int y, int dir)
    } else if (check_node_dir(maze, node, dir) == 2) {
       printf("+---");
    } else if (check_node_dir(maze, node, dir) == 3) {
-      printf("+ | ");
+      printf("+   ");
    }
  }
 }

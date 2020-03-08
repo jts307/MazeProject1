@@ -17,7 +17,7 @@
 /**************** local types ****************/
 typedef struct pq_node {
   void *item;		      // pointer to data for this item
-  int priority;		      // lower priority gets extracted first
+  double priority;	      // lower priority gets extracted first
   struct pq_node *next;       // link to next node
 } pq_node_t;
 
@@ -32,7 +32,7 @@ typedef struct priority_queue {
 
 /**************** local functions ****************/
 /* not visible outside this file */
-static pq_node_t *pq_node_new(void *item, int priority);
+static pq_node_t *pq_node_new(void *item, double priority);
 
 /**************** priority_queue_new() ****************/
 priority_queue_t* priority_queue_new(void)
@@ -49,7 +49,7 @@ priority_queue_t* priority_queue_new(void)
 }
 
 /**************** priority_queue_insert() ****************/
-void priority_queue_insert(priority_queue_t *pq, void *item, int priority)
+void priority_queue_insert(priority_queue_t *pq, void *item, double priority)
 {
   if (pq != NULL && item != NULL) {
     // allocate a new node to be added to the queue
@@ -164,7 +164,7 @@ void priority_queue_delete(priority_queue_t *pq, void (*itemdelete)(void *item))
  * Output:
  * 	Returns a node that contains the passed item and priority.
  */
-static pq_node_t* pq_node_new(void *item, int priority)
+static pq_node_t* pq_node_new(void *item, double priority)
 {
   pq_node_t *node = count_malloc(sizeof(pq_node_t));
 

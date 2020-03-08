@@ -26,6 +26,8 @@
 #include "amazing.h"          // for communicating with server
 #include "getopt.h"           // to parse command line by options
 #include "avatar.h"           // contains function to store avatar info
+#include "maze.h"
+#include "memory.h"
 
 /**************** file-local constants ****************/
 #define BUFSIZE 1024     // read/write buffer size
@@ -204,12 +206,15 @@ main(const int argc, char *argv[]) {
   int num_threads = 0;            // keep track of number of threads
   int iret1;
   Avatar *avatar;
+  bool *endgame = false;
   maze_t *maze=maze_new(MazeHeight, MazeWidth); 
+  pthread_mutex_t mutex1 = PTHREAD_MUTEX_INITIALIZER;
+  pthread_mutex_t mutex2 = PTHREAD_MUTEX_INITIALIZER;
   assertp(maze, "Failure to allocate memory for maze struct");
   for ( int i = 0; i < nAvatars; i++ ) {
 
     // initialize the contents of the avatar struct
-    avatar = avatar_new(program, i, nAvatars, Difficulty, Hostname, MazePort, logfile, comm_sock, maze);
+    avatar = avatar_new(program, i, nAvatars, Difficulty, Hostname, MazePort, logfile, comm_sock, maze, &mutex1, &mutex2, endgame);
 
     // create a thread for the avatar
     iret1 = pthread_create(&avatars[i], NULL, avatar_play, avatar);
@@ -235,6 +240,5 @@ main(const int argc, char *argv[]) {
 
 // Makes sure that the main thread doesn't finish until the avatar threads do
 pthread_exit(0);
-maze_delete(maze);
 exit(0); 
 }

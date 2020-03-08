@@ -40,11 +40,10 @@ int get_avatar(node_t *node);
 void set_avatar(node_t *node, int avatar);
 int get_node_x(node_t *node);
 int get_node_y(node_t *node);
-node_t *get_neighbor(node_t *node, int dir);
 int get_width(maze_t *maze);
 int get_height(maze_t *maze);
 int get_node_index(maze_t *maze, node_t *node);
-node_t *get_neighbor(node_t *node, int dir);
+node_t *get_neighbor(maze_t *maze, node_t *node, int dir);
 int get_L1_distance(node_t *node1, node_t *node2);
 
 /**************** check_node ****************/

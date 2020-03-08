@@ -22,7 +22,7 @@
 // ---------------- Prerequisites e.g., Requires "math.h"
 #include <stdint.h>                          // uint32_t
 #include <stdbool.h>
-#include "priority_queue.h"
+#include <pthread.h> 
 #include "maze.h"
 
 // ---------------- Constants
@@ -86,14 +86,14 @@ typedef struct Avatar
     int MazePort;	  // server port
     char* logfilename;//log file
     maze_t *maze;	// shared maze between avatars
-    priority_queue_t *goals;
-    bool endgame;      //if the game is over or not 
+    int *goals;
+    bool *endgame;      //if the game is over or not 
     int leader;	// avatar leading this avatar, -1 if noone
     int centerX;
     int centerY;
-
-    XYPos  avatarsPos[AM_MAX_AVATAR]; 
-
+    pthread_mutex_t *mutex1;
+    pthread_mutex_t *mutex2;
+    XYPos *avatarsPos; 
 } Avatar;
 
 /* AM Message description */
