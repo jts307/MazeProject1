@@ -10,13 +10,13 @@
 #include <math.h>
 #include "maze.h"
 #include "graphics.h"
-#include "hashtable.h"
+#include "counters.h"
 #include "priority_queue.h"
 #include "memory.h"
 #include <unistd.h>
 
 //create a new avatar struct (as defined in amazing.h)
-Avatar *avatar_new(char* p, int aID, int nAv, int diff, char *host, int mPort, char* log, int sock, maze_t *maze, pthread_mutex_t *mutex1, pthread_mutex_t *mutex2, bool *endgame)
+Avatar *avatar_new(char* p, int aID, int nAv, int diff, char *host, int mPort, char* log, int sock, maze_t *maze, pthread_mutex_t *mutex1, pthread_mutex_t *mutex2)
 {
     Avatar *avatar = malloc(sizeof(Avatar)); 
     avatar->program = p; 
@@ -166,7 +166,6 @@ void* avatar_play(void *avatar_p)
       // with priority based off of L1 distance from avatar
       if (avatar->leader == -1) {
 	// center
-	//printf("center=%d, center=%d", avatar->centerX, avatar->centerY);
 	int L1 = abs(avatar->centerX - avatar->pos.x) + abs(avatar->centerY - avatar->pos.y); 
 	if (L1 != 0 && avatar->goals[avatar->nAvatars] == 1) {
 	  priority_queue_insert(goals, get_node(avatar->maze, avatar->centerX, avatar->centerY), L1);
@@ -204,19 +203,18 @@ void* avatar_play(void *avatar_p)
       }
 
       if (goal != NULL && direction == -1) {
-        priority_queue_t *maybeVisit = priority_queue_new();
+        // possible nodes to move to 
+	priority_queue_t *maybeVisit = priority_queue_new();
 	assertp(maybeVisit, "Failure to allocate memory for maybeVisit priority queue");
+	
+	// nodes to be visited during breath-first search
 	priority_queue_t *toBeVisited = priority_queue_new();
 	assertp(toBeVisited, "Failure to allocate memory for toBeVisited priority queue");
-	hashtable_t *visited = hashtable_new(50);
+	
+	counters_t *visited = counters_new();
 	assertp(visited, "Failure to allocate memory for visited hashtable");
 	node_t *start = get_node(avatar->maze, avatar->pos.x, avatar->pos.y);
-	int numDigits = ceil(log10(get_node_index(avatar->maze, start)));
-        char *stringInt = (char*)count_malloc((numDigits+2)*sizeof(char));
-	assertp(stringInt, "Failure to allocate space for stringInt pointer\n");
-	sprintf(stringInt, "%d", get_node_index(avatar->maze, start));
-	hashtable_insert(visited, stringInt, "");
-	free(stringInt);
+	counters_add(visited, get_node_index(avatar->maze, start));
         for (int i=0; i < 4; i++) {
 	  int directionState = check_node_dir(avatar->maze, start, i);
 	  node_t *startNeighbor = get_neighbor(avatar->maze, start, i);
@@ -243,18 +241,9 @@ void* avatar_play(void *avatar_p)
 		     unknowns++;
 		 } else if (check_node_dir(avatar->maze, curr, j) == 3) {
 		       node_t *currNeighbor = get_neighbor(avatar->maze, curr, j);
-		       printf("ERROR:");
-		       node_print(stdout, currNeighbor);
-		       numDigits = ceil(log10(get_node_index(avatar->maze, currNeighbor)));
-		       printf("%d", numDigits);
-		       printf("END");
-		       stringInt = (char*)count_malloc((numDigits+2)*sizeof(char));
-                       assertp(stringInt, "Failure to allocate space for stringInt pointer\n");
-                       sprintf(stringInt, "%d", get_node_index(avatar->maze, currNeighbor));
-	               if (hashtable_insert(visited, stringInt, "")) {
+	               if (counters_add(visited, get_node_index(avatar->maze, currNeighbor)) == 1) {
 		         priority_queue_insert(toBeVisited, currNeighbor, priority++);
 		       }
-		     count_free(stringInt);
 	         }
 	       }
 	     }
@@ -289,7 +278,7 @@ void* avatar_play(void *avatar_p)
 	}
         priority_queue_delete(maybeVisit, NULL);	
 	priority_queue_delete(toBeVisited, NULL);
-	hashtable_delete(visited, NULL);
+	counters_delete(visited);
       } else {
           direction = M_NULL_MOVE;
       }
@@ -394,7 +383,7 @@ static bool end_program(AM_Message resp)
 static bool maze_solved(AM_Message resp, Avatar *avatar, FILE* fp)
 {
   if(ntohl(resp.type) == AM_MAZE_SOLVED){	  
-    printf("it's sol%dved\n", avatar->AvatarId); 
+    printf("it's solved\n"); 
     fprintf(fp, "%d, %d, %d, %d\n", ntohl(resp.maze_solved.nAvatars), ntohl(resp.maze_solved.Difficulty), ntohl(resp.maze_solved.nMoves), ntohl(resp.maze_solved.Hash));
     return true; 
   }

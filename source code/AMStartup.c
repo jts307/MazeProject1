@@ -206,7 +206,6 @@ main(const int argc, char *argv[]) {
   int num_threads = 0;            // keep track of number of threads
   int iret1;
   Avatar *avatar;
-  bool *endgame = false;
   maze_t *maze=maze_new(MazeHeight, MazeWidth); 
   pthread_mutex_t mutex1 = PTHREAD_MUTEX_INITIALIZER;
   pthread_mutex_t mutex2 = PTHREAD_MUTEX_INITIALIZER;
@@ -214,7 +213,7 @@ main(const int argc, char *argv[]) {
   for ( int i = 0; i < nAvatars; i++ ) {
 
     // initialize the contents of the avatar struct
-    avatar = avatar_new(program, i, nAvatars, Difficulty, Hostname, MazePort, logfile, comm_sock, maze, &mutex1, &mutex2, endgame);
+    avatar = avatar_new(program, i, nAvatars, Difficulty, Hostname, MazePort, logfile, comm_sock, maze, &mutex1, &mutex2);
 
     // create a thread for the avatar
     iret1 = pthread_create(&avatars[i], NULL, avatar_play, avatar);
@@ -228,7 +227,6 @@ main(const int argc, char *argv[]) {
       exit(iret1);
     }
   }
-
   // detatch threads to get rid of warning in valgrind 
   for ( int i = 0; i < nAvatars; i++ ) {
     if ( pthread_detach(avatars[i]) == 0 ) {

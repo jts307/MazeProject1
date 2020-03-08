@@ -86,8 +86,7 @@ typedef struct Avatar
     int MazePort;	  // server port
     char* logfilename;//log file
     maze_t *maze;	// shared maze between avatars
-    int *goals;
-    bool *endgame;      //if the game is over or not 
+    int *goals; 
     int leader;	// avatar leading this avatar, -1 if noone
     int centerX;
     int centerY;
