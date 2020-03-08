@@ -75,8 +75,10 @@ void* avatar_play(void *avatar_p)
   avatar->avatarsPos = count_calloc(AM_MAX_AVATAR, sizeof(XYPos));
   avatar->goals = (int*)count_calloc(avatar->nAvatars+1, sizeof(int));
 
+  printf("initialize array:");
   for (int i=0; i <= avatar->nAvatars; i++) {
     avatar->goals[i] = 1; 
+    printf("%d", avatar->goals[i]);
   }
 
   int port_sock = socket(AF_INET, SOCK_STREAM, 0);
@@ -180,7 +182,7 @@ void* avatar_play(void *avatar_p)
 	    L1 = abs(otherAvaX - avatar->pos.x) + abs(otherAvaY - avatar->pos.y);
 	    if (L1 == 0) {
 		avatar->goals[i] = 0;
-		if (avatar->AvatarId < i) {
+		if (avatar->AvatarId > i) {
 		  avatar->leader = i;
 		  break;
 		}
@@ -489,11 +491,11 @@ static void make_move(Avatar *avatar, AM_Message resp, int direction, maze_t *ma
     avatar->goals[avatar->nAvatars] = 0;
   }
 
-  for (int i=0; i <= avatar->nAvatars; i++) {
+  for (int i=0; i < avatar->nAvatars; i++) {
     printf("x=%d, y=%d", avatar->avatarsPos[i].x, avatar->avatarsPos[i].y);
     if ((avatar->pos.x == avatar->avatarsPos[i].x) && (avatar->pos.y == avatar->avatarsPos[i].y)) {
       avatar->goals[i] = 0;
-      if (avatar->AvatarId < i) {
+      if (avatar->AvatarId > i) {
         avatar->leader = i;
         break;
       }
