@@ -36,12 +36,31 @@ maze_t *maze_new(const int height, const int width);
  */
 node_t *get_node(maze_t *maze, int x, int y); 
 
+/**************** get_avatar ****************/
+//returns an integer that represents the avatar's ID of the avatar currently on the node
+//if there is no avatar, return -1
 int get_avatar(node_t *node);
+
+/**************** set_avatar ****************/
+//set an integer on a node that represents the avatar's ID of the avatar currently on the node
 void set_avatar(node_t *node, int avatar);
-int get_node_x(node_t *node);
-int get_node_y(node_t *node);
-int get_width(maze_t *maze);
+
+/**************** get_height ****************/
+//returns an integer that represents the height of the maze
 int get_height(maze_t *maze);
+
+/**************** get_width ****************/
+//returns an integer that represents the width of the maze
+int get_width(maze_t *maze);
+
+/**************** get_node_x ****************/
+//returns an integer that represents the X coordinate of a node
+int get_node_x(node_t *node);
+
+/**************** get_node_y ****************/
+//returns an integer that represents the Y coordinate of a node
+int get_node_y(node_t *node);
+
 int get_node_index(maze_t *maze, node_t *node);
 node_t *get_neighbor(maze_t *maze, node_t *node, int dir);
 int get_L1_distance(node_t *node1, node_t *node2);
