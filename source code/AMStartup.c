@@ -229,7 +229,7 @@ main(const int argc, char *argv[]) {
   }
   // detatch threads to get rid of warning in valgrind 
   for ( int i = 0; i < nAvatars; i++ ) {
-    if ( pthread_detach(avatars[i]) == 0 ) {
+    if ( pthread_join(avatars[i], NULL) == 0 ) {
     }
     else {
       fprintf(stderr, "error: could not detatch avatar thread");

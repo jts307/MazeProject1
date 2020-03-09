@@ -178,6 +178,7 @@ node_t *get_node(maze_t *maze, int x, int y)
     return NULL;    
 }
 
+/**********getter functions***********/
 
 int get_avatar(node_t *node) {
 	return node->avatar;
@@ -206,7 +207,7 @@ int get_node_y(node_t *node) {
   if (node == NULL) {
      return -5;
   }
-	return node->y;
+  return node->y;
 }
 
 int get_node_index(maze_t *maze, node_t *node) {

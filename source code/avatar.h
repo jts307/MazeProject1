@@ -1,3 +1,7 @@
+/* avatar.c - this module contains code for an avatar struct which will act as a player/thread in the maze.
+ * 	      It is initialiated by AMStartup.c and connected to the maze server and responses according to 
+ * 	      different messages from the server in order to complete the server's maze.
+ */
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>	      // read, write, close
