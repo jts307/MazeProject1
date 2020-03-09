@@ -12,6 +12,7 @@
 
 #include <stdio.h>
 #include <stdbool.h>
+#include "./libcs50/counters.h"
 
 /**************** global types ****************/
 typedef struct maze maze_t; // opaque to users of the module
@@ -134,5 +135,7 @@ void maze_delete(maze_t *maze);
 
 //helper function for inserting node's indexes of nodes seen so far into new counterset
 void insert_node(void *arg, const int key, const int count);
+//helper for detecting if there is a loop
+void isloop(void *arg, const int key, const int count);
 
 #endif // __MAZE_H
