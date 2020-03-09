@@ -178,7 +178,7 @@ node_t *get_node(maze_t *maze, int x, int y)
     return NULL;    
 }
 
-/**********getter functions***********/
+/**********getter and setter functions***********/
 
 int get_avatar(node_t *node) {
 	return node->avatar;
@@ -220,6 +220,8 @@ int get_node_index(maze_t *maze, node_t *node) {
 int get_L1_distance(node_t *node1, node_t *node2) {
 	return abs(node1->x - node2->x) + abs(node1->y - node2->y);
 }
+
+/********************************************/
 
 /**************** check_node ****************/
 int check_node_dir(maze_t *maze, node_t *node, int dir) //return an int based on what the node is pointing to
