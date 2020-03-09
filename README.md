@@ -6,6 +6,10 @@
 
 GitHub usernames: jts307, chriscsykes, benmatejka, ssaker18
 
+### Overview
+
+The overall goals of the project are to design, implement and test a client application that simulates players --avatars-- searching for each other in a maze generated and managed by a server. The application should be able to solve mazes of varying difficulty without any prior knowledge. In addition, the application should create a visual user interface and a log file to provide the avatars’ success/failures. 
+
 ### Directory Structure
 The repository is organized as follows:
 
@@ -29,7 +33,7 @@ The repository is organized as follows:
 - Makefile
 
 ### Compiling
-To compile, cd into the project-maze-challenge-we_free directory, and type `make` into the terminal and press enter.
+To compile, cd into the project-maze-challenge-we_free directory, type `make` into the terminal and press enter.
 
 To clean the directory, type `make clean` into the terminal and press enter.
 

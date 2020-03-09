@@ -15,10 +15,23 @@ The following is included in the `source code` directory:
 - priority_queue.c/h
 
 ### Implementation Strategy
-*On piazza, prof said to put the heuristic/method for solving the maze* 
+*On piazza, prof said to put the heuristic/method for solving the maze*
+
+#### AMStartup.c
+Purpose: 
+- AMStartup.c contains the `main` method that validates arguments, establishes a connection with the server, creates a log file, and creates/initializes avatar threads. Each of these threads will run the `avatar_play` method in `avatar.h`. It also closes threads and frees memory when the maze has been solved.  
+
+Input:
+- This function takes its input from the command line. See *compilation and execution* for more info
+
+Output:
+- A log file containg info about the outcome of the avatars in the maze.
+
+Possible Failures:
+- Not aware of any. Program will exit if invalid parameter is passed.
 
 ### Compilation and Execution
-To compile, cd into the project-maze-challenge-we_free directory, and type `make` into the terminal and press enter.
+To compile, cd into the project-maze-challenge-we_free directory, type `make` into the terminal and press enter.
 
 To run the program:
 `./AMStartup.c -n nAvatars -d Difficulty -h Hostname`
@@ -26,3 +39,5 @@ To run the program:
 - nAvatars must be an integer 1-10 inclusive
 - Difficulty must be an integer 0-9 inclusive
 - Hostname must be flume.cs.dartmouth.edu 
+
+To clean the directory, type `make clean` into the terminal and press enter.

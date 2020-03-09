@@ -15,6 +15,10 @@ The user interacts with the program on the command-line, it must always have thr
 
 `./AMStartup -n nAvatars -d Difficulty -h Hostname`
 
+- nAvatars must be an integer 1-10 inclusive
+- Difficulty must be an integer 0-9 inclusive
+- Hostname must be flume.cs.dartmouth.edu 
+
 For example: 
 
 `./AMStartup -n 3 -d 4 -h flume.cs.dartmouth.edu`
@@ -33,8 +37,7 @@ Inputs:
 - Messages from the server including `AM_INIT_OK`, `AM_INIT_FAILED`, etc. These can be found in [amazing.h](amazing.h).
 
 Output(s): 
-- one file to log the actions of all avatars, in the form of:
-- The name will be in the form: Amazing_$USER_N_D.log, where $USER is the current user id, N is the value of nAvatars and D is the value of Difficulty.
+- one file to log the actions of all avatars, in the form of: Amazing_$USER_N_D.log, where $USER is the current user id, N is the value of nAvatars and D is the value of Difficulty.
 - The first line of the file should contain $USER, the `MazePort`, and the date & time.
 - Messages to the server: `AM_INIT` which can be found in [amazing.h](amazing.h).
 
@@ -60,7 +63,7 @@ Outputs:
 We anticipate the following modules or functions:
 
 ##### In AMStartup.c:
-1. *main*, which validates arguments, establishes a connection with the server, creates a log file, and creates/initializes avatar threads.
+1. *main*, which validates arguments, establishes a connection with the server, creates a log file, and creates/initializes avatar threads. Also closes threads and frees memory when the maze has been solved. 
 ##### In amazing_client.c:
 2. *main*, which communicates with the server, sending and receiving messages, initializes data structures and writes to the log file.
 3. *determine_goal*, which determines the goal for an avatar at the beginning of its turn.
@@ -73,7 +76,18 @@ We anticipate the following modules or functions:
 ### Major data structures
 
 ##### In AMStartup.c:
-No major data structures.
+AMStartup initializes the contents of the *Avatar* struct which is passes to the `avatar_play function`. The *Avatar* struct is defined in [Amazing.h](../avatar.h). This struct contains: 
+- `int fd`, for the socket number
+- `XYpos pos`, for the avatar's position
+- `char *program`, for the programs name
+- `int AvatarId`, for the avatars turnId
+- `int nAvatars`
+- `int Difficulty`
+- `char *hostname`
+- `int MazePort`, for the server port containin the maze to be solved
+- `char* logfilename`, for the logfile that the results will be written to
+- `bool endgame`, which keeps track of whether the game is over 
+- `XYPos  avatarsPos[AM_MAX_AVATAR]`, containing an array of pointers to each avatars position
 
 ##### In amazing_client.c:
 
