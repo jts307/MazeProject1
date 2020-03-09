@@ -6,10 +6,6 @@
 
 GitHub usernames: jts307, chriscsykes, benmatejka, ssaker18
 
-To build, run `make`.
-
-To clean up, run `make clean`.
-
 ### Directory Structure
 The repository is organized as follows:
 
@@ -31,3 +27,21 @@ The repository is organized as follows:
 - DESIGN.md
 - README.md
 - Makefile
+
+### Compiling
+To compile, cd into the project-maze-challenge-we_free directory, and type `make` into the terminal and press enter.
+
+To clean the directory, type `make clean` into the terminal and press enter.
+
+### Execution
+To run the program:
+`./AMStartup.c -n nAvatars -d Difficulty -h Hostname`
+
+- nAvatars must be an integer 1-10 inclusive
+- Difficulty must be an integer 0-9 inclusive
+- Hostname must be flume.cs.dartmouth.edu  
+
+### Assumptions
+- If an invalid option or argument is passed, the program will exit and print an error message. It will not continue witha a default value. 
+- The program assumes that flume.cs.dartmouth.edu will send it the correct information to start the game. 
+- Logfiles are created in the format Amazing_$USER_N_D.log, where $USER is the current userid, N is the value of nAvatars and D is the value of Difficulty. If a logfile already exists with this name, that file will be overwritten with the most current run.

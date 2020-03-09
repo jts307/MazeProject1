@@ -88,13 +88,13 @@ main(const int argc, char *argv[]) {
 
 /************************** validate parameters **************************/
 
-  // nAvatars must be an integer less than a set value
+  // nAvatars must be an integer 1-10 inclusive
   if ( nAvatars > AM_MAX_AVATAR || nAvatars < 1 ) {
     fprintf(stderr, "error: the nAvatars must be less than %d, and greater than 0", AM_MAX_AVATAR);
     exit(2);
   }
 
-  // Difficulty must be an integer greater than 0 and less than 10
+  // Difficulty must be an integer 0-9 inclusive
   if ( Difficulty < 0 || Difficulty > 9 ) { 
     fprintf(stderr, "error: Difficulty must be an integer greater than 0 and less than 10");
     exit(3);
