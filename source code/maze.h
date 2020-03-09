@@ -61,8 +61,13 @@ int get_node_x(node_t *node);
 //returns an integer that represents the Y coordinate of a node
 int get_node_y(node_t *node);
 
+/**************** get_node_index ***********/
 int get_node_index(maze_t *maze, node_t *node);
+
+/***************** get_neighbor ************/
 node_t *get_neighbor(maze_t *maze, node_t *node, int dir);
+
+/***************** get_L1_distance **********/
 int get_L1_distance(node_t *node1, node_t *node2);
 
 /**************** check_node ****************/
