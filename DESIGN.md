@@ -109,8 +109,8 @@ The *priority_queue* module provides the *priority_queue* structure…
 - Execute from the command line as show in the User Interface
 - Parse the command line by their flags (-n/d/h) and store the information in variables
 - Validate the parameters (may call on another function to do this). 
-    - -n n Avatars: must be an integer, and less than a set value
-    - -d Difficulty: must be an integer greater than 0 and less than 10
+    - -n n Avatars: must be an integer 1-10 inclusive
+    - -d Difficulty: must be an integer 0-9 inclusive
     - -h Hostname: must be (char *) to flume.cs.dartmouth.edu
 - Send the `AM_INIT` message to the server at the `AM_SERVER_PORT`
     - Use `htonl()` to construct a message in mask the bits of the message in a way that the server can read them. In the message, specify:
@@ -128,13 +128,20 @@ The *priority_queue* module provides the *priority_queue* structure…
   - D is the value of Difficulty.
   - The first line of the file should contain $USER, the `MazePort`, and the date & time.
 - Create N copies of the avatar client (as threads), with the parameters that they need:
-  - `AvatarId`
-  - `nAvatars`
-  - `Difficulty`
-  - Host name or IP address of the server
-  - `MazePort`
-  - Filename of the log the avatar should open for writing in append mode
+  - `int fd`
+  - `XYpos pos`
+  - `char *program`
+  - `int AvatarId`
+  - `int nAvatars`
+  - `int Difficulty`
+  - `char *hostname`
+  - `int MazePort`
+  - `char* logfilename`
+  - `bool endgame`
+  - `XYPos  avatarsPos[AM_MAX_AVATAR]`
   - NOTE: The client program is not really meant to be run by people, so the parameters can be simply positional and required.
+- Use `pthread_join` to wait for threads to end.
+- Use `pthread_exit(0)` to make sure that the main thread doesn't terminate before the avatar threads finish.
 
 #### In amazing_client.c:
 - Extract the maze port, maze height, and maze width from `MazePort` using `ntohl()`
