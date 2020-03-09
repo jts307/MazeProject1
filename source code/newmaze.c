@@ -9,8 +9,8 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include "maze.h"
-#include "counters.h"
-#include "memory.h"
+#include "./libcs50/counters.h"
+#include "./libcs50/memory.h"
 
 /**************** file-local global variables ****************/
 /* none */
@@ -299,40 +299,40 @@ int check_node_dir(maze_t *maze, node_t *node, int dir) //return an int based on
 void further_deduce_connection(node_t *node, maze_t *maze)
 {
     int wallcount = 0; // count of walls next to node
-    if (node->n == wall)
+    if (node->n == maze->wall)
     {
         wallcount++;
     }
-    if (node->e == wall)
+    if (node->e == maze->wall)
     {
         wallcount++;
     }
-    if (node->s == wall)
+    if (node->s == maze->wall)
     {
         wallcount++;
     }
-    if (node->w == wall)
+    if (node->w == maze->wall)
     {
         wallcount++;
     }
     if (wallcount == 2) //if there are two walls, we know the node being pointed to that is unknown must not be a wall!
     {
-        if (node->n == unknown)
+        if (node->n == maze->unknown)
         {
             set_connection(node, maze, 1);                                                           //make a north connection
             further_deduce_connection(get_node(maze, get_node_x(node), get_node_y(node) + 1), maze); //deduce further connections
         }
-        if (node->e = unknown)
+        if (node->e == maze->unknown)
         {
             set_connection(node, maze, 2);                                                           //make a east connection
             further_deduce_connection(get_node(maze, get_node_x(node) + 1, get_node_y(node)), maze); //deduce further connections
         }
-        if (node->s == unknown)
+        if (node->s == maze->unknown)
         {
             set_connection(node, maze, 3);                                                           //make a south connection
             further_deduce_connection(get_node(maze, get_node_x(node), get_node_y(node) - 1), maze); //deduce further connections
         }
-        if (node->w == unknown)
+        if (node->w == maze->unknown)
         {
             set_connection(node, maze, 0);                                                           //make a west connection
             further_deduce_connection(get_node(maze, get_node_x(node) - 1, get_node_y(node)), maze); //deduce further connections
@@ -346,40 +346,40 @@ void further_deduce_connection(node_t *node, maze_t *maze)
 void deduce_connection(node_t *node, maze_t *maze)
 {
     int wallcount = 0; // count of walls next to node
-    if (node->n == wall)
+    if (node->n == maze->wall)
     {
         wallcount++;
     }
-    if (node->e == wall)
+    if (node->e == maze->wall)
     {
         wallcount++;
     }
-    if (node->s == wall)
+    if (node->s == maze->wall)
     {
         wallcount++;
     }
-    if (node->w == wall)
+    if (node->w == maze->wall)
     {
         wallcount++;
     }
     if (wallcount == 3) //if there are three walls, we know the node being pointed to that is unknown must not be a wall!
     {
-        if (node->n == unknown)
+        if (node->n == maze->unknown)
         {
             set_connection(node, maze, 1);                                                           //make a north connection
             further_deduce_connection(get_node(maze, get_node_x(node), get_node_y(node) + 1), maze); //deduce further connections
         }
-        if (node->e = unknown)
+        if (node->e == maze->unknown)
         {
             set_connection(node, maze, 2);                                                           //make a east connection
             further_deduce_connection(get_node(maze, get_node_x(node) + 1, get_node_y(node)), maze); //deduce further connections
         }
-        if (node->s == unknown)
+        if (node->s == maze->unknown)
         {
             set_connection(node, maze, 3);                                                           //make a south connection
             further_deduce_connection(get_node(maze, get_node_x(node), get_node_y(node) - 1), maze); //deduce further connections
         }
-        if (node->w == unknown)
+        if (node->w == maze->unknown)
         {
             set_connection(node, maze, 0);                                                           //make a west connection
             further_deduce_connection(get_node(maze, get_node_x(node) - 1, get_node_y(node)), maze); //deduce further connections
@@ -397,19 +397,19 @@ void check_loopR(node_t *node, maze_t *maze, counters_t *check_for_loop, const i
     }           //add node to nodes traveled so far, stored as index in maze's array of nodes
     //all we are doing is building out the tree based on this assumed connection
     //build out tree
-    if (node->n != wall && node->n != unknown && dir != 3)
+    if (node->n != maze->wall && node->n != maze->unknown && dir != 3)
     {
         check_loopR(node->n, maze, check_for_loop, 1); //1 is north, the direction we moved in, which we will not check backwards when
     }
-    if (node->s != wall && node->s != unknown && dir != 1)
+    if (node->s != maze->wall && node->s != maze->unknown && dir != 1)
     {
         check_loopR(node->s, maze, check_for_loop, 3); //3 is south, the direction we moved in, which we will not check backwards when
     }
-    if (node->e != wall && node->e != unknown && dir != 0)
+    if (node->e != maze->wall && node->e != maze->unknown && dir != 0)
     {
         check_loopR(node->e, maze, check_for_loop, 2); //2 is east, the direction we moved in, which we will not check backwards when
     }
-    if (node->w != wall && node->w != unknown && dir != 2)
+    if (node->w != maze->wall && node->w != maze->unknown && dir != 2)
     {
         check_loopR(node->w, maze, check_for_loop, 0); //0 is west, the direction we moved in, which we will not check backwards when
     }
@@ -419,43 +419,43 @@ bool check_loop(node_t *node, maze_t *maze, counters_t *nodes_so_far, const int 
 {
     //bool status = false; //we will assume there is no loop created by this potential connection
     //however if there is, we will update status to be true, meaning there is a loop created as a result of the assumption
-    counters_t *check_for_loop = new_counterset();
-    cnode_t *iterator;
+    counters_t *check_for_loop = counters_new();
     //add all of nodes from nodes so far into new counterset, since we should not encounter any of them
     //if we do not go in the same direction from a previous iteration (definition of a loop)
     counters_iterate(nodes_so_far, check_for_loop, insert_node);                       //add node to nodes traveled so far, stored as respective index number in maze's array of nodes
     counters_add(check_for_loop, get_index(maze, get_node_x(node), get_node_y(node))); //add node to nodes traveled so far, stored as index in maze's array of nodes
     //all we are doing is building out the tree based on this assumed connection
     //build out tree
-    if (node->n != wall && node->n != unknown && dir != 3)
+    if (node->n != maze->wall && node->n != maze->unknown && dir != 3)
     {
         check_loopR(node->n, maze, check_for_loop, 1); //1 is north, the direction we moved in, which we will not check backwards when
     }
-    if (node->s != wall && node->s != unknown && dir != 1)
+    if (node->s != maze->wall && node->s != maze->unknown && dir != 1)
     {
         check_loopR(node->s, maze, check_for_loop, 3); //3 is south, the direction we moved in, which we will not check backwards when
     }
-    if (node->e != wall && node->e != unknown && dir != 0)
+    if (node->e != maze->wall && node->e != maze->unknown && dir != 0)
     {
         check_loopR(node->e, maze, check_for_loop, 2); //2 is east, the direction we moved in, which we will not check backwards when
     }
-    if (node->w != wall && node->w != unknown && dir != 2)
+    if (node->w != maze->wall && node->w != maze->unknown && dir != 2)
     {
         check_loopR(node->w, maze, check_for_loop, 0); //0 is west, the direction we moved in, which we will not check backwards when
     }
     //interating through the nodes discovered
-    iterator = check_for_loop->head;
-    while (iterator != NULL)
-    {
-        if (iterator->count > 1)
-        {
-            counters_delete(check_for_loop);
-            return true; //there was a loop created as a result of the assumed connection
-        }
-        iterator = iterator->next; //iterate through counterset
-    }
+    //use counters_iterate
+    int *counter = malloc(sizeof(int));
+    *counter = 0;
+    counters_iterate(check_for_loop, counter, isloop);
     counters_delete(check_for_loop);
-    return false //there was no loop
+    count_free(counter);
+    if (*counter == 1)
+    {
+        return true;//loop found!
+    }
+    else{
+        return false;//loop could not be found
+    }
 }
 
 /**************** deduce_wallR ****************/
@@ -471,7 +471,7 @@ void deduce_wallR(node_t *node, maze_t *maze, counters_t *nodes_so_far, const in
     //treated as a connection
     //dir denotes the direction we just traveled in, which we do not want to interate to because
     //we will end up in an infinite loop of iterating back and forth
-    if (node->n == unknown && dir != 3)
+    if (node->n == maze->unknown && dir != 3)
     {
         try_connection(node, maze, 1);
         if (check_loop(node->n, maze, nodes_so_far, 1))
@@ -480,10 +480,10 @@ void deduce_wallR(node_t *node, maze_t *maze, counters_t *nodes_so_far, const in
         }
         else
         {
-            reset_to_unknown(node, maze, 1);
+            set_unknown(node, maze, 1);
         }
     }
-    if (node->s == unknown && dir != 1)
+    if (node->s == maze->unknown && dir != 1)
     {
         try_connection(node, maze, 3);
         if (check_loop(node->s, maze, nodes_so_far, 3))
@@ -492,10 +492,10 @@ void deduce_wallR(node_t *node, maze_t *maze, counters_t *nodes_so_far, const in
         }
         else
         {
-            reset_to_unknown(node, maze, 3);
+            set_unknown(node, maze, 3);
         }
     }
-    if (node->e == unknown && dir != 0)
+    if (node->e == maze->unknown && dir != 0)
     {
         try_connection(node, maze, 2);
         if (check_loop(node->e, maze, nodes_so_far, 2))
@@ -504,10 +504,10 @@ void deduce_wallR(node_t *node, maze_t *maze, counters_t *nodes_so_far, const in
         }
         else
         {
-            reset_to_unknown(node, maze, 2);
+            set_unknown(node, maze, 2);
         }
     }
-    if (node->w == unknown && dir != 2)
+    if (node->w == maze->unknown && dir != 2)
     {
         try_connection(node, maze, 0);
         if (check_loop(node->w, maze, nodes_so_far, 0))
@@ -516,25 +516,25 @@ void deduce_wallR(node_t *node, maze_t *maze, counters_t *nodes_so_far, const in
         }
         else
         {
-            reset_to_unknown(node, maze, 0);
+            set_unknown(node, maze, 0);
         }
     }
-    if (node->n != wall && node->n != unknown && dir != 3)
+    if (node->n != maze->wall && node->n != maze->unknown && dir != 3)
     {
         deduce_wallR(node->n, maze, nodes_so_far, 1); //1 is north, the direction we moved in, which we will not check backwards when
         //interating through the maze
     }
-    if (node->s != wall && node->s != unknown && dir != 1)
+    if (node->s != maze->wall && node->s != maze->unknown && dir != 1)
     {
         deduce_wallR(node->s, maze, nodes_so_far, 3); //3 is south, the direction we moved in, which we will not check backwards when
         //interating through the maze
     }
-    if (node->e != wall && node->e != unknown && dir != 0)
+    if (node->e != maze->wall && node->e != maze->unknown && dir != 0)
     {
         deduce_wallR(node->e, maze, nodes_so_far, 2); //2 is east, the direction we moved in, which we will not check backwards when
         //interating through the maze
     }
-    if (node->w != wall && node->w != unknown && dir != 2)
+    if (node->w != maze->wall && node->w != maze->unknown && dir != 2)
     {
         deduce_wallR(node->w, maze, nodes_so_far, 0); //0 is west, the direction we moved in, which we will not check backwards when
         //interating through the maze
@@ -559,7 +559,7 @@ void deduce_wall(node_t *node, maze_t *maze)
     //the bottom 'leaves' will be either unknown or a wall
     //recursiveley build out in DFS fashion!
     //the counterset will hold the index's of each node
-    if (node->n == unknown)
+    if (node->n == maze->unknown)
     {
         try_connection(node, maze, 1);
         if (check_loop(node->n, maze, nodes_so_far, 1))
@@ -568,10 +568,10 @@ void deduce_wall(node_t *node, maze_t *maze)
         }
         else
         {
-            reset_to_unknown(node, maze, 1);
+            set_unknown(node, maze, 1);
         }
     }
-    if (node->s == unknown)
+    if (node->s == maze->unknown)
     {
         try_connection(node, maze, 3);
         if (check_loop(node->s, maze, nodes_so_far, 3))
@@ -580,10 +580,10 @@ void deduce_wall(node_t *node, maze_t *maze)
         }
         else
         {
-            reset_to_unknown(node, maze, 3);
+            set_unknown(node, maze, 3);
         }
     }
-    if (node->e == unknown)
+    if (node->e == maze->unknown)
     {
         try_connection(node, maze, 2);
         if (check_loop(node->e, maze, nodes_so_far, 2))
@@ -592,10 +592,10 @@ void deduce_wall(node_t *node, maze_t *maze)
         }
         else
         {
-            reset_to_unknown(node, maze, 2);
+            set_unknown(node, maze, 2);
         }
     }
-    if (node->w == unknown)
+    if (node->w == maze->unknown)
     {
         try_connection(node, maze, 0);
         if (check_loop(node->w, maze, nodes_so_far, 0))
@@ -604,25 +604,25 @@ void deduce_wall(node_t *node, maze_t *maze)
         }
         else
         {
-            reset_to_unknown(node->n, maze, 0);
+            set_unknown(node->n, maze, 0);
         }
     }
-    if (node->n != wall && node->n != unknown)
+    if (node->n != maze->wall && node->n != maze->unknown)
     {
         deduce_wallR(node->n, maze, nodes_so_far, 1); //1 is north, the direction we moved in, which we will not check backwards when
         //interating through the maze
     }
-    if (node->s != wall && node->s != unknown)
+    if (node->s != maze->wall && node->s != maze->unknown)
     {
         deduce_wallR(node->s, maze, nodes_so_far, 3); //3 is south, the direction we moved in, which we will not check backwards when
         //interating through the maze
     }
-    if (node->e != wall && node->e != unknown)
+    if (node->e != maze->wall && node->e != maze->unknown)
     {
         deduce_wallR(node->e, maze, nodes_so_far, 2); //2 is east, the direction we moved in, which we will not check backwards when
         //interating through the maze
     }
-    if (node->w != wall && node->w != unknown)
+    if (node->w != maze->wall && node->w != maze->unknown)
     {
         deduce_wallR(node->w, maze, nodes_so_far, 0); //0 is west, the direction we moved in, which we will not check backwards when
         //interating through the maze
@@ -801,8 +801,8 @@ void set_unknown(node_t *node, maze_t *maze, const int dir) //dir will indicate 
         otherY = node->y - 1;
         indexInArr = otherX + otherY * maze->W;
         otherNode = maze->maze_nodes[indexInArr];
-        node->n = unknown;
-        otherNode->s = unknown;
+        node->n = maze->unknown;
+        otherNode->s = maze->unknown;
         //set corresponding unknown on other node
     }
     if (dir == 2) //set unknown at east node
@@ -811,8 +811,8 @@ void set_unknown(node_t *node, maze_t *maze, const int dir) //dir will indicate 
         otherY = node->y;
         indexInArr = otherX + otherY * maze->W;
         otherNode = maze->maze_nodes[indexInArr];
-        node->e = unknown;
-        otherNode->w = unknown;
+        node->e = maze->unknown;
+        otherNode->w = maze->unknown;
         //set corresponding unknown on other node
     }
     if (dir == 3) //set unknown at south node
@@ -821,8 +821,8 @@ void set_unknown(node_t *node, maze_t *maze, const int dir) //dir will indicate 
         otherY = node->y + 1;
         indexInArr = otherX + otherY * maze->W;
         otherNode = maze->maze_nodes[indexInArr];
-        node->s = unknown;
-        otherNode->n = unknown;
+        node->s = maze->unknown;
+        otherNode->n = maze->unknown;
         //set corresponding unknown on other node
     }
     if (dir == 0) //set unknown at west node
@@ -831,8 +831,8 @@ void set_unknown(node_t *node, maze_t *maze, const int dir) //dir will indicate 
         otherY = node->y;
         indexInArr = otherX + otherY * maze->W;
         otherNode = maze->maze_nodes[indexInArr];
-        node->w = unknown;
-        otherNode->e = unknown;
+        node->w = maze->unknown;
+        otherNode->e = maze->unknown;
         //set corresponding unknown on other node
     }
 }
@@ -860,6 +860,15 @@ void maze_delete(maze_t *maze)
 //helper function for inserting node's indexes of nodes seen so far into new counterset
 void insert_node(void *arg, const int key, const int count)
 {
-    counters_t toInsertInto = arg;
+    counters_t *toInsertInto = arg;
     counters_add(toInsertInto, key);
+}
+
+void isloop(void *arg, const int key, const int count)
+{
+    int *counter = arg;
+    if (count > 1)
+    {
+        *counter = 1;
+    }
 }
