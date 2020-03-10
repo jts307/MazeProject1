@@ -27,6 +27,8 @@
 #include "amazing.h"          // for communicating with server
 #include "getopt.h"           // to parse command line by options
 #include "avatar.h"           // contains function to store avatar info
+#include "maze.h"
+#include "memory.h"
 
 /**************** file-local constants ****************/
 #define BUFSIZE 1024     // read/write buffer size
@@ -91,14 +93,14 @@ main(const int argc, char *argv[]) {
 
 /************************** validate parameters **************************/
 
-  // nAvatars must be an integer 1-10 inclusive
-  if ( nAvatars > AM_MAX_AVATAR || nAvatars < 1 ) {
-    fprintf(stderr, "error: the nAvatars must be less than %d, and greater than 0", AM_MAX_AVATAR);
+  // nAvatars must be an integer less than a set value
+  if ( nAvatars > AM_MAX_AVATAR ) {
+    fprintf(stderr, "error: the nAvatars must be less than %d", AM_MAX_AVATAR);
     exit(2);
   }
 
-  // Difficulty must be an integer 0-9 inclusive
-  if ( Difficulty < 0 || Difficulty > 9 ) { 
+  // Difficulty must be an integer greater than 0 and less than 10
+  if ( Difficulty < 0 || Difficulty >= 10 ) { 
     fprintf(stderr, "error: Difficulty must be an integer greater than 0 and less than 10");
     exit(3);
   }
@@ -206,12 +208,18 @@ main(const int argc, char *argv[]) {
   pthread_t avatars[nAvatars];    // an array of threads
   int num_threads = 0;            // keep track of number of threads
   int iret1;
-  Avatar *avatar; 
+  Avatar *avatar;                 // initializing avatar
+  maze_t *maze=maze_new(MazeHeight, MazeWidth);  // initializing maze structure
+  assertp(maze, "Failure to allocate memory for maze struct");
 
+  // locks used by avatars
+  pthread_mutex_t mutex1 = PTHREAD_MUTEX_INITIALIZER;   
+  pthread_mutex_t mutex2 = PTHREAD_MUTEX_INITIALIZER;
+  
   for ( int i = 0; i < nAvatars; i++ ) {
 
     // initialize the contents of the avatar struct
-    avatar = avatar_new(program, i, nAvatars, Difficulty, Hostname, MazePort, logfile, comm_sock);
+    avatar = avatar_new(program, i, nAvatars, Difficulty, Hostname, MazePort, logfile, comm_sock, maze, &mutex1, &mutex2);
 
     // create a thread for the avatar
     iret1 = pthread_create(&avatars[i], NULL, avatar_play, avatar);
@@ -225,10 +233,9 @@ main(const int argc, char *argv[]) {
       exit(iret1);
     }
   }
-
   // detatch threads to get rid of warning in valgrind 
   for ( int i = 0; i < nAvatars; i++ ) {
-    if ( pthread_detach(avatars[i]) == 0 ) {
+    if ( pthread_join(avatars[i], NULL) == 0 ) {
     }
     else {
       fprintf(stderr, "error: could not detatch avatar thread");
