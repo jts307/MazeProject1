@@ -17,7 +17,7 @@
  * mallocs space for the new avatar struct and returns NULL if it couldnt not be malloc'd otherwise
  *  it returns the new Avatar struct 
  */ 
-Avatar *avatar_new(char* p, int aID, int nAv, int diff, char *host, int mPort, char* log, int sock); 
+Avatar *avatar_new(char* p, int aID, int nAv, int diff, char *host, int mPort, char* log, int sock, maze_t *maze, pthread_mutex_t *mutex1, pthread_mutex_t *mutex2); 
 
 /******** avatar_play *******
  * the main program that every thread runs 
