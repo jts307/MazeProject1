@@ -334,6 +334,7 @@ void* avatar_play(void *avatar_p)
 		 // then give its previous place the highest priority in the queue of possible destinations
                  priority_queue_insert(maybeVisit, startNeighbor, get_L1_distance(startNeighbor, goal)+2000);	
 		 back_tracked=0;
+		 trap=15;
 	       // otherwise give the direction higher priority in the queue
 	       } else {
                  priority_queue_insert(maybeVisit, startNeighbor, get_L1_distance(startNeighbor, goal)+1000);	       
@@ -627,7 +628,6 @@ static void make_move(Avatar *avatar, AM_Message resp, int direction, maze_t *ma
     avatar->goals[avatar->nAvatars] = 0;
   }
   for (int i=0; i < avatar->nAvatars; i++) {
-    printf("x=%d, y=%d", avatar->avatarsPos[i].x, avatar->avatarsPos[i].y);
     if ((avatar->pos.x == avatar->avatarsPos[i].x) && (avatar->pos.y == avatar->avatarsPos[i].y)) {
       avatar->goals[i] = 0;
       if (avatar->AvatarId > i) {
