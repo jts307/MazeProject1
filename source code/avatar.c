@@ -335,7 +335,7 @@ void* avatar_play(void *avatar_p)
 		 avatar->trap=get_width(avatar->maze)/2;
 	       // otherwise give the direction higher priority in the queue
 	       } else {
-                 priority_queue_insert(maybeVisit, startNeighbor, get_L1_distance(startNeighbor, goal)+1000);	       
+                 priority_queue_insert(maybeVisit, startNeighbor, get_L1_distance(startNeighbor, goal) + get_width(avatar->maze));	       
 	       }
 	     } 
 	  }
