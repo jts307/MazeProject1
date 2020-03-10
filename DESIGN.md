@@ -57,11 +57,9 @@ We anticipate the following modules or functions:
 1. *main*, which validates arguments, establishes a connection with the server, creates a log file, and creates/initializes avatar threads.
 ##### In avatar.c:
 2. *avatar_play*, which communicates with the server, sending and receiving messages, initializes data structures and writes to the log file. It also determines each avatar's move, checks when the game is over and frees allocated memory and closes the socket when finished. *avatar_play* is concurrently run by every thread. 
-3. *determine_goal*, which determines the goal for an avatar at the beginning of its turn.
-4. *calculate_next_move*, which determines, based on an avatar’s current position and heuristics, which move, north, south, west or east, is best.
-5. *maze* module, which defines the maze structure and its methods.
-6. *priority_queue* module, which defines the priority queue structure and its methods.
-7. *graphics* module, which contains all functions needed to display the ASCII UI.
+3. *maze* module, which defines the maze structure and its methods.
+4. *priority_queue* module, which defines the priority queue structure and its methods.
+5. *graphics* module, which contains all functions needed to display the ASCII UI.
 
 
 ### Major data structures
@@ -74,13 +72,15 @@ No major data structures.
 The *maze* module provides two structures, the maze and the node…
 
 
-*node*, a structure that represents a one by one square within the maze that will be solved. A *node* contains x and y coordinates representing its position on the maze grid and four cardinal direction variables that represent up to each of four neighbor maze squares. The direction variables will have four states: a state that indicates there is a connection to a node in that direction, a state that indicates there is no such connection i.e. there is a wall, a state that indicates the status of such a connection is unknown, and a state that indicates the connection is being explored by an avatar.
+*node*, a structure that represents a one by one square within the maze that will be solved. A *node* contains x and y coordinates representing its position on the maze grid and four cardinal direction variables that represent up to each of four neighbor maze squares. The direction variables will have three states: a state that indicates there is a connection to a node in that direction, a state that indicates there is no such connection i.e. there is a wall, and a state that indicates the status of such a connection is unknown.
 
 *maze*, a structure that represents a maze that will be solved. A *maze* is a collection of *node* structures, with the number of nodes being equal to the number of one by one spaces within a maze, each node being representative of a one by one space within a maze grid. *Nodes* within a *maze* structure will always be initialized with their respective x and y coordinates, and a status of unknown for their cardinal direction variables except in the case of the border *nodes*. The border *nodes*, those *nodes* representing spaces on the border of the maze grid, will have their cardinal direction variables that face outward from the center of the maze have a state indicating there is a wall. The unknown variables will have their statuses updated as the avatars navigate through the maze gathering more information. The maze structure will always form a tree, so if any predictions as to whether or not a connection must exist can be made the maze structure will make them.
 
 The *priority_queue* module provides the *priority_queue* structure…
 
-*priority_queue*, a structure that starts out empty and grows as (item, integer) pairs are added to it one at a time. Each item is given a priority in the queue based off of the passed integer, lower integers are given higher priority. Items are extracted, i.e. removed from the queue and returned to a caller, one at a time and the item with the current highest priority in the queue is always extracted. The item with the highest priority can be returned to a caller without removing it from the queue. Each item within the queue must be unique, and the priority for an item can be changed if needed.
+*priority_queue*, a structure that starts out empty and grows as (item, integer) pairs are added to it one at a time. Each item is given a priority in the queue based off of the passed integer, lower integers have lower priority. Items are extracted, i.e. removed from the queue and returned to a caller, one at a time and the item with the current lowest priority in the queue is always extracted. The item with the lowest priority can be returned to a caller without removing it from the queue. 
+
+The *counters* module provides the *counters* structure.
 
 ### Pseudo code for logic/algorithmic flow
 
@@ -117,8 +117,6 @@ The *priority_queue* module provides the *priority_queue* structure…
   - `char *hostname`
   - `int MazePort`
   - `char* logfilename`
-  - `bool endgame`
-  - `XYPos  avatarsPos[AM_MAX_AVATAR]`
   - NOTE: The client program is not really meant to be run by people, so the parameters can be simply positional and required.
 - Use `pthread_join` to wait for threads to end.
 - Use `pthread_exit(0)` to make sure that the main thread doesn't terminate before the avatar threads finish.
@@ -147,15 +145,10 @@ The *priority_queue* module provides the *priority_queue* structure…
     - Write to the log file indicating that this avatar was inserted at its current position.
     - Initialize a priority queue for the avatar’s possible goals. 
     - Calculate the average of all the avatars’ (x,y) positions to find an approximate center point.
-    - Insert the *nodes* associated with the center point, and each of the other avatars’ positions into the priority queue with an integer value equal to each node’s L1 distance from this thread’s avatar node.
+    - Insert the *nodes* associated with the center point, and each of the other avatars’ positions into the priority queue with an integer value equal to each node’s L1 distance from this thread’s avatar node if unknown, if known with L1 distance plus a large number.
     - View a node from the priority queue and set this as this avatar’s goal.
-    - Set this avatar’s leader status to true.
   - If `TurnID` equals this thread’s `AvatarId` then…
     - Update all avatar positions in the destinations priority queue according to the Avatar Positions received.
-    - If the last avatar that moved position was not updated then...
-      - Within the maze structure, update the directions that have states of ‘being explored by an avatar’ to states of ‘no connection’.
-      - Within the maze structure, update all directions that must exist given the new state of 'no connection' and the fact all places in the maze are accessible.
-      - Write to the log file indicating that the last avatar ran into a wall.
     - If the last avatar that moved position was updated then...
       - Within the maze structure, update the directions that have states of ‘being explored by an avatar’ to states of ‘there is a connection’.
       - Write to the log file indicating that the last avatar who moved location.
@@ -182,6 +175,8 @@ The *priority_queue* module provides the *priority_queue* structure…
         - Set next move to the direction that this node is in.
     - Else set next move the avatar will make to `M_NULL_MOVE` i.e. it will not make a move.
     - Encode the next move and `AvatarId` into `AM_AVATAR_MOVE` using `htonl()` and send this message to the server.
+    - Within the maze structure, update the direction that was explored to its state given information recieved back from server.
+    - Within the maze structure, update all directions that must exist given a new state of 'no connection' and the fact all places in the maze are accessible.
 - If any of the exit conditions occur, do any necessary clean up: close the log file and free any memory used by the *maze/priority queue* structures and close sockets. 
 
 ### Dataflow through modules
@@ -189,12 +184,11 @@ The *priority_queue* module provides the *priority_queue* structure…
 - Only one function, *main*, which validates arguments, establishes a connection with the server, creates a log file, and creates/initializes avatar threads.  
 #### In avatar.c:
 1. *Avatar_play* will take the Avatar struct argument from *AM_Startup.c*. It will then wait for a message from the server.
-2. If the message received is `AM_AVATAR_TURN` then *main* calls methods from the *maze* module which will handle all logic that pertains to updating nodes within the maze structure and guessing which directions must exist. The *maze* functions will return control to *main*.
+2. If the message received is `AM_AVATAR_TURN` then *avatar_play* calls methods from the *maze* module which will handle all logic that pertains to updating nodes within the maze structure and guessing which directions must exist. The *maze* functions will return control to *avatar_play*.
 3. *avatar_play* will write any updates of the avatars’ positions to the log file.
-4. *avatar_play* will call functions from the *graphics* module, two to be exact. One will draw to standard output the current maze structure and another will draw the avatars within that maze structure. They both will return control to *main*.
-5. *main* then calls the *determine_goal* function which will find the closest node out of the other avatars and center point, and set that as an avatar’s goal node. After this, the function returns control to *main*.
-6. *main* then calls *calculate_next_move* which will calculate an avatar’s next ‘best’ move given an avatar, its goal node and the maze structure. This returns control to *main*, which sends this best move to the server.
-7. If *avatar_play* receives any error messages or `AM_MAZE_SOLVED`, it will do any necessary clean up to free up memory used by the priority queues and maze structures, and close the log file. 
+4. *avatar_play* will call a function from the *graphics* module. It will draw to standard output the current maze structure and the avatars within that maze structure. This will return control to *avatar_play*.
+5. *avatar_play* then will find the closest node out of the other avatars and center point, and set that as an avatar’s goal node. Then it will calculate an avatar's next ‘best’ move given an avatar, its goal node and the maze structure.
+6. If *avatar_play* receives any error messages or `AM_MAZE_SOLVED`, it will do any necessary clean up to free up memory used by the priority queues and maze structures, and close the log file. 
 
 ### Testing Plan
 #### *Unit Testing*
