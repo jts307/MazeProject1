@@ -4,7 +4,8 @@
  * Handles the startup process, validating parameters, 
  * creating a connection to the server, creating a log 
  * file, and starting up threads with the parameters
- * they need. 
+ * they need. This fuction also makes sure that the program 
+ * doesn't terminate until each thread is finished.
  * 
  * usage: ./AMStartup -n nAvatars -d Difficulty -h Hostname 
  * 
@@ -38,7 +39,9 @@
  *  and that is main(). Main validates parameters, 
  *  creates a connection to the server, creates a 
  *  log file, and starts up threads, passing them 
- *  the parameters that they need. 
+ *  the parameters that they need. Main also makes
+ *  sure that the program doesn't terminate until
+ *  each thread is finished
  * 
  * Input:
  *  This function takes its input from the command
@@ -91,13 +94,13 @@ main(const int argc, char *argv[]) {
 /************************** validate parameters **************************/
 
   // nAvatars must be an integer less than a set value
-  if ( nAvatars > AM_MAX_AVATAR ) {
+  if ( nAvatars > AM_MAX_AVATAR || nAvatars < 1 ) {
     fprintf(stderr, "error: the nAvatars must be less than %d", AM_MAX_AVATAR);
     exit(2);
   }
 
   // Difficulty must be an integer greater than 0 and less than 10
-  if ( Difficulty < 0 || Difficulty >= 10 ) { 
+  if ( Difficulty < 0 || Difficulty > 9 ) { 
     fprintf(stderr, "error: Difficulty must be an integer greater than 0 and less than 10");
     exit(3);
   }
@@ -202,10 +205,10 @@ main(const int argc, char *argv[]) {
   // first close the old socket
   close(comm_sock);
 
-  pthread_t avatars[nAvatars];    // an array of threads
-  int num_threads = 0;            // keep track of number of threads
+  pthread_t avatars[nAvatars];                  // an array of threads
+  int num_threads = 0;                          // keep track of number of threads
   int iret1;
-  Avatar *avatar;                 // initializing avatar
+  Avatar *avatar;                                // initializing avatar
   maze_t *maze=maze_new(MazeHeight, MazeWidth);  // initializing maze structure
   assertp(maze, "Failure to allocate memory for maze struct");
 
@@ -230,7 +233,7 @@ main(const int argc, char *argv[]) {
       exit(iret1);
     }
   }
-  // detatch threads to get rid of warning in valgrind 
+  // get rid of warning in valgrind by waiting for threads to finish
   for ( int i = 0; i < nAvatars; i++ ) {
     if ( pthread_join(avatars[i], NULL) == 0 ) {
     }
