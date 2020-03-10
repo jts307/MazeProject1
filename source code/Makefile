@@ -1,8 +1,6 @@
-# Makefile for 'bag' module
+# Makefile for 'AMStartup' program
 #
-# David Kotz, April 2016, 2017
-# updated by Xia Zhou, July 2016, 2018, January 2019
-# updated by Temi Prioleau, January 2020
+# we_free, cs50, Winter 2020
 
 PROG = AMStartup
 OBJS = graphics.o maze.o priority_queue.o avatar.o AMStartup.o
@@ -16,6 +14,7 @@ CC = gcc
 MAKE = make
 
 $(PROG): $(OBJS)
+	make -C libcs50
 	$(CC) $(CFLAGS) $^ $(LIBS) -o $@
 
 AMStartup.o: libcs50/memory.h avatar.h amazing.h
@@ -24,13 +23,9 @@ graphics.o: maze.h graphics.h
 maze.o: libcs50/memory.h maze.h
 priority_queue.o: libcs50/memory.h priority_queue.h
 
-.PHONY: test clean
-
-test: $(PROG) test_names
-	./$(PROG) < test_names
+.PHONY: clean
 
 clean:
 	rm -f *~ *.o *.dSYM
 	rm -f $(PROG)
 	rm -f stocks
-
