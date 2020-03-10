@@ -21,7 +21,9 @@
 
 // ---------------- Prerequisites e.g., Requires "math.h"
 #include <stdint.h>                          // uint32_t
-#include <stdbool.h> 
+#include <stdbool.h>
+#include <pthread.h> 
+#include "maze.h"
 
 // ---------------- Constants
 /* Server parameters */
@@ -82,10 +84,15 @@ typedef struct Avatar
     int Difficulty;   // maze level
     char *hostname;   // server hostname
     int MazePort;	  // server port
-    char* logfilename;//log file 
-    bool endgame;      //if the game is over or not 
-    XYPos  avatarsPos[AM_MAX_AVATAR]; 
-
+    char* logfilename;//log file
+    maze_t *maze;	// shared maze between avatars
+    int *goals; 
+    int leader;	// avatar leading this avatar, -1 if noone
+    int centerX;
+    int centerY;
+    pthread_mutex_t *mutex1;
+    pthread_mutex_t *mutex2;
+    XYPos *avatarsPos; 
 } Avatar;
 
 /* AM Message description */
@@ -158,7 +165,7 @@ typedef struct AM_Message
 } AM_Message;
 
 // ---------------- Public Variables
-/* add your variables here if any*/
+
 
 // ---------------- Prototypes/Macros
 #define IS_AM_ERROR(code) ((code) & (AM_ERROR_MASK))
