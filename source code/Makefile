@@ -1,13 +1,9 @@
-<<<<<<< HEAD
 # Makefile for AMStartup module
 # CS50 Final Project
 # Team we_free 
-
-=======
 # Makefile for 'AMStartup' program
 #
 # we_free, cs50, Winter 2020
->>>>>>> f3e5930bece396a89b894c8a03c31bdd50ba9ac8
 
 PROG = AMStartup
 OBJS = graphics.o maze.o priority_queue.o avatar.o AMStartup.o
