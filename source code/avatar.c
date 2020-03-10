@@ -68,7 +68,8 @@ void* avatar_play(void *avatar_p)
   pthread_mutex_t *mutex1 = avatar->mutex1;
   int a = 1; 
   void *p = (void*)&a;
-  
+  int trap=0;
+
   // how many times did this avatar repeat a move.
   int back_tracked=0;
 
@@ -325,16 +326,14 @@ void* avatar_play(void *avatar_p)
 	     }
 	     // if their were still unknowns along this direction and it is a connection
 	     if (unknowns != 0 && directionState == 3) {
+	       if (trap > 0) {
+		 trap--;
+	         priority_queue_insert(maybeVisit, startNeighbor, get_L1_distance(startNeighbor, goal)+2000);
 	       // if the avatar has backtracked a few times
-	       if ((pervSpot == startNeighbor) && (back_tracked >= 3)) {
-		  // then give its previous place the highest priority in the queue of possible destinations
-                  priority_queue_insert(maybeVisit, startNeighbor, get_L1_distance(startNeighbor, goal)+2000);	
-		  back_tracked++;
-	       } else if (back_tracked >= 4) {
-		   back_tracked++;  
-                   priority_queue_insert(maybeVisit, startNeighbor, get_L1_distance(startNeighbor, goal)+2000);	
-	       } else if (back_tracked >= 8) {
-		   back_tracked=0;
+	       } else if ((pervSpot == startNeighbor) && (back_tracked >= 3)) {
+		 // then give its previous place the highest priority in the queue of possible destinations
+                 priority_queue_insert(maybeVisit, startNeighbor, get_L1_distance(startNeighbor, goal)+2000);	
+		 back_tracked=0;
 	       // otherwise give the direction higher priority in the queue
 	       } else {
                  priority_queue_insert(maybeVisit, startNeighbor, get_L1_distance(startNeighbor, goal)+1000);	       
@@ -638,3 +637,4 @@ static void make_move(Avatar *avatar, AM_Message resp, int direction, maze_t *ma
     }
   }
 }
+

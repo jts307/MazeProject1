@@ -1,0 +1,2023 @@
+$jts 37249 Tue Mar 10 01:39:48 2020
+Inserted avatar 0 at 13,26
+Avatar locations: 0: (13, 26); 
+Inserted avatar 1 at 17,9
+Avatar locations: 0: (13, 26); 1: (17, 9); 
+Inserted avatar 2 at 34,9
+Avatar locations: 0: (13, 26); 1: (17, 9); 2: (34, 9); 
+Inserted avatar 3 at 19,17
+Avatar locations: 0: (13, 26); 1: (17, 9); 2: (34, 9); 3: (19, 17); 
+Avatar 0 moved from 13,26 to 13,25
+Avatar locations: 0: (13, 25); 1: (17, 9); 2: (34, 9); 3: (19, 17); 
+avatar 1 ran into east wall at 17,9
+Avatar locations: 0: (13, 25); 1: (17, 9); 2: (34, 9); 3: (19, 17); 
+Avatar 2 moved from 34,9 to 33,9
+Avatar locations: 0: (13, 25); 1: (17, 9); 2: (33, 9); 3: (19, 17); 
+Avatar 3 moved from 19,17 to 19,16
+Avatar locations: 0: (13, 25); 1: (17, 9); 2: (33, 9); 3: (19, 16); 
+Avatar 0 moved from 13,25 to 13,24
+Avatar locations: 0: (13, 24); 1: (17, 9); 2: (33, 9); 3: (19, 16); 
+avatar 1 ran into south wall at 17,9
+Avatar locations: 0: (13, 24); 1: (17, 9); 2: (33, 9); 3: (19, 16); 
+Avatar 2 moved from 33,9 to 32,9
+Avatar locations: 0: (13, 24); 1: (17, 9); 2: (32, 9); 3: (19, 16); 
+Avatar 3 moved from 19,16 to 19,15
+Avatar locations: 0: (13, 24); 1: (17, 9); 2: (32, 9); 3: (19, 15); 
+Avatar 0 moved from 13,24 to 13,23
+Avatar locations: 0: (13, 23); 1: (17, 9); 2: (32, 9); 3: (19, 15); 
+Avatar 1 moved from 17,9 to 16,9
+Avatar locations: 0: (13, 23); 1: (16, 9); 2: (32, 9); 3: (19, 15); 
+avatar 2 ran into west wall at 32,9
+Avatar locations: 0: (13, 23); 1: (16, 9); 2: (32, 9); 3: (19, 15); 
+avatar 3 ran into east wall at 19,15
+Avatar locations: 0: (13, 23); 1: (16, 9); 2: (32, 9); 3: (19, 15); 
+avatar 0 ran into north wall at 13,23
+Avatar locations: 0: (13, 23); 1: (16, 9); 2: (32, 9); 3: (19, 15); 
+Avatar 1 moved from 16,9 to 16,10
+Avatar locations: 0: (13, 23); 1: (16, 10); 2: (32, 9); 3: (19, 15); 
+avatar 2 ran into south wall at 32,9
+Avatar locations: 0: (13, 23); 1: (16, 10); 2: (32, 9); 3: (19, 15); 
+avatar 3 ran into west wall at 19,15
+Avatar locations: 0: (13, 23); 1: (16, 10); 2: (32, 9); 3: (19, 15); 
+Avatar 0 moved from 13,23 to 14,23
+Avatar locations: 0: (14, 23); 1: (16, 10); 2: (32, 9); 3: (19, 15); 
+avatar 1 ran into east wall at 16,10
+Avatar locations: 0: (14, 23); 1: (16, 10); 2: (32, 9); 3: (19, 15); 
+Avatar 2 moved from 32,9 to 32,8
+Avatar locations: 0: (14, 23); 1: (16, 10); 2: (32, 8); 3: (19, 15); 
+Avatar 3 moved from 19,15 to 19,14
+Avatar locations: 0: (14, 23); 1: (16, 10); 2: (32, 8); 3: (19, 14); 
+avatar 0 ran into north wall at 14,23
+Avatar locations: 0: (14, 23); 1: (16, 10); 2: (32, 8); 3: (19, 14); 
+avatar 1 ran into south wall at 16,10
+Avatar locations: 0: (14, 23); 1: (16, 10); 2: (32, 8); 3: (19, 14); 
+avatar 2 ran into west wall at 32,8
+Avatar locations: 0: (14, 23); 1: (16, 10); 2: (32, 8); 3: (19, 14); 
+Avatar 3 moved from 19,14 to 20,14
+Avatar locations: 0: (14, 23); 1: (16, 10); 2: (32, 8); 3: (20, 14); 
+Avatar 0 moved from 14,23 to 15,23
+Avatar locations: 0: (15, 23); 1: (16, 10); 2: (32, 8); 3: (20, 14); 
+Avatar 1 moved from 16,10 to 15,10
+Avatar locations: 0: (15, 23); 1: (15, 10); 2: (32, 8); 3: (20, 14); 
+Avatar 2 moved from 32,8 to 32,7
+Avatar locations: 0: (15, 23); 1: (15, 10); 2: (32, 7); 3: (20, 14); 
+avatar 3 ran into south wall at 20,14
+Avatar locations: 0: (15, 23); 1: (15, 10); 2: (32, 7); 3: (20, 14); 
+avatar 0 ran into north wall at 15,23
+Avatar locations: 0: (15, 23); 1: (15, 10); 2: (32, 7); 3: (20, 14); 
+Avatar 1 moved from 15,10 to 15,11
+Avatar locations: 0: (15, 23); 1: (15, 11); 2: (32, 7); 3: (20, 14); 
+avatar 2 ran into west wall at 32,7
+Avatar locations: 0: (15, 23); 1: (15, 11); 2: (32, 7); 3: (20, 14); 
+Avatar 3 moved from 20,14 to 20,13
+Avatar locations: 0: (15, 23); 1: (15, 11); 2: (32, 7); 3: (20, 13); 
+Avatar 0 moved from 15,23 to 16,23
+Avatar locations: 0: (16, 23); 1: (15, 11); 2: (32, 7); 3: (20, 13); 
+avatar 1 ran into east wall at 15,11
+Avatar locations: 0: (16, 23); 1: (15, 11); 2: (32, 7); 3: (20, 13); 
+Avatar 2 moved from 32,7 to 32,6
+Avatar locations: 0: (16, 23); 1: (15, 11); 2: (32, 6); 3: (20, 13); 
+Avatar 3 moved from 20,13 to 19,13
+Avatar locations: 0: (16, 23); 1: (15, 11); 2: (32, 6); 3: (19, 13); 
+avatar 0 ran into north wall at 16,23
+Avatar locations: 0: (16, 23); 1: (15, 11); 2: (32, 6); 3: (19, 13); 
+Avatar 1 moved from 15,11 to 15,12
+Avatar locations: 0: (16, 23); 1: (15, 12); 2: (32, 6); 3: (19, 13); 
+avatar 2 ran into west wall at 32,6
+Avatar locations: 0: (16, 23); 1: (15, 12); 2: (32, 6); 3: (19, 13); 
+avatar 3 ran into south wall at 19,13
+Avatar locations: 0: (16, 23); 1: (15, 12); 2: (32, 6); 3: (19, 13); 
+avatar 0 ran into east wall at 16,23
+Avatar locations: 0: (16, 23); 1: (15, 12); 2: (32, 6); 3: (19, 13); 
+avatar 1 ran into east wall at 15,12
+Avatar locations: 0: (16, 23); 1: (15, 12); 2: (32, 6); 3: (19, 13); 
+avatar 2 ran into north wall at 32,6
+Avatar locations: 0: (16, 23); 1: (15, 12); 2: (32, 6); 3: (19, 13); 
+Avatar 3 moved from 19,13 to 18,13
+Avatar locations: 0: (16, 23); 1: (15, 12); 2: (32, 6); 3: (18, 13); 
+Avatar 0 moved from 16,23 to 16,24
+Avatar locations: 0: (16, 24); 1: (15, 12); 2: (32, 6); 3: (18, 13); 
+avatar 1 ran into south wall at 15,12
+Avatar locations: 0: (16, 24); 1: (15, 12); 2: (32, 6); 3: (18, 13); 
+Avatar 2 moved from 32,6 to 33,6
+Avatar locations: 0: (16, 24); 1: (15, 12); 2: (33, 6); 3: (18, 13); 
+avatar 3 ran into south wall at 18,13
+Avatar locations: 0: (16, 24); 1: (15, 12); 2: (33, 6); 3: (18, 13); 
+Avatar 0 moved from 16,24 to 17,24
+Avatar locations: 0: (17, 24); 1: (15, 12); 2: (33, 6); 3: (18, 13); 
+Avatar 1 moved from 15,12 to 14,12
+Avatar locations: 0: (17, 24); 1: (14, 12); 2: (33, 6); 3: (18, 13); 
+avatar 2 ran into south wall at 33,6
+Avatar locations: 0: (17, 24); 1: (14, 12); 2: (33, 6); 3: (18, 13); 
+avatar 3 ran into west wall at 18,13
+Avatar locations: 0: (17, 24); 1: (14, 12); 2: (33, 6); 3: (18, 13); 
+avatar 0 ran into north wall at 17,24
+Avatar locations: 0: (17, 24); 1: (14, 12); 2: (33, 6); 3: (18, 13); 
+avatar 1 ran into south wall at 14,12
+Avatar locations: 0: (17, 24); 1: (14, 12); 2: (33, 6); 3: (18, 13); 
+Avatar 2 moved from 33,6 to 33,5
+Avatar locations: 0: (17, 24); 1: (14, 12); 2: (33, 5); 3: (18, 13); 
+Avatar 3 moved from 18,13 to 18,12
+Avatar locations: 0: (17, 24); 1: (14, 12); 2: (33, 5); 3: (18, 12); 
+Avatar 0 moved from 17,24 to 18,24
+Avatar locations: 0: (18, 24); 1: (14, 12); 2: (33, 5); 3: (18, 12); 
+Avatar 1 moved from 14,12 to 13,12
+Avatar locations: 0: (18, 24); 1: (13, 12); 2: (33, 5); 3: (18, 12); 
+Avatar 2 moved from 33,5 to 32,5
+Avatar locations: 0: (18, 24); 1: (13, 12); 2: (32, 5); 3: (18, 12); 
+avatar 3 ran into east wall at 18,12
+Avatar locations: 0: (18, 24); 1: (13, 12); 2: (32, 5); 3: (18, 12); 
+avatar 0 ran into north wall at 18,24
+Avatar locations: 0: (18, 24); 1: (13, 12); 2: (32, 5); 3: (18, 12); 
+avatar 1 ran into west wall at 13,12
+Avatar locations: 0: (18, 24); 1: (13, 12); 2: (32, 5); 3: (18, 12); 
+Avatar 2 moved from 32,5 to 31,5
+Avatar locations: 0: (18, 24); 1: (13, 12); 2: (31, 5); 3: (18, 12); 
+Avatar 3 moved from 18,12 to 17,12
+Avatar locations: 0: (18, 24); 1: (13, 12); 2: (31, 5); 3: (17, 12); 
+Avatar 0 moved from 18,24 to 19,24
+Avatar locations: 0: (19, 24); 1: (13, 12); 2: (31, 5); 3: (17, 12); 
+Avatar 1 moved from 13,12 to 13,11
+Avatar locations: 0: (19, 24); 1: (13, 11); 2: (31, 5); 3: (17, 12); 
+avatar 2 ran into west wall at 31,5
+Avatar locations: 0: (19, 24); 1: (13, 11); 2: (31, 5); 3: (17, 12); 
+avatar 3 ran into west wall at 17,12
+Avatar locations: 0: (19, 24); 1: (13, 11); 2: (31, 5); 3: (17, 12); 
+avatar 0 ran into north wall at 19,24
+Avatar locations: 0: (19, 24); 1: (13, 11); 2: (31, 5); 3: (17, 12); 
+avatar 1 ran into east wall at 13,11
+Avatar locations: 0: (19, 24); 1: (13, 11); 2: (31, 5); 3: (17, 12); 
+Avatar 2 moved from 31,5 to 31,6
+Avatar locations: 0: (19, 24); 1: (13, 11); 2: (31, 6); 3: (17, 12); 
+avatar 3 ran into north wall at 17,12
+Avatar locations: 0: (19, 24); 1: (13, 11); 2: (31, 6); 3: (17, 12); 
+avatar 0 ran into east wall at 19,24
+Avatar locations: 0: (19, 24); 1: (13, 11); 2: (31, 6); 3: (17, 12); 
+avatar 1 ran into west wall at 13,11
+Avatar locations: 0: (19, 24); 1: (13, 11); 2: (31, 6); 3: (17, 12); 
+avatar 2 ran into west wall at 31,6
+Avatar locations: 0: (19, 24); 1: (13, 11); 2: (31, 6); 3: (17, 12); 
+Avatar 3 moved from 17,12 to 17,13
+Avatar locations: 0: (19, 24); 1: (13, 11); 2: (31, 6); 3: (17, 13); 
+Avatar 0 moved from 19,24 to 19,25
+Avatar locations: 0: (19, 25); 1: (13, 11); 2: (31, 6); 3: (17, 13); 
+Avatar 1 moved from 13,11 to 13,10
+Avatar locations: 0: (19, 25); 1: (13, 10); 2: (31, 6); 3: (17, 13); 
+Avatar 2 moved from 31,6 to 31,7
+Avatar locations: 0: (19, 25); 1: (13, 10); 2: (31, 7); 3: (17, 13); 
+Avatar 3 moved from 17,13 to 17,14
+Avatar locations: 0: (19, 25); 1: (13, 10); 2: (31, 7); 3: (17, 14); 
+avatar 0 ran into east wall at 19,25
+Avatar locations: 0: (19, 25); 1: (13, 10); 2: (31, 7); 3: (17, 14); 
+avatar 1 ran into east wall at 13,10
+Avatar locations: 0: (19, 25); 1: (13, 10); 2: (31, 7); 3: (17, 14); 
+Avatar 2 moved from 31,7 to 30,7
+Avatar locations: 0: (19, 25); 1: (13, 10); 2: (30, 7); 3: (17, 14); 
+avatar 3 ran into east wall at 17,14
+Avatar locations: 0: (19, 25); 1: (13, 10); 2: (30, 7); 3: (17, 14); 
+Avatar 0 moved from 19,25 to 18,25
+Avatar locations: 0: (18, 25); 1: (13, 10); 2: (30, 7); 3: (17, 14); 
+Avatar 1 moved from 13,10 to 12,10
+Avatar locations: 0: (18, 25); 1: (12, 10); 2: (30, 7); 3: (17, 14); 
+avatar 2 ran into west wall at 30,7
+Avatar locations: 0: (18, 25); 1: (12, 10); 2: (30, 7); 3: (17, 14); 
+Avatar 3 moved from 17,14 to 17,15
+Avatar locations: 0: (18, 25); 1: (12, 10); 2: (30, 7); 3: (17, 15); 
+Avatar 0 moved from 18,25 to 17,25
+Avatar locations: 0: (17, 25); 1: (12, 10); 2: (30, 7); 3: (17, 15); 
+Avatar 1 moved from 12,10 to 12,11
+Avatar locations: 0: (17, 25); 1: (12, 11); 2: (30, 7); 3: (17, 15); 
+avatar 2 ran into south wall at 30,7
+Avatar locations: 0: (17, 25); 1: (12, 11); 2: (30, 7); 3: (17, 15); 
+Avatar 3 moved from 17,15 to 18,15
+Avatar locations: 0: (17, 25); 1: (12, 11); 2: (30, 7); 3: (18, 15); 
+avatar 0 ran into north wall at 17,25
+Avatar locations: 0: (17, 25); 1: (12, 11); 2: (30, 7); 3: (18, 15); 
+Avatar 1 moved from 12,11 to 12,12
+Avatar locations: 0: (17, 25); 1: (12, 12); 2: (30, 7); 3: (18, 15); 
+Avatar 2 moved from 30,7 to 30,6
+Avatar locations: 0: (17, 25); 1: (12, 12); 2: (30, 6); 3: (18, 15); 
+Avatar 3 moved from 18,15 to 18,14
+Avatar locations: 0: (17, 25); 1: (12, 12); 2: (30, 6); 3: (18, 14); 
+Avatar 0 moved from 17,25 to 16,25
+Avatar locations: 0: (16, 25); 1: (12, 12); 2: (30, 6); 3: (18, 14); 
+Avatar 1 moved from 12,12 to 12,13
+Avatar locations: 0: (16, 25); 1: (12, 13); 2: (30, 6); 3: (18, 14); 
+Avatar 2 moved from 30,6 to 29,6
+Avatar locations: 0: (16, 25); 1: (12, 13); 2: (29, 6); 3: (18, 14); 
+avatar 3 ran into east wall at 18,14
+Avatar locations: 0: (16, 25); 1: (12, 13); 2: (29, 6); 3: (18, 14); 
+avatar 0 ran into north wall at 16,25
+Avatar locations: 0: (16, 25); 1: (12, 13); 2: (29, 6); 3: (18, 14); 
+avatar 1 ran into east wall at 12,13
+Avatar locations: 0: (16, 25); 1: (12, 13); 2: (29, 6); 3: (18, 14); 
+avatar 2 ran into west wall at 29,6
+Avatar locations: 0: (16, 25); 1: (12, 13); 2: (29, 6); 3: (18, 14); 
+Avatar 3 moved from 18,14 to 18,15
+Avatar locations: 0: (16, 25); 1: (12, 13); 2: (29, 6); 3: (18, 15); 
+avatar 0 ran into west wall at 16,25
+Avatar locations: 0: (16, 25); 1: (12, 13); 2: (29, 6); 3: (18, 15); 
+Avatar 1 moved from 12,13 to 12,14
+Avatar locations: 0: (16, 25); 1: (12, 14); 2: (29, 6); 3: (18, 15); 
+avatar 2 ran into south wall at 29,6
+Avatar locations: 0: (16, 25); 1: (12, 14); 2: (29, 6); 3: (18, 15); 
+Avatar 3 moved from 18,15 to 18,16
+Avatar locations: 0: (16, 25); 1: (12, 14); 2: (29, 6); 3: (18, 16); 
+Avatar 0 moved from 16,25 to 16,26
+Avatar locations: 0: (16, 26); 1: (12, 14); 2: (29, 6); 3: (18, 16); 
+Avatar 1 moved from 12,14 to 13,14
+Avatar locations: 0: (16, 26); 1: (13, 14); 2: (29, 6); 3: (18, 16); 
+Avatar 2 moved from 29,6 to 29,5
+Avatar locations: 0: (16, 26); 1: (13, 14); 2: (29, 5); 3: (18, 16); 
+avatar 3 ran into east wall at 18,16
+Avatar locations: 0: (16, 26); 1: (13, 14); 2: (29, 5); 3: (18, 16); 
+avatar 0 ran into east wall at 16,26
+Avatar locations: 0: (16, 26); 1: (13, 14); 2: (29, 5); 3: (18, 16); 
+avatar 1 ran into east wall at 13,14
+Avatar locations: 0: (16, 26); 1: (13, 14); 2: (29, 5); 3: (18, 16); 
+avatar 2 ran into west wall at 29,5
+Avatar locations: 0: (16, 26); 1: (13, 14); 2: (29, 5); 3: (18, 16); 
+Avatar 3 moved from 18,16 to 17,16
+Avatar locations: 0: (16, 26); 1: (13, 14); 2: (29, 5); 3: (17, 16); 
+avatar 0 ran into west wall at 16,26
+Avatar locations: 0: (16, 26); 1: (13, 14); 2: (29, 5); 3: (17, 16); 
+avatar 1 ran into south wall at 13,14
+Avatar locations: 0: (16, 26); 1: (13, 14); 2: (29, 5); 3: (17, 16); 
+avatar 2 ran into north wall at 29,5
+Avatar locations: 0: (16, 26); 1: (13, 14); 2: (29, 5); 3: (17, 16); 
+avatar 3 ran into north wall at 17,16
+Avatar locations: 0: (16, 26); 1: (13, 14); 2: (29, 5); 3: (17, 16); 
+Avatar 0 moved from 16,26 to 16,27
+Avatar locations: 0: (16, 27); 1: (13, 14); 2: (29, 5); 3: (17, 16); 
+Avatar 1 moved from 13,14 to 13,13
+Avatar locations: 0: (16, 27); 1: (13, 13); 2: (29, 5); 3: (17, 16); 
+Avatar 2 moved from 29,5 to 30,5
+Avatar locations: 0: (16, 27); 1: (13, 13); 2: (30, 5); 3: (17, 16); 
+avatar 3 ran into west wall at 17,16
+Avatar locations: 0: (16, 27); 1: (13, 13); 2: (30, 5); 3: (17, 16); 
+Avatar 0 moved from 16,27 to 17,27
+Avatar locations: 0: (17, 27); 1: (13, 13); 2: (30, 5); 3: (17, 16); 
+Avatar 1 moved from 13,13 to 14,13
+Avatar locations: 0: (17, 27); 1: (14, 13); 2: (30, 5); 3: (17, 16); 
+avatar 2 ran into south wall at 30,5
+Avatar locations: 0: (17, 27); 1: (14, 13); 2: (30, 5); 3: (17, 16); 
+Avatar 3 moved from 17,16 to 17,17
+Avatar locations: 0: (17, 27); 1: (14, 13); 2: (30, 5); 3: (17, 17); 
+Avatar 0 moved from 17,27 to 17,26
+Avatar locations: 0: (17, 26); 1: (14, 13); 2: (30, 5); 3: (17, 17); 
+avatar 1 ran into east wall at 14,13
+Avatar locations: 0: (17, 26); 1: (14, 13); 2: (30, 5); 3: (17, 17); 
+Avatar 2 moved from 30,5 to 30,4
+Avatar locations: 0: (17, 26); 1: (14, 13); 2: (30, 4); 3: (17, 17); 
+Avatar 3 moved from 17,17 to 18,17
+Avatar locations: 0: (17, 26); 1: (14, 13); 2: (30, 4); 3: (18, 17); 
+avatar 0 ran into north wall at 17,26
+Avatar locations: 0: (17, 26); 1: (14, 13); 2: (30, 4); 3: (18, 17); 
+Avatar 1 moved from 14,13 to 14,14
+Avatar locations: 0: (17, 26); 1: (14, 14); 2: (30, 4); 3: (18, 17); 
+Avatar 2 moved from 30,4 to 29,4
+Avatar locations: 0: (17, 26); 1: (14, 14); 2: (29, 4); 3: (18, 17); 
+avatar 3 ran into north wall at 18,17
+Avatar locations: 0: (17, 26); 1: (14, 14); 2: (29, 4); 3: (18, 17); 
+Avatar 0 moved from 17,26 to 18,26
+Avatar locations: 0: (18, 26); 1: (14, 14); 2: (29, 4); 3: (18, 17); 
+avatar 1 ran into east wall at 14,14
+Avatar locations: 0: (18, 26); 1: (14, 14); 2: (29, 4); 3: (18, 17); 
+Avatar 2 moved from 29,4 to 28,4
+Avatar locations: 0: (18, 26); 1: (14, 14); 2: (28, 4); 3: (18, 17); 
+avatar 3 ran into east wall at 18,17
+Avatar locations: 0: (18, 26); 1: (14, 14); 2: (28, 4); 3: (18, 17); 
+avatar 0 ran into north wall at 18,26
+Avatar locations: 0: (18, 26); 1: (14, 14); 2: (28, 4); 3: (18, 17); 
+Avatar 1 moved from 14,14 to 14,15
+Avatar locations: 0: (18, 26); 1: (14, 15); 2: (28, 4); 3: (18, 17); 
+avatar 2 ran into west wall at 28,4
+Avatar locations: 0: (18, 26); 1: (14, 15); 2: (28, 4); 3: (18, 17); 
+Avatar 3 moved from 18,17 to 18,18
+Avatar locations: 0: (18, 26); 1: (14, 15); 2: (28, 4); 3: (18, 18); 
+avatar 0 ran into east wall at 18,26
+Avatar locations: 0: (18, 26); 1: (14, 15); 2: (28, 4); 3: (18, 18); 
+avatar 1 ran into east wall at 14,15
+Avatar locations: 0: (18, 26); 1: (14, 15); 2: (28, 4); 3: (18, 18); 
+Avatar 2 moved from 28,4 to 28,5
+Avatar locations: 0: (18, 26); 1: (14, 15); 2: (28, 5); 3: (18, 18); 
+avatar 3 ran into east wall at 18,18
+Avatar locations: 0: (18, 26); 1: (14, 15); 2: (28, 5); 3: (18, 18); 
+Avatar 0 moved from 18,26 to 18,27
+Avatar locations: 0: (18, 27); 1: (14, 15); 2: (28, 5); 3: (18, 18); 
+avatar 1 ran into west wall at 14,15
+Avatar locations: 0: (18, 27); 1: (14, 15); 2: (28, 5); 3: (18, 18); 
+avatar 2 ran into west wall at 28,5
+Avatar locations: 0: (18, 27); 1: (14, 15); 2: (28, 5); 3: (18, 18); 
+avatar 3 ran into west wall at 18,18
+Avatar locations: 0: (18, 27); 1: (14, 15); 2: (28, 5); 3: (18, 18); 
+avatar 0 ran into west wall at 18,27
+Avatar locations: 0: (18, 27); 1: (14, 15); 2: (28, 5); 3: (18, 18); 
+Avatar 1 moved from 14,15 to 14,16
+Avatar locations: 0: (18, 27); 1: (14, 16); 2: (28, 5); 3: (18, 18); 
+Avatar 2 moved from 28,5 to 28,6
+Avatar locations: 0: (18, 27); 1: (14, 16); 2: (28, 6); 3: (18, 18); 
+avatar 3 ran into south wall at 18,18
+Avatar locations: 0: (18, 27); 1: (14, 16); 2: (28, 6); 3: (18, 18); 
+Avatar 0 moved from 18,27 to 19,27
+Avatar locations: 0: (19, 27); 1: (14, 16); 2: (28, 6); 3: (18, 18); 
+avatar 1 ran into east wall at 14,16
+Avatar locations: 0: (19, 27); 1: (14, 16); 2: (28, 6); 3: (18, 18); 
+Avatar 2 moved from 28,6 to 27,6
+Avatar locations: 0: (19, 27); 1: (14, 16); 2: (27, 6); 3: (18, 18); 
+Avatar 3 moved from 18,18 to 18,17
+Avatar locations: 0: (19, 27); 1: (14, 16); 2: (27, 6); 3: (18, 17); 
+avatar 0 ran into north wall at 19,27
+Avatar locations: 0: (19, 27); 1: (14, 16); 2: (27, 6); 3: (18, 17); 
+Avatar 1 moved from 14,16 to 14,17
+Avatar locations: 0: (19, 27); 1: (14, 17); 2: (27, 6); 3: (18, 17); 
+Avatar 2 moved from 27,6 to 26,6
+Avatar locations: 0: (19, 27); 1: (14, 17); 2: (26, 6); 3: (18, 17); 
+Avatar 3 moved from 18,17 to 17,17
+Avatar locations: 0: (19, 27); 1: (14, 17); 2: (26, 6); 3: (17, 17); 
+Avatar 0 moved from 19,27 to 20,27
+Avatar locations: 0: (20, 27); 1: (14, 17); 2: (26, 6); 3: (17, 17); 
+avatar 1 ran into east wall at 14,17
+Avatar locations: 0: (20, 27); 1: (14, 17); 2: (26, 6); 3: (17, 17); 
+Avatar 2 moved from 26,6 to 25,6
+Avatar locations: 0: (20, 27); 1: (14, 17); 2: (25, 6); 3: (17, 17); 
+avatar 3 ran into west wall at 17,17
+Avatar locations: 0: (20, 27); 1: (14, 17); 2: (25, 6); 3: (17, 17); 
+Avatar 0 moved from 20,27 to 20,26
+Avatar locations: 0: (20, 26); 1: (14, 17); 2: (25, 6); 3: (17, 17); 
+avatar 1 ran into west wall at 14,17
+Avatar locations: 0: (20, 26); 1: (14, 17); 2: (25, 6); 3: (17, 17); 
+avatar 2 ran into west wall at 25,6
+Avatar locations: 0: (20, 26); 1: (14, 17); 2: (25, 6); 3: (17, 17); 
+avatar 3 ran into south wall at 17,17
+Avatar locations: 0: (20, 26); 1: (14, 17); 2: (25, 6); 3: (17, 17); 
+avatar 0 ran into north wall at 20,26
+Avatar locations: 0: (20, 26); 1: (14, 17); 2: (25, 6); 3: (17, 17); 
+Avatar 1 moved from 14,17 to 14,18
+Avatar locations: 0: (20, 26); 1: (14, 18); 2: (25, 6); 3: (17, 17); 
+Avatar 2 moved from 25,6 to 25,7
+Avatar locations: 0: (20, 26); 1: (14, 18); 2: (25, 7); 3: (17, 17); 
+Avatar 3 moved from 17,17 to 17,16
+Avatar locations: 0: (20, 26); 1: (14, 18); 2: (25, 7); 3: (17, 16); 
+Avatar 0 moved from 20,26 to 19,26
+Avatar locations: 0: (19, 26); 1: (14, 18); 2: (25, 7); 3: (17, 16); 
+Avatar 1 moved from 14,18 to 15,18
+Avatar locations: 0: (19, 26); 1: (15, 18); 2: (25, 7); 3: (17, 16); 
+avatar 2 ran into west wall at 25,7
+Avatar locations: 0: (19, 26); 1: (15, 18); 2: (25, 7); 3: (17, 16); 
+Avatar 3 moved from 17,16 to 18,16
+Avatar locations: 0: (19, 26); 1: (15, 18); 2: (25, 7); 3: (18, 16); 
+avatar 0 ran into north wall at 19,26
+Avatar locations: 0: (19, 26); 1: (15, 18); 2: (25, 7); 3: (18, 16); 
+avatar 1 ran into north wall at 15,18
+Avatar locations: 0: (19, 26); 1: (15, 18); 2: (25, 7); 3: (18, 16); 
+avatar 2 ran into south wall at 25,7
+Avatar locations: 0: (19, 26); 1: (15, 18); 2: (25, 7); 3: (18, 16); 
+Avatar 3 moved from 18,16 to 18,15
+Avatar locations: 0: (19, 26); 1: (15, 18); 2: (25, 7); 3: (18, 15); 
+Avatar 0 moved from 19,26 to 20,26
+Avatar locations: 0: (20, 26); 1: (15, 18); 2: (25, 7); 3: (18, 15); 
+avatar 1 ran into east wall at 15,18
+Avatar locations: 0: (20, 26); 1: (15, 18); 2: (25, 7); 3: (18, 15); 
+Avatar 2 moved from 25,7 to 26,7
+Avatar locations: 0: (20, 26); 1: (15, 18); 2: (26, 7); 3: (18, 15); 
+Avatar 3 moved from 18,15 to 17,15
+Avatar locations: 0: (20, 26); 1: (15, 18); 2: (26, 7); 3: (17, 15); 
+Avatar 0 moved from 20,26 to 21,26
+Avatar locations: 0: (21, 26); 1: (15, 18); 2: (26, 7); 3: (17, 15); 
+Avatar 1 moved from 15,18 to 15,19
+Avatar locations: 0: (21, 26); 1: (15, 19); 2: (26, 7); 3: (17, 15); 
+Avatar 2 moved from 26,7 to 26,8
+Avatar locations: 0: (21, 26); 1: (15, 19); 2: (26, 8); 3: (17, 15); 
+avatar 3 ran into west wall at 17,15
+Avatar locations: 0: (21, 26); 1: (15, 19); 2: (26, 8); 3: (17, 15); 
+avatar 0 ran into north wall at 21,26
+Avatar locations: 0: (21, 26); 1: (15, 19); 2: (26, 8); 3: (17, 15); 
+avatar 1 ran into east wall at 15,19
+Avatar locations: 0: (21, 26); 1: (15, 19); 2: (26, 8); 3: (17, 15); 
+Avatar 2 moved from 26,8 to 25,8
+Avatar locations: 0: (21, 26); 1: (15, 19); 2: (25, 8); 3: (17, 15); 
+Avatar 3 moved from 17,15 to 17,14
+Avatar locations: 0: (21, 26); 1: (15, 19); 2: (25, 8); 3: (17, 14); 
+avatar 0 ran into east wall at 21,26
+Avatar locations: 0: (21, 26); 1: (15, 19); 2: (25, 8); 3: (17, 14); 
+avatar 1 ran into west wall at 15,19
+Avatar locations: 0: (21, 26); 1: (15, 19); 2: (25, 8); 3: (17, 14); 
+avatar 2 ran into west wall at 25,8
+Avatar locations: 0: (21, 26); 1: (15, 19); 2: (25, 8); 3: (17, 14); 
+Avatar 3 moved from 17,14 to 16,14
+Avatar locations: 0: (21, 26); 1: (15, 19); 2: (25, 8); 3: (16, 14); 
+Avatar 0 moved from 21,26 to 21,27
+Avatar locations: 0: (21, 27); 1: (15, 19); 2: (25, 8); 3: (16, 14); 
+Avatar 1 moved from 15,19 to 15,20
+Avatar locations: 0: (21, 27); 1: (15, 20); 2: (25, 8); 3: (16, 14); 
+Avatar 2 moved from 25,8 to 25,9
+Avatar locations: 0: (21, 27); 1: (15, 20); 2: (25, 9); 3: (16, 14); 
+avatar 3 ran into south wall at 16,14
+Avatar locations: 0: (21, 27); 1: (15, 20); 2: (25, 9); 3: (16, 14); 
+avatar 0 ran into west wall at 21,27
+Avatar locations: 0: (21, 27); 1: (15, 20); 2: (25, 9); 3: (16, 14); 
+avatar 1 ran into east wall at 15,20
+Avatar locations: 0: (21, 27); 1: (15, 20); 2: (25, 9); 3: (16, 14); 
+avatar 2 ran into west wall at 25,9
+Avatar locations: 0: (21, 27); 1: (15, 20); 2: (25, 9); 3: (16, 14); 
+avatar 3 ran into west wall at 16,14
+Avatar locations: 0: (21, 27); 1: (15, 20); 2: (25, 9); 3: (16, 14); 
+Avatar 0 moved from 21,27 to 22,27
+Avatar locations: 0: (22, 27); 1: (15, 20); 2: (25, 9); 3: (16, 14); 
+avatar 1 ran into west wall at 15,20
+Avatar locations: 0: (22, 27); 1: (15, 20); 2: (25, 9); 3: (16, 14); 
+Avatar 2 moved from 25,9 to 25,10
+Avatar locations: 0: (22, 27); 1: (15, 20); 2: (25, 10); 3: (16, 14); 
+avatar 3 ran into north wall at 16,14
+Avatar locations: 0: (22, 27); 1: (15, 20); 2: (25, 10); 3: (16, 14); 
+Avatar 0 moved from 22,27 to 22,26
+Avatar locations: 0: (22, 26); 1: (15, 20); 2: (25, 10); 3: (16, 14); 
+Avatar 1 moved from 15,20 to 15,21
+Avatar locations: 0: (22, 26); 1: (15, 21); 2: (25, 10); 3: (16, 14); 
+avatar 2 ran into west wall at 25,10
+Avatar locations: 0: (22, 26); 1: (15, 21); 2: (25, 10); 3: (16, 14); 
+Avatar 3 moved from 16,14 to 17,14
+Avatar locations: 0: (22, 26); 1: (15, 21); 2: (25, 10); 3: (17, 14); 
+Avatar 0 moved from 22,26 to 22,25
+Avatar locations: 0: (22, 25); 1: (15, 21); 2: (25, 10); 3: (17, 14); 
+avatar 1 ran into east wall at 15,21
+Avatar locations: 0: (22, 25); 1: (15, 21); 2: (25, 10); 3: (17, 14); 
+Avatar 2 moved from 25,10 to 25,11
+Avatar locations: 0: (22, 25); 1: (15, 21); 2: (25, 11); 3: (17, 14); 
+Avatar 3 moved from 17,14 to 17,13
+Avatar locations: 0: (22, 25); 1: (15, 21); 2: (25, 11); 3: (17, 13); 
+Avatar 0 moved from 22,25 to 21,25
+Avatar locations: 0: (21, 25); 1: (15, 21); 2: (25, 11); 3: (17, 13); 
+Avatar 1 moved from 15,21 to 15,22
+Avatar locations: 0: (21, 25); 1: (15, 22); 2: (25, 11); 3: (17, 13); 
+avatar 2 ran into west wall at 25,11
+Avatar locations: 0: (21, 25); 1: (15, 22); 2: (25, 11); 3: (17, 13); 
+avatar 3 ran into west wall at 17,13
+Avatar locations: 0: (21, 25); 1: (15, 22); 2: (25, 11); 3: (17, 13); 
+avatar 0 ran into west wall at 21,25
+Avatar locations: 0: (21, 25); 1: (15, 22); 2: (25, 11); 3: (17, 13); 
+avatar 1 ran into east wall at 15,22
+Avatar locations: 0: (21, 25); 1: (15, 22); 2: (25, 11); 3: (17, 13); 
+avatar 2 ran into south wall at 25,11
+Avatar locations: 0: (21, 25); 1: (15, 22); 2: (25, 11); 3: (17, 13); 
+Avatar 3 moved from 17,13 to 17,12
+Avatar locations: 0: (21, 25); 1: (15, 22); 2: (25, 11); 3: (17, 12); 
+Avatar 0 moved from 21,25 to 21,24
+Avatar locations: 0: (21, 24); 1: (15, 22); 2: (25, 11); 3: (17, 12); 
+Avatar 1 moved from 15,22 to 14,22
+Avatar locations: 0: (21, 24); 1: (14, 22); 2: (25, 11); 3: (17, 12); 
+Avatar 2 moved from 25,11 to 26,11
+Avatar locations: 0: (21, 24); 1: (14, 22); 2: (26, 11); 3: (17, 12); 
+Avatar 3 moved from 17,12 to 18,12
+Avatar locations: 0: (21, 24); 1: (14, 22); 2: (26, 11); 3: (18, 12); 
+Avatar 0 moved from 21,24 to 20,24
+Avatar locations: 0: (20, 24); 1: (14, 22); 2: (26, 11); 3: (18, 12); 
+avatar 1 ran into west wall at 14,22
+Avatar locations: 0: (20, 24); 1: (14, 22); 2: (26, 11); 3: (18, 12); 
+avatar 2 ran into south wall at 26,11
+Avatar locations: 0: (20, 24); 1: (14, 22); 2: (26, 11); 3: (18, 12); 
+avatar 3 ran into north wall at 18,12
+Avatar locations: 0: (20, 24); 1: (14, 22); 2: (26, 11); 3: (18, 12); 
+Avatar 0 moved from 20,24 to 20,23
+Avatar locations: 0: (20, 23); 1: (14, 22); 2: (26, 11); 3: (18, 12); 
+Avatar 1 moved from 14,22 to 14,21
+Avatar locations: 0: (20, 23); 1: (14, 21); 2: (26, 11); 3: (18, 12); 
+avatar 2 ran into north wall at 26,11
+Avatar locations: 0: (20, 23); 1: (14, 21); 2: (26, 11); 3: (18, 12); 
+Avatar 3 moved from 18,12 to 18,13
+Avatar locations: 0: (20, 23); 1: (14, 21); 2: (26, 11); 3: (18, 13); 
+avatar 0 ran into north wall at 20,23
+Avatar locations: 0: (20, 23); 1: (14, 21); 2: (26, 11); 3: (18, 13); 
+avatar 1 ran into east wall at 14,21
+Avatar locations: 0: (20, 23); 1: (14, 21); 2: (26, 11); 3: (18, 13); 
+Avatar 2 moved from 26,11 to 27,11
+Avatar locations: 0: (20, 23); 1: (14, 21); 2: (27, 11); 3: (18, 13); 
+Avatar 3 moved from 18,13 to 19,13
+Avatar locations: 0: (20, 23); 1: (14, 21); 2: (27, 11); 3: (19, 13); 
+Avatar 0 moved from 20,23 to 19,23
+Avatar locations: 0: (19, 23); 1: (14, 21); 2: (27, 11); 3: (19, 13); 
+avatar 1 ran into west wall at 14,21
+Avatar locations: 0: (19, 23); 1: (14, 21); 2: (27, 11); 3: (19, 13); 
+avatar 2 ran into south wall at 27,11
+Avatar locations: 0: (19, 23); 1: (14, 21); 2: (27, 11); 3: (19, 13); 
+avatar 3 ran into north wall at 19,13
+Avatar locations: 0: (19, 23); 1: (14, 21); 2: (27, 11); 3: (19, 13); 
+avatar 0 ran into west wall at 19,23
+Avatar locations: 0: (19, 23); 1: (14, 21); 2: (27, 11); 3: (19, 13); 
+Avatar 1 moved from 14,21 to 14,20
+Avatar locations: 0: (19, 23); 1: (14, 20); 2: (27, 11); 3: (19, 13); 
+avatar 2 ran into north wall at 27,11
+Avatar locations: 0: (19, 23); 1: (14, 20); 2: (27, 11); 3: (19, 13); 
+Avatar 3 moved from 19,13 to 20,13
+Avatar locations: 0: (19, 23); 1: (14, 20); 2: (27, 11); 3: (20, 13); 
+Avatar 0 moved from 19,23 to 19,22
+Avatar locations: 0: (19, 22); 1: (14, 20); 2: (27, 11); 3: (20, 13); 
+Avatar 1 moved from 14,20 to 13,20
+Avatar locations: 0: (19, 22); 1: (13, 20); 2: (27, 11); 3: (20, 13); 
+Avatar 2 moved from 27,11 to 28,11
+Avatar locations: 0: (19, 22); 1: (13, 20); 2: (28, 11); 3: (20, 13); 
+avatar 3 ran into north wall at 20,13
+Avatar locations: 0: (19, 22); 1: (13, 20); 2: (28, 11); 3: (20, 13); 
+avatar 0 ran into north wall at 19,22
+Avatar locations: 0: (19, 22); 1: (13, 20); 2: (28, 11); 3: (20, 13); 
+avatar 1 ran into south wall at 13,20
+Avatar locations: 0: (19, 22); 1: (13, 20); 2: (28, 11); 3: (20, 13); 
+Avatar 2 moved from 28,11 to 28,12
+Avatar locations: 0: (19, 22); 1: (13, 20); 2: (28, 12); 3: (20, 13); 
+Avatar 3 moved from 20,13 to 21,13
+Avatar locations: 0: (19, 22); 1: (13, 20); 2: (28, 12); 3: (21, 13); 
+avatar 0 ran into east wall at 19,22
+Avatar locations: 0: (19, 22); 1: (13, 20); 2: (28, 12); 3: (21, 13); 
+Avatar 1 moved from 13,20 to 12,20
+Avatar locations: 0: (19, 22); 1: (12, 20); 2: (28, 12); 3: (21, 13); 
+avatar 2 ran into west wall at 28,12
+Avatar locations: 0: (19, 22); 1: (12, 20); 2: (28, 12); 3: (21, 13); 
+avatar 3 ran into south wall at 21,13
+Avatar locations: 0: (19, 22); 1: (12, 20); 2: (28, 12); 3: (21, 13); 
+Avatar 0 moved from 19,22 to 18,22
+Avatar locations: 0: (18, 22); 1: (12, 20); 2: (28, 12); 3: (21, 13); 
+avatar 1 ran into south wall at 12,20
+Avatar locations: 0: (18, 22); 1: (12, 20); 2: (28, 12); 3: (21, 13); 
+avatar 2 ran into south wall at 28,12
+Avatar locations: 0: (18, 22); 1: (12, 20); 2: (28, 12); 3: (21, 13); 
+avatar 3 ran into north wall at 21,13
+Avatar locations: 0: (18, 22); 1: (12, 20); 2: (28, 12); 3: (21, 13); 
+avatar 0 ran into west wall at 18,22
+Avatar locations: 0: (18, 22); 1: (12, 20); 2: (28, 12); 3: (21, 13); 
+avatar 1 ran into west wall at 12,20
+Avatar locations: 0: (18, 22); 1: (12, 20); 2: (28, 12); 3: (21, 13); 
+Avatar 2 moved from 28,12 to 29,12
+Avatar locations: 0: (18, 22); 1: (12, 20); 2: (29, 12); 3: (21, 13); 
+Avatar 3 moved from 21,13 to 22,13
+Avatar locations: 0: (18, 22); 1: (12, 20); 2: (29, 12); 3: (22, 13); 
+avatar 0 ran into north wall at 18,22
+Avatar locations: 0: (18, 22); 1: (12, 20); 2: (29, 12); 3: (22, 13); 
+Avatar 1 moved from 12,20 to 12,19
+Avatar locations: 0: (18, 22); 1: (12, 19); 2: (29, 12); 3: (22, 13); 
+Avatar 2 moved from 29,12 to 29,13
+Avatar locations: 0: (18, 22); 1: (12, 19); 2: (29, 13); 3: (22, 13); 
+Avatar 3 moved from 22,13 to 22,14
+Avatar locations: 0: (18, 22); 1: (12, 19); 2: (29, 13); 3: (22, 14); 
+Avatar 0 moved from 18,22 to 18,23
+Avatar locations: 0: (18, 23); 1: (12, 19); 2: (29, 13); 3: (22, 14); 
+avatar 1 ran into east wall at 12,19
+Avatar locations: 0: (18, 23); 1: (12, 19); 2: (29, 13); 3: (22, 14); 
+avatar 2 ran into west wall at 29,13
+Avatar locations: 0: (18, 23); 1: (12, 19); 2: (29, 13); 3: (22, 14); 
+Avatar 3 moved from 22,14 to 21,14
+Avatar locations: 0: (18, 23); 1: (12, 19); 2: (29, 13); 3: (21, 14); 
+Avatar 0 moved from 18,23 to 17,23
+Avatar locations: 0: (17, 23); 1: (12, 19); 2: (29, 13); 3: (21, 14); 
+Avatar 1 moved from 12,19 to 11,19
+Avatar locations: 0: (17, 23); 1: (11, 19); 2: (29, 13); 3: (21, 14); 
+avatar 2 ran into south wall at 29,13
+Avatar locations: 0: (17, 23); 1: (11, 19); 2: (29, 13); 3: (21, 14); 
+avatar 3 ran into west wall at 21,14
+Avatar locations: 0: (17, 23); 1: (11, 19); 2: (29, 13); 3: (21, 14); 
+Avatar 0 moved from 17,23 to 17,22
+Avatar locations: 0: (17, 22); 1: (11, 19); 2: (29, 13); 3: (21, 14); 
+Avatar 1 moved from 11,19 to 11,20
+Avatar locations: 0: (17, 22); 1: (11, 20); 2: (29, 13); 3: (21, 14); 
+Avatar 2 moved from 29,13 to 30,13
+Avatar locations: 0: (17, 22); 1: (11, 20); 2: (30, 13); 3: (21, 14); 
+Avatar 3 moved from 21,14 to 21,15
+Avatar locations: 0: (17, 22); 1: (11, 20); 2: (30, 13); 3: (21, 15); 
+avatar 0 ran into west wall at 17,22
+Avatar locations: 0: (17, 22); 1: (11, 20); 2: (30, 13); 3: (21, 15); 
+avatar 1 ran into south wall at 11,20
+Avatar locations: 0: (17, 22); 1: (11, 20); 2: (30, 13); 3: (21, 15); 
+avatar 2 ran into south wall at 30,13
+Avatar locations: 0: (17, 22); 1: (11, 20); 2: (30, 13); 3: (21, 15); 
+avatar 3 ran into west wall at 21,15
+Avatar locations: 0: (17, 22); 1: (11, 20); 2: (30, 13); 3: (21, 15); 
+Avatar 0 moved from 17,22 to 17,21
+Avatar locations: 0: (17, 21); 1: (11, 20); 2: (30, 13); 3: (21, 15); 
+Avatar 1 moved from 11,20 to 10,20
+Avatar locations: 0: (17, 21); 1: (10, 20); 2: (30, 13); 3: (21, 15); 
+avatar 2 ran into north wall at 30,13
+Avatar locations: 0: (17, 21); 1: (10, 20); 2: (30, 13); 3: (21, 15); 
+avatar 3 ran into east wall at 21,15
+Avatar locations: 0: (17, 21); 1: (10, 20); 2: (30, 13); 3: (21, 15); 
+avatar 0 ran into west wall at 17,21
+Avatar locations: 0: (17, 21); 1: (10, 20); 2: (30, 13); 3: (21, 15); 
+Avatar 1 moved from 10,20 to 10,21
+Avatar locations: 0: (17, 21); 1: (10, 21); 2: (30, 13); 3: (21, 15); 
+Avatar 2 moved from 30,13 to 31,13
+Avatar locations: 0: (17, 21); 1: (10, 21); 2: (31, 13); 3: (21, 15); 
+Avatar 3 moved from 21,15 to 21,16
+Avatar locations: 0: (17, 21); 1: (10, 21); 2: (31, 13); 3: (21, 16); 
+Avatar 0 moved from 17,21 to 17,20
+Avatar locations: 0: (17, 20); 1: (10, 21); 2: (31, 13); 3: (21, 16); 
+avatar 1 ran into east wall at 10,21
+Avatar locations: 0: (17, 20); 1: (10, 21); 2: (31, 13); 3: (21, 16); 
+avatar 2 ran into south wall at 31,13
+Avatar locations: 0: (17, 20); 1: (10, 21); 2: (31, 13); 3: (21, 16); 
+Avatar 3 moved from 21,16 to 20,16
+Avatar locations: 0: (17, 20); 1: (10, 21); 2: (31, 13); 3: (20, 16); 
+avatar 0 ran into north wall at 17,20
+Avatar locations: 0: (17, 20); 1: (10, 21); 2: (31, 13); 3: (20, 16); 
+Avatar 1 moved from 10,21 to 9,21
+Avatar locations: 0: (17, 20); 1: (9, 21); 2: (31, 13); 3: (20, 16); 
+avatar 2 ran into north wall at 31,13
+Avatar locations: 0: (17, 20); 1: (9, 21); 2: (31, 13); 3: (20, 16); 
+Avatar 3 moved from 20,16 to 20,15
+Avatar locations: 0: (17, 20); 1: (9, 21); 2: (31, 13); 3: (20, 15); 
+Avatar 0 moved from 17,20 to 18,20
+Avatar locations: 0: (18, 20); 1: (9, 21); 2: (31, 13); 3: (20, 15); 
+avatar 1 ran into north wall at 9,21
+Avatar locations: 0: (18, 20); 1: (9, 21); 2: (31, 13); 3: (20, 15); 
+Avatar 2 moved from 31,13 to 32,13
+Avatar locations: 0: (18, 20); 1: (9, 21); 2: (32, 13); 3: (20, 15); 
+Avatar 3 moved from 20,15 to 20,16
+Avatar locations: 0: (18, 20); 1: (9, 21); 2: (32, 13); 3: (20, 16); 
+Avatar 0 moved from 18,20 to 18,19
+Avatar locations: 0: (18, 19); 1: (9, 21); 2: (32, 13); 3: (20, 16); 
+Avatar 1 moved from 9,21 to 8,21
+Avatar locations: 0: (18, 19); 1: (8, 21); 2: (32, 13); 3: (20, 16); 
+avatar 2 ran into south wall at 32,13
+Avatar locations: 0: (18, 19); 1: (8, 21); 2: (32, 13); 3: (20, 16); 
+avatar 3 ran into west wall at 20,16
+Avatar locations: 0: (18, 19); 1: (8, 21); 2: (32, 13); 3: (20, 16); 
+avatar 0 ran into east wall at 18,19
+Avatar locations: 0: (18, 19); 1: (8, 21); 2: (32, 13); 3: (20, 16); 
+avatar 1 ran into north wall at 8,21
+Avatar locations: 0: (18, 19); 1: (8, 21); 2: (32, 13); 3: (20, 16); 
+Avatar 2 moved from 32,13 to 32,12
+Avatar locations: 0: (18, 19); 1: (8, 21); 2: (32, 12); 3: (20, 16); 
+Avatar 3 moved from 20,16 to 20,17
+Avatar locations: 0: (18, 19); 1: (8, 21); 2: (32, 12); 3: (20, 17); 
+Avatar 0 moved from 18,19 to 17,19
+Avatar locations: 0: (17, 19); 1: (8, 21); 2: (32, 12); 3: (20, 17); 
+Avatar 1 moved from 8,21 to 7,21
+Avatar locations: 0: (17, 19); 1: (7, 21); 2: (32, 12); 3: (20, 17); 
+avatar 2 ran into west wall at 32,12
+Avatar locations: 0: (17, 19); 1: (7, 21); 2: (32, 12); 3: (20, 17); 
+avatar 3 ran into west wall at 20,17
+Avatar locations: 0: (17, 19); 1: (7, 21); 2: (32, 12); 3: (20, 17); 
+Avatar 0 moved from 17,19 to 17,18
+Avatar locations: 0: (17, 18); 1: (7, 21); 2: (32, 12); 3: (20, 17); 
+avatar 1 ran into north wall at 7,21
+Avatar locations: 0: (17, 18); 1: (7, 21); 2: (32, 12); 3: (20, 17); 
+Avatar 2 moved from 32,12 to 32,11
+Avatar locations: 0: (17, 18); 1: (7, 21); 2: (32, 11); 3: (20, 17); 
+avatar 3 ran into south wall at 20,17
+Avatar locations: 0: (17, 18); 1: (7, 21); 2: (32, 11); 3: (20, 17); 
+Avatar 0 moved from 17,18 to 16,18
+Avatar locations: 0: (16, 18); 1: (7, 21); 2: (32, 11); 3: (20, 17); 
+avatar 1 ran into west wall at 7,21
+Avatar locations: 0: (16, 18); 1: (7, 21); 2: (32, 11); 3: (20, 17); 
+avatar 2 ran into west wall at 32,11
+Avatar locations: 0: (16, 18); 1: (7, 21); 2: (32, 11); 3: (20, 17); 
+Avatar 3 moved from 20,17 to 21,17
+Avatar locations: 0: (16, 18); 1: (7, 21); 2: (32, 11); 3: (21, 17); 
+Avatar 0 moved from 16,18 to 16,17
+Avatar locations: 0: (16, 17); 1: (7, 21); 2: (32, 11); 3: (21, 17); 
+Avatar 1 moved from 7,21 to 7,22
+Avatar locations: 0: (16, 17); 1: (7, 22); 2: (32, 11); 3: (21, 17); 
+avatar 2 ran into north wall at 32,11
+Avatar locations: 0: (16, 17); 1: (7, 22); 2: (32, 11); 3: (21, 17); 
+avatar 3 ran into north wall at 21,17
+Avatar locations: 0: (16, 17); 1: (7, 22); 2: (32, 11); 3: (21, 17); 
+Avatar 0 moved from 16,17 to 15,17
+Avatar locations: 0: (15, 17); 1: (7, 22); 2: (32, 11); 3: (21, 17); 
+avatar 1 ran into east wall at 7,22
+Avatar locations: 0: (15, 17); 1: (7, 22); 2: (32, 11); 3: (21, 17); 
+Avatar 2 moved from 32,11 to 33,11
+Avatar locations: 0: (15, 17); 1: (7, 22); 2: (33, 11); 3: (21, 17); 
+Avatar 3 moved from 21,17 to 22,17
+Avatar locations: 0: (15, 17); 1: (7, 22); 2: (33, 11); 3: (22, 17); 
+Avatar 0 moved from 15,17 to 15,16
+Avatar locations: 0: (15, 16); 1: (7, 22); 2: (33, 11); 3: (22, 17); 
+avatar 1 ran into west wall at 7,22
+Avatar locations: 0: (15, 16); 1: (7, 22); 2: (33, 11); 3: (22, 17); 
+avatar 2 ran into south wall at 33,11
+Avatar locations: 0: (15, 16); 1: (7, 22); 2: (33, 11); 3: (22, 17); 
+Avatar 3 moved from 22,17 to 22,16
+Avatar locations: 0: (15, 16); 1: (7, 22); 2: (33, 11); 3: (22, 16); 
+avatar 0 ran into north wall at 15,16
+Avatar locations: 0: (15, 16); 1: (7, 22); 2: (33, 11); 3: (22, 16); 
+Avatar 1 moved from 7,22 to 7,23
+Avatar locations: 0: (15, 16); 1: (7, 23); 2: (33, 11); 3: (22, 16); 
+Avatar 2 moved from 33,11 to 33,10
+Avatar locations: 0: (15, 16); 1: (7, 23); 2: (33, 10); 3: (22, 16); 
+avatar 3 ran into west wall at 22,16
+Avatar locations: 0: (15, 16); 1: (7, 23); 2: (33, 10); 3: (22, 16); 
+Avatar 0 moved from 15,16 to 16,16
+Avatar locations: 0: (16, 16); 1: (7, 23); 2: (33, 10); 3: (22, 16); 
+Avatar 1 moved from 7,23 to 8,23
+Avatar locations: 0: (16, 16); 1: (8, 23); 2: (33, 10); 3: (22, 16); 
+Avatar 2 moved from 33,10 to 32,10
+Avatar locations: 0: (16, 16); 1: (8, 23); 2: (32, 10); 3: (22, 16); 
+avatar 3 ran into north wall at 22,16
+Avatar locations: 0: (16, 16); 1: (8, 23); 2: (32, 10); 3: (22, 16); 
+Avatar 0 moved from 16,16 to 16,15
+Avatar locations: 0: (16, 15); 1: (8, 23); 2: (32, 10); 3: (22, 16); 
+avatar 1 ran into north wall at 8,23
+Avatar locations: 0: (16, 15); 1: (8, 23); 2: (32, 10); 3: (22, 16); 
+Avatar 2 moved from 32,10 to 31,10
+Avatar locations: 0: (16, 15); 1: (8, 23); 2: (31, 10); 3: (22, 16); 
+Avatar 3 moved from 22,16 to 23,16
+Avatar locations: 0: (16, 15); 1: (8, 23); 2: (31, 10); 3: (23, 16); 
+Avatar 0 moved from 16,15 to 15,15
+Avatar locations: 0: (15, 15); 1: (8, 23); 2: (31, 10); 3: (23, 16); 
+Avatar 1 moved from 8,23 to 9,23
+Avatar locations: 0: (15, 15); 1: (9, 23); 2: (31, 10); 3: (23, 16); 
+avatar 2 ran into west wall at 31,10
+Avatar locations: 0: (15, 15); 1: (9, 23); 2: (31, 10); 3: (23, 16); 
+Avatar 3 moved from 23,16 to 23,15
+Avatar locations: 0: (15, 15); 1: (9, 23); 2: (31, 10); 3: (23, 15); 
+Avatar 0 moved from 15,15 to 15,14
+Avatar locations: 0: (15, 14); 1: (9, 23); 2: (31, 10); 3: (23, 15); 
+avatar 1 ran into north wall at 9,23
+Avatar locations: 0: (15, 14); 1: (9, 23); 2: (31, 10); 3: (23, 15); 
+avatar 2 ran into south wall at 31,10
+Avatar locations: 0: (15, 14); 1: (9, 23); 2: (31, 10); 3: (23, 15); 
+Avatar 3 moved from 23,15 to 22,15
+Avatar locations: 0: (15, 14); 1: (9, 23); 2: (31, 10); 3: (22, 15); 
+Avatar 0 moved from 15,14 to 15,13
+Avatar locations: 0: (15, 13); 1: (9, 23); 2: (31, 10); 3: (22, 15); 
+avatar 1 ran into east wall at 9,23
+Avatar locations: 0: (15, 13); 1: (9, 23); 2: (31, 10); 3: (22, 15); 
+Avatar 2 moved from 31,10 to 31,9
+Avatar locations: 0: (15, 13); 1: (9, 23); 2: (31, 9); 3: (22, 15); 
+avatar 3 ran into north wall at 22,15
+Avatar locations: 0: (15, 13); 1: (9, 23); 2: (31, 9); 3: (22, 15); 
+Avatar 0 moved from 15,13 to 16,13
+Avatar locations: 0: (16, 13); 1: (9, 23); 2: (31, 9); 3: (22, 15); 
+Avatar 1 moved from 9,23 to 9,24
+Avatar locations: 0: (16, 13); 1: (9, 24); 2: (31, 9); 3: (22, 15); 
+Avatar 2 moved from 31,9 to 30,9
+Avatar locations: 0: (16, 13); 1: (9, 24); 2: (30, 9); 3: (22, 15); 
+Avatar 3 moved from 22,15 to 23,15
+Avatar locations: 0: (16, 13); 1: (9, 24); 2: (30, 9); 3: (23, 15); 
+Avatar 0 moved from 16,13 to 16,12
+Avatar locations: 0: (16, 12); 1: (9, 24); 2: (30, 9); 3: (23, 15); 
+Avatar 1 moved from 9,24 to 10,24
+Avatar locations: 0: (16, 12); 1: (10, 24); 2: (30, 9); 3: (23, 15); 
+Avatar 2 moved from 30,9 to 29,9
+Avatar locations: 0: (16, 12); 1: (10, 24); 2: (29, 9); 3: (23, 15); 
+avatar 3 ran into north wall at 23,15
+Avatar locations: 0: (16, 12); 1: (10, 24); 2: (29, 9); 3: (23, 15); 
+Avatar 0 moved from 16,12 to 16,11
+Avatar locations: 0: (16, 11); 1: (10, 24); 2: (29, 9); 3: (23, 15); 
+avatar 1 ran into north wall at 10,24
+Avatar locations: 0: (16, 11); 1: (10, 24); 2: (29, 9); 3: (23, 15); 
+Avatar 2 moved from 29,9 to 28,9
+Avatar locations: 0: (16, 11); 1: (10, 24); 2: (28, 9); 3: (23, 15); 
+avatar 3 ran into east wall at 23,15
+Avatar locations: 0: (16, 11); 1: (10, 24); 2: (28, 9); 3: (23, 15); 
+Avatar 0 moved from 16,11 to 17,11
+Avatar locations: 0: (17, 11); 1: (10, 24); 2: (28, 9); 3: (23, 15); 
+Avatar 1 moved from 10,24 to 11,24
+Avatar locations: 0: (17, 11); 1: (11, 24); 2: (28, 9); 3: (23, 15); 
+avatar 2 ran into west wall at 28,9
+Avatar locations: 0: (17, 11); 1: (11, 24); 2: (28, 9); 3: (23, 15); 
+Avatar 3 moved from 23,15 to 23,16
+Avatar locations: 0: (17, 11); 1: (11, 24); 2: (28, 9); 3: (23, 16); 
+Avatar 0 moved from 17,11 to 18,11
+Avatar locations: 0: (18, 11); 1: (11, 24); 2: (28, 9); 3: (23, 16); 
+avatar 1 ran into north wall at 11,24
+Avatar locations: 0: (18, 11); 1: (11, 24); 2: (28, 9); 3: (23, 16); 
+Avatar 2 moved from 28,9 to 28,10
+Avatar locations: 0: (18, 11); 1: (11, 24); 2: (28, 10); 3: (23, 16); 
+avatar 3 ran into east wall at 23,16
+Avatar locations: 0: (18, 11); 1: (11, 24); 2: (28, 10); 3: (23, 16); 
+avatar 0 ran into east wall at 18,11
+Avatar locations: 0: (18, 11); 1: (11, 24); 2: (28, 10); 3: (23, 16); 
+Avatar 1 moved from 11,24 to 12,24
+Avatar locations: 0: (18, 11); 1: (12, 24); 2: (28, 10); 3: (23, 16); 
+Avatar 2 moved from 28,10 to 27,10
+Avatar locations: 0: (18, 11); 1: (12, 24); 2: (27, 10); 3: (23, 16); 
+Avatar 3 moved from 23,16 to 23,17
+Avatar locations: 0: (18, 11); 1: (12, 24); 2: (27, 10); 3: (23, 17); 
+Avatar 0 moved from 18,11 to 18,10
+Avatar locations: 0: (18, 10); 1: (12, 24); 2: (27, 10); 3: (23, 17); 
+avatar 1 ran into north wall at 12,24
+Avatar locations: 0: (18, 10); 1: (12, 24); 2: (27, 10); 3: (23, 17); 
+avatar 2 ran into west wall at 27,10
+Avatar locations: 0: (18, 10); 1: (12, 24); 2: (27, 10); 3: (23, 17); 
+Avatar 3 moved from 23,17 to 24,17
+Avatar locations: 0: (18, 10); 1: (12, 24); 2: (27, 10); 3: (24, 17); 
+avatar 0 ran into east wall at 18,10
+Avatar locations: 0: (18, 10); 1: (12, 24); 2: (27, 10); 3: (24, 17); 
+avatar 1 ran into east wall at 12,24
+Avatar locations: 0: (18, 10); 1: (12, 24); 2: (27, 10); 3: (24, 17); 
+Avatar 2 moved from 27,10 to 27,9
+Avatar locations: 0: (18, 10); 1: (12, 24); 2: (27, 9); 3: (24, 17); 
+avatar 3 ran into north wall at 24,17
+Avatar locations: 0: (18, 10); 1: (12, 24); 2: (27, 9); 3: (24, 17); 
+Avatar 0 moved from 18,10 to 17,10
+Avatar locations: 0: (17, 10); 1: (12, 24); 2: (27, 9); 3: (24, 17); 
+Avatar 1 moved from 12,24 to 12,25
+Avatar locations: 0: (17, 10); 1: (12, 25); 2: (27, 9); 3: (24, 17); 
+Avatar 2 moved from 27,9 to 26,9
+Avatar locations: 0: (17, 10); 1: (12, 25); 2: (26, 9); 3: (24, 17); 
+Avatar 3 moved from 24,17 to 25,17
+Avatar locations: 0: (17, 10); 1: (12, 25); 2: (26, 9); 3: (25, 17); 
+avatar 0 ran into south wall at 17,10
+Avatar locations: 0: (17, 10); 1: (12, 25); 2: (26, 9); 3: (25, 17); 
+avatar 1 ran into east wall at 12,25
+Avatar locations: 0: (17, 10); 1: (12, 25); 2: (26, 9); 3: (25, 17); 
+avatar 2 ran into west wall at 26,9
+Avatar locations: 0: (17, 10); 1: (12, 25); 2: (26, 9); 3: (25, 17); 
+avatar 3 ran into north wall at 25,17
+Avatar locations: 0: (17, 10); 1: (12, 25); 2: (26, 9); 3: (25, 17); 
+Avatar 0 moved from 17,10 to 18,10
+Avatar locations: 0: (18, 10); 1: (12, 25); 2: (26, 9); 3: (25, 17); 
+Avatar 1 moved from 12,25 to 11,25
+Avatar locations: 0: (18, 10); 1: (11, 25); 2: (26, 9); 3: (25, 17); 
+Avatar 2 moved from 26,9 to 26,10
+Avatar locations: 0: (18, 10); 1: (11, 25); 2: (26, 10); 3: (25, 17); 
+avatar 3 ran into east wall at 25,17
+Avatar locations: 0: (18, 10); 1: (11, 25); 2: (26, 10); 3: (25, 17); 
+Avatar 0 moved from 18,10 to 18,9
+Avatar locations: 0: (18, 9); 1: (11, 25); 2: (26, 10); 3: (25, 17); 
+avatar 1 ran into north wall at 11,25
+Avatar locations: 0: (18, 9); 1: (11, 25); 2: (26, 10); 3: (25, 17); 
+avatar 2 ran into west wall at 26,10
+Avatar locations: 0: (18, 9); 1: (11, 25); 2: (26, 10); 3: (25, 17); 
+avatar 3 ran into south wall at 25,17
+Avatar locations: 0: (18, 9); 1: (11, 25); 2: (26, 10); 3: (25, 17); 
+avatar 0 ran into east wall at 18,9
+Avatar locations: 0: (18, 9); 1: (11, 25); 2: (26, 10); 3: (25, 17); 
+avatar 1 ran into west wall at 11,25
+Avatar locations: 0: (18, 9); 1: (11, 25); 2: (26, 10); 3: (25, 17); 
+Avatar 2 moved from 26,10 to 26,9
+Avatar locations: 0: (18, 9); 1: (11, 25); 2: (26, 9); 3: (25, 17); 
+Avatar 3 moved from 25,17 to 24,17
+Avatar locations: 0: (18, 9); 1: (11, 25); 2: (26, 9); 3: (24, 17); 
+Avatar 0 moved from 18,9 to 18,8
+Avatar locations: 0: (18, 8); 1: (11, 25); 2: (26, 9); 3: (24, 17); 
+Avatar 1 moved from 11,25 to 11,26
+Avatar locations: 0: (18, 8); 1: (11, 26); 2: (26, 9); 3: (24, 17); 
+avatar 2 ran into north wall at 26,9
+Avatar locations: 0: (18, 8); 1: (11, 26); 2: (26, 9); 3: (24, 17); 
+avatar 3 ran into south wall at 24,17
+Avatar locations: 0: (18, 8); 1: (11, 26); 2: (26, 9); 3: (24, 17); 
+Avatar 0 moved from 18,8 to 19,8
+Avatar locations: 0: (19, 8); 1: (11, 26); 2: (26, 9); 3: (24, 17); 
+avatar 1 ran into east wall at 11,26
+Avatar locations: 0: (19, 8); 1: (11, 26); 2: (26, 9); 3: (24, 17); 
+Avatar 2 moved from 26,9 to 27,9
+Avatar locations: 0: (19, 8); 1: (11, 26); 2: (27, 9); 3: (24, 17); 
+Avatar 3 moved from 24,17 to 23,17
+Avatar locations: 0: (19, 8); 1: (11, 26); 2: (27, 9); 3: (23, 17); 
+avatar 0 ran into east wall at 19,8
+Avatar locations: 0: (19, 8); 1: (11, 26); 2: (27, 9); 3: (23, 17); 
+avatar 1 ran into west wall at 11,26
+Avatar locations: 0: (19, 8); 1: (11, 26); 2: (27, 9); 3: (23, 17); 
+Avatar 2 moved from 27,9 to 27,8
+Avatar locations: 0: (19, 8); 1: (11, 26); 2: (27, 8); 3: (23, 17); 
+avatar 3 ran into west wall at 23,17
+Avatar locations: 0: (19, 8); 1: (11, 26); 2: (27, 8); 3: (23, 17); 
+Avatar 0 moved from 19,8 to 19,9
+Avatar locations: 0: (19, 9); 1: (11, 26); 2: (27, 8); 3: (23, 17); 
+Avatar 1 moved from 11,26 to 11,27
+Avatar locations: 0: (19, 9); 1: (11, 27); 2: (27, 8); 3: (23, 17); 
+avatar 2 ran into west wall at 27,8
+Avatar locations: 0: (19, 9); 1: (11, 27); 2: (27, 8); 3: (23, 17); 
+avatar 3 ran into south wall at 23,17
+Avatar locations: 0: (19, 9); 1: (11, 27); 2: (27, 8); 3: (23, 17); 
+Avatar 0 moved from 19,9 to 20,9
+Avatar locations: 0: (20, 9); 1: (11, 27); 2: (27, 8); 3: (23, 17); 
+Avatar 1 moved from 11,27 to 12,27
+Avatar locations: 0: (20, 9); 1: (12, 27); 2: (27, 8); 3: (23, 17); 
+avatar 2 ran into north wall at 27,8
+Avatar locations: 0: (20, 9); 1: (12, 27); 2: (27, 8); 3: (23, 17); 
+Avatar 3 moved from 23,17 to 23,16
+Avatar locations: 0: (20, 9); 1: (12, 27); 2: (27, 8); 3: (23, 16); 
+avatar 0 ran into south wall at 20,9
+Avatar locations: 0: (20, 9); 1: (12, 27); 2: (27, 8); 3: (23, 16); 
+avatar 1 ran into north wall at 12,27
+Avatar locations: 0: (20, 9); 1: (12, 27); 2: (27, 8); 3: (23, 16); 
+Avatar 2 moved from 27,8 to 28,8
+Avatar locations: 0: (20, 9); 1: (12, 27); 2: (28, 8); 3: (23, 16); 
+Avatar 3 moved from 23,16 to 22,16
+Avatar locations: 0: (20, 9); 1: (12, 27); 2: (28, 8); 3: (22, 16); 
+Avatar 0 moved from 20,9 to 20,8
+Avatar locations: 0: (20, 8); 1: (12, 27); 2: (28, 8); 3: (22, 16); 
+avatar 1 ran into east wall at 12,27
+Avatar locations: 0: (20, 8); 1: (12, 27); 2: (28, 8); 3: (22, 16); 
+Avatar 2 moved from 28,8 to 28,7
+Avatar locations: 0: (20, 8); 1: (12, 27); 2: (28, 7); 3: (22, 16); 
+Avatar 3 moved from 22,16 to 22,17
+Avatar locations: 0: (20, 8); 1: (12, 27); 2: (28, 7); 3: (22, 17); 
+Avatar 0 moved from 20,8 to 20,7
+Avatar locations: 0: (20, 7); 1: (12, 27); 2: (28, 7); 3: (22, 17); 
+Avatar 1 moved from 12,27 to 12,28
+Avatar locations: 0: (20, 7); 1: (12, 28); 2: (28, 7); 3: (22, 17); 
+Avatar 2 moved from 28,7 to 27,7
+Avatar locations: 0: (20, 7); 1: (12, 28); 2: (27, 7); 3: (22, 17); 
+avatar 3 ran into south wall at 22,17
+Avatar locations: 0: (20, 7); 1: (12, 28); 2: (27, 7); 3: (22, 17); 
+avatar 0 ran into east wall at 20,7
+Avatar locations: 0: (20, 7); 1: (12, 28); 2: (27, 7); 3: (22, 17); 
+avatar 1 ran into east wall at 12,28
+Avatar locations: 0: (20, 7); 1: (12, 28); 2: (27, 7); 3: (22, 17); 
+avatar 2 ran into west wall at 27,7
+Avatar locations: 0: (20, 7); 1: (12, 28); 2: (27, 7); 3: (22, 17); 
+Avatar 3 moved from 22,17 to 21,17
+Avatar locations: 0: (20, 7); 1: (12, 28); 2: (27, 7); 3: (21, 17); 
+avatar 0 ran into west wall at 20,7
+Avatar locations: 0: (20, 7); 1: (12, 28); 2: (27, 7); 3: (21, 17); 
+Avatar 1 moved from 12,28 to 11,28
+Avatar locations: 0: (20, 7); 1: (11, 28); 2: (27, 7); 3: (21, 17); 
+avatar 2 ran into north wall at 27,7
+Avatar locations: 0: (20, 7); 1: (11, 28); 2: (27, 7); 3: (21, 17); 
+avatar 3 ran into south wall at 21,17
+Avatar locations: 0: (20, 7); 1: (11, 28); 2: (27, 7); 3: (21, 17); 
+Avatar 0 moved from 20,7 to 20,6
+Avatar locations: 0: (20, 6); 1: (11, 28); 2: (27, 7); 3: (21, 17); 
+avatar 1 ran into north wall at 11,28
+Avatar locations: 0: (20, 6); 1: (11, 28); 2: (27, 7); 3: (21, 17); 
+Avatar 2 moved from 27,7 to 28,7
+Avatar locations: 0: (20, 6); 1: (11, 28); 2: (28, 7); 3: (21, 17); 
+Avatar 3 moved from 21,17 to 20,17
+Avatar locations: 0: (20, 6); 1: (11, 28); 2: (28, 7); 3: (20, 17); 
+avatar 0 ran into west wall at 20,6
+Avatar locations: 0: (20, 6); 1: (11, 28); 2: (28, 7); 3: (20, 17); 
+avatar 1 ran into west wall at 11,28
+Avatar locations: 0: (20, 6); 1: (11, 28); 2: (28, 7); 3: (20, 17); 
+avatar 2 ran into north wall at 28,7
+Avatar locations: 0: (20, 6); 1: (11, 28); 2: (28, 7); 3: (20, 17); 
+Avatar 3 moved from 20,17 to 20,16
+Avatar locations: 0: (20, 6); 1: (11, 28); 2: (28, 7); 3: (20, 16); 
+avatar 0 ran into north wall at 20,6
+Avatar locations: 0: (20, 6); 1: (11, 28); 2: (28, 7); 3: (20, 16); 
+Avatar 1 moved from 11,28 to 11,29
+Avatar locations: 0: (20, 6); 1: (11, 29); 2: (28, 7); 3: (20, 16); 
+Avatar 2 moved from 28,7 to 29,7
+Avatar locations: 0: (20, 6); 1: (11, 29); 2: (29, 7); 3: (20, 16); 
+Avatar 3 moved from 20,16 to 21,16
+Avatar locations: 0: (20, 6); 1: (11, 29); 2: (29, 7); 3: (21, 16); 
+Avatar 0 moved from 20,6 to 21,6
+Avatar locations: 0: (21, 6); 1: (11, 29); 2: (29, 7); 3: (21, 16); 
+avatar 1 ran into east wall at 11,29
+Avatar locations: 0: (21, 6); 1: (11, 29); 2: (29, 7); 3: (21, 16); 
+Avatar 2 moved from 29,7 to 29,8
+Avatar locations: 0: (21, 6); 1: (11, 29); 2: (29, 8); 3: (21, 16); 
+Avatar 3 moved from 21,16 to 21,15
+Avatar locations: 0: (21, 6); 1: (11, 29); 2: (29, 8); 3: (21, 15); 
+avatar 0 ran into south wall at 21,6
+Avatar locations: 0: (21, 6); 1: (11, 29); 2: (29, 8); 3: (21, 15); 
+Avatar 1 moved from 11,29 to 10,29
+Avatar locations: 0: (21, 6); 1: (10, 29); 2: (29, 8); 3: (21, 15); 
+avatar 2 ran into west wall at 29,8
+Avatar locations: 0: (21, 6); 1: (10, 29); 2: (29, 8); 3: (21, 15); 
+Avatar 3 moved from 21,15 to 21,14
+Avatar locations: 0: (21, 6); 1: (10, 29); 2: (29, 8); 3: (21, 14); 
+avatar 0 ran into north wall at 21,6
+Avatar locations: 0: (21, 6); 1: (10, 29); 2: (29, 8); 3: (21, 14); 
+Avatar 1 moved from 10,29 to 10,28
+Avatar locations: 0: (21, 6); 1: (10, 28); 2: (29, 8); 3: (21, 14); 
+Avatar 2 moved from 29,8 to 30,8
+Avatar locations: 0: (21, 6); 1: (10, 28); 2: (30, 8); 3: (21, 14); 
+Avatar 3 moved from 21,14 to 22,14
+Avatar locations: 0: (21, 6); 1: (10, 28); 2: (30, 8); 3: (22, 14); 
+Avatar 0 moved from 21,6 to 22,6
+Avatar locations: 0: (22, 6); 1: (10, 28); 2: (30, 8); 3: (22, 14); 
+Avatar 1 moved from 10,28 to 10,27
+Avatar locations: 0: (22, 6); 1: (10, 27); 2: (30, 8); 3: (22, 14); 
+Avatar 2 moved from 30,8 to 31,8
+Avatar locations: 0: (22, 6); 1: (10, 27); 2: (31, 8); 3: (22, 14); 
+avatar 3 ran into east wall at 22,14
+Avatar locations: 0: (22, 6); 1: (10, 27); 2: (31, 8); 3: (22, 14); 
+avatar 0 ran into south wall at 22,6
+Avatar locations: 0: (22, 6); 1: (10, 27); 2: (31, 8); 3: (22, 14); 
+avatar 1 ran into north wall at 10,27
+Avatar locations: 0: (22, 6); 1: (10, 27); 2: (31, 8); 3: (22, 14); 
+avatar 2 ran into north wall at 31,8
+Avatar locations: 0: (22, 6); 1: (10, 27); 2: (31, 8); 3: (22, 14); 
+Avatar 3 moved from 22,14 to 22,13
+Avatar locations: 0: (22, 6); 1: (10, 27); 2: (31, 8); 3: (22, 13); 
+avatar 0 ran into north wall at 22,6
+Avatar locations: 0: (22, 6); 1: (10, 27); 2: (31, 8); 3: (22, 13); 
+avatar 1 ran into east wall at 10,27
+Avatar locations: 0: (22, 6); 1: (10, 27); 2: (31, 8); 3: (22, 13); 
+avatar 2 ran into south wall at 31,8
+Avatar locations: 0: (22, 6); 1: (10, 27); 2: (31, 8); 3: (22, 13); 
+avatar 3 ran into north wall at 22,13
+Avatar locations: 0: (22, 6); 1: (10, 27); 2: (31, 8); 3: (22, 13); 
+Avatar 0 moved from 22,6 to 23,6
+Avatar locations: 0: (23, 6); 1: (10, 27); 2: (31, 8); 3: (22, 13); 
+Avatar 1 moved from 10,27 to 9,27
+Avatar locations: 0: (23, 6); 1: (9, 27); 2: (31, 8); 3: (22, 13); 
+Avatar 2 moved from 31,8 to 30,8
+Avatar locations: 0: (23, 6); 1: (9, 27); 2: (30, 8); 3: (22, 13); 
+avatar 3 ran into east wall at 22,13
+Avatar locations: 0: (23, 6); 1: (9, 27); 2: (30, 8); 3: (22, 13); 
+Avatar 0 moved from 23,6 to 23,7
+Avatar locations: 0: (23, 7); 1: (9, 27); 2: (30, 8); 3: (22, 13); 
+avatar 1 ran into north wall at 9,27
+Avatar locations: 0: (23, 7); 1: (9, 27); 2: (30, 8); 3: (22, 13); 
+avatar 2 ran into south wall at 30,8
+Avatar locations: 0: (23, 7); 1: (9, 27); 2: (30, 8); 3: (22, 13); 
+Avatar 3 moved from 22,13 to 21,13
+Avatar locations: 0: (23, 7); 1: (9, 27); 2: (30, 8); 3: (21, 13); 
+avatar 0 ran into east wall at 23,7
+Avatar locations: 0: (23, 7); 1: (9, 27); 2: (30, 8); 3: (21, 13); 
+avatar 1 ran into west wall at 9,27
+Avatar locations: 0: (23, 7); 1: (9, 27); 2: (30, 8); 3: (21, 13); 
+Avatar 2 moved from 30,8 to 29,8
+Avatar locations: 0: (23, 7); 1: (9, 27); 2: (29, 8); 3: (21, 13); 
+Avatar 3 moved from 21,13 to 20,13
+Avatar locations: 0: (23, 7); 1: (9, 27); 2: (29, 8); 3: (20, 13); 
+Avatar 0 moved from 23,7 to 23,8
+Avatar locations: 0: (23, 8); 1: (9, 27); 2: (29, 8); 3: (20, 13); 
+Avatar 1 moved from 9,27 to 9,28
+Avatar locations: 0: (23, 8); 1: (9, 28); 2: (29, 8); 3: (20, 13); 
+avatar 2 ran into south wall at 29,8
+Avatar locations: 0: (23, 8); 1: (9, 28); 2: (29, 8); 3: (20, 13); 
+Avatar 3 moved from 20,13 to 20,14
+Avatar locations: 0: (23, 8); 1: (9, 28); 2: (29, 8); 3: (20, 14); 
+avatar 0 ran into east wall at 23,8
+Avatar locations: 0: (23, 8); 1: (9, 28); 2: (29, 8); 3: (20, 14); 
+avatar 1 ran into east wall at 9,28
+Avatar locations: 0: (23, 8); 1: (9, 28); 2: (29, 8); 3: (20, 14); 
+Avatar 2 moved from 29,8 to 29,7
+Avatar locations: 0: (23, 8); 1: (9, 28); 2: (29, 7); 3: (20, 14); 
+Avatar 3 moved from 20,14 to 19,14
+Avatar locations: 0: (23, 8); 1: (9, 28); 2: (29, 7); 3: (19, 14); 
+Avatar 0 moved from 23,8 to 22,8
+Avatar locations: 0: (22, 8); 1: (9, 28); 2: (29, 7); 3: (19, 14); 
+Avatar 1 moved from 9,28 to 8,28
+Avatar locations: 0: (22, 8); 1: (8, 28); 2: (29, 7); 3: (19, 14); 
+Avatar 2 moved from 29,7 to 28,7
+Avatar locations: 0: (22, 8); 1: (8, 28); 2: (28, 7); 3: (19, 14); 
+Avatar 3 moved from 19,14 to 19,15
+Avatar locations: 0: (22, 8); 1: (8, 28); 2: (28, 7); 3: (19, 15); 
+avatar 0 ran into north wall at 22,8
+Avatar locations: 0: (22, 8); 1: (8, 28); 2: (28, 7); 3: (19, 15); 
+avatar 1 ran into north wall at 8,28
+Avatar locations: 0: (22, 8); 1: (8, 28); 2: (28, 7); 3: (19, 15); 
+Avatar 2 moved from 28,7 to 28,8
+Avatar locations: 0: (22, 8); 1: (8, 28); 2: (28, 8); 3: (19, 15); 
+Avatar 3 moved from 19,15 to 19,16
+Avatar locations: 0: (22, 8); 1: (8, 28); 2: (28, 8); 3: (19, 16); 
+avatar 0 ran into west wall at 22,8
+Avatar locations: 0: (22, 8); 1: (8, 28); 2: (28, 8); 3: (19, 16); 
+Avatar 1 moved from 8,28 to 7,28
+Avatar locations: 0: (22, 8); 1: (7, 28); 2: (28, 8); 3: (19, 16); 
+avatar 2 ran into south wall at 28,8
+Avatar locations: 0: (22, 8); 1: (7, 28); 2: (28, 8); 3: (19, 16); 
+Avatar 3 moved from 19,16 to 19,17
+Avatar locations: 0: (22, 8); 1: (7, 28); 2: (28, 8); 3: (19, 17); 
+Avatar 0 moved from 22,8 to 22,9
+Avatar locations: 0: (22, 9); 1: (7, 28); 2: (28, 8); 3: (19, 17); 
+avatar 1 ran into north wall at 7,28
+Avatar locations: 0: (22, 9); 1: (7, 28); 2: (28, 8); 3: (19, 17); 
+Avatar 2 moved from 28,8 to 27,8
+Avatar locations: 0: (22, 9); 1: (7, 28); 2: (27, 8); 3: (19, 17); 
+Avatar 3 moved from 19,17 to 19,18
+Avatar locations: 0: (22, 9); 1: (7, 28); 2: (27, 8); 3: (19, 18); 
+Avatar 0 moved from 22,9 to 23,9
+Avatar locations: 0: (23, 9); 1: (7, 28); 2: (27, 8); 3: (19, 18); 
+Avatar 1 moved from 7,28 to 6,28
+Avatar locations: 0: (23, 9); 1: (6, 28); 2: (27, 8); 3: (19, 18); 
+Avatar 2 moved from 27,8 to 27,9
+Avatar locations: 0: (23, 9); 1: (6, 28); 2: (27, 9); 3: (19, 18); 
+avatar 3 ran into east wall at 19,18
+Avatar locations: 0: (23, 9); 1: (6, 28); 2: (27, 9); 3: (19, 18); 
+Avatar 0 moved from 23,9 to 24,9
+Avatar locations: 0: (24, 9); 1: (6, 28); 2: (27, 9); 3: (19, 18); 
+avatar 1 ran into north wall at 6,28
+Avatar locations: 0: (24, 9); 1: (6, 28); 2: (27, 9); 3: (19, 18); 
+Avatar 2 moved from 27,9 to 27,10
+Avatar locations: 0: (24, 9); 1: (6, 28); 2: (27, 10); 3: (19, 18); 
+Avatar 3 moved from 19,18 to 19,19
+Avatar locations: 0: (24, 9); 1: (6, 28); 2: (27, 10); 3: (19, 19); 
+Avatar 0 moved from 24,9 to 24,10
+Avatar locations: 0: (24, 10); 1: (6, 28); 2: (27, 10); 3: (19, 19); 
+Avatar 1 moved from 6,28 to 5,28
+Avatar locations: 0: (24, 10); 1: (5, 28); 2: (27, 10); 3: (19, 19); 
+Avatar 2 moved from 27,10 to 28,10
+Avatar locations: 0: (24, 10); 1: (5, 28); 2: (28, 10); 3: (19, 19); 
+avatar 3 ran into east wall at 19,19
+Avatar locations: 0: (24, 10); 1: (5, 28); 2: (28, 10); 3: (19, 19); 
+avatar 0 ran into west wall at 24,10
+Avatar locations: 0: (24, 10); 1: (5, 28); 2: (28, 10); 3: (19, 19); 
+Avatar 1 moved from 5,28 to 5,27
+Avatar locations: 0: (24, 10); 1: (5, 27); 2: (28, 10); 3: (19, 19); 
+Avatar 2 moved from 28,10 to 29,10
+Avatar locations: 0: (24, 10); 1: (5, 27); 2: (29, 10); 3: (19, 19); 
+Avatar 3 moved from 19,19 to 19,20
+Avatar locations: 0: (24, 10); 1: (5, 27); 2: (29, 10); 3: (19, 20); 
+Avatar 0 moved from 24,10 to 24,11
+Avatar locations: 0: (24, 11); 1: (5, 27); 2: (29, 10); 3: (19, 20); 
+avatar 1 ran into north wall at 5,27
+Avatar locations: 0: (24, 11); 1: (5, 27); 2: (29, 10); 3: (19, 20); 
+avatar 2 ran into south wall at 29,10
+Avatar locations: 0: (24, 11); 1: (5, 27); 2: (29, 10); 3: (19, 20); 
+avatar 3 ran into west wall at 19,20
+Avatar locations: 0: (24, 11); 1: (5, 27); 2: (29, 10); 3: (19, 20); 
+Avatar 0 moved from 24,11 to 23,11
+Avatar locations: 0: (23, 11); 1: (5, 27); 2: (29, 10); 3: (19, 20); 
+avatar 1 ran into east wall at 5,27
+Avatar locations: 0: (23, 11); 1: (5, 27); 2: (29, 10); 3: (19, 20); 
+avatar 2 ran into north wall at 29,10
+Avatar locations: 0: (23, 11); 1: (5, 27); 2: (29, 10); 3: (19, 20); 
+Avatar 3 moved from 19,20 to 20,20
+Avatar locations: 0: (23, 11); 1: (5, 27); 2: (29, 10); 3: (20, 20); 
+Avatar 0 moved from 23,11 to 22,11
+Avatar locations: 0: (22, 11); 1: (5, 27); 2: (29, 10); 3: (20, 20); 
+avatar 1 ran into west wall at 5,27
+Avatar locations: 0: (22, 11); 1: (5, 27); 2: (29, 10); 3: (20, 20); 
+Avatar 2 moved from 29,10 to 30,10
+Avatar locations: 0: (22, 11); 1: (5, 27); 2: (30, 10); 3: (20, 20); 
+Avatar 3 moved from 20,20 to 20,19
+Avatar locations: 0: (22, 11); 1: (5, 27); 2: (30, 10); 3: (20, 19); 
+avatar 0 ran into west wall at 22,11
+Avatar locations: 0: (22, 11); 1: (5, 27); 2: (30, 10); 3: (20, 19); 
+Avatar 1 moved from 5,27 to 5,28
+Avatar locations: 0: (22, 11); 1: (5, 28); 2: (30, 10); 3: (20, 19); 
+Avatar 2 moved from 30,10 to 30,11
+Avatar locations: 0: (22, 11); 1: (5, 28); 2: (30, 11); 3: (20, 19); 
+Avatar 3 moved from 20,19 to 20,18
+Avatar locations: 0: (22, 11); 1: (5, 28); 2: (30, 11); 3: (20, 18); 
+avatar 0 ran into south wall at 22,11
+Avatar locations: 0: (22, 11); 1: (5, 28); 2: (30, 11); 3: (20, 18); 
+Avatar 1 moved from 5,28 to 4,28
+Avatar locations: 0: (22, 11); 1: (4, 28); 2: (30, 11); 3: (20, 18); 
+Avatar 2 moved from 30,11 to 29,11
+Avatar locations: 0: (22, 11); 1: (4, 28); 2: (29, 11); 3: (20, 18); 
+Avatar 3 moved from 20,18 to 21,18
+Avatar locations: 0: (22, 11); 1: (4, 28); 2: (29, 11); 3: (21, 18); 
+Avatar 0 moved from 22,11 to 22,10
+Avatar locations: 0: (22, 10); 1: (4, 28); 2: (29, 11); 3: (21, 18); 
+Avatar 1 moved from 4,28 to 4,27
+Avatar locations: 0: (22, 10); 1: (4, 27); 2: (29, 11); 3: (21, 18); 
+avatar 2 ran into west wall at 29,11
+Avatar locations: 0: (22, 10); 1: (4, 27); 2: (29, 11); 3: (21, 18); 
+avatar 3 ran into east wall at 21,18
+Avatar locations: 0: (22, 10); 1: (4, 27); 2: (29, 11); 3: (21, 18); 
+Avatar 0 moved from 22,10 to 21,10
+Avatar locations: 0: (21, 10); 1: (4, 27); 2: (29, 11); 3: (21, 18); 
+Avatar 1 moved from 4,27 to 4,26
+Avatar locations: 0: (21, 10); 1: (4, 26); 2: (29, 11); 3: (21, 18); 
+avatar 2 ran into south wall at 29,11
+Avatar locations: 0: (21, 10); 1: (4, 26); 2: (29, 11); 3: (21, 18); 
+Avatar 3 moved from 21,18 to 21,19
+Avatar locations: 0: (21, 10); 1: (4, 26); 2: (29, 11); 3: (21, 19); 
+Avatar 0 moved from 21,10 to 20,10
+Avatar locations: 0: (20, 10); 1: (4, 26); 2: (29, 11); 3: (21, 19); 
+avatar 1 ran into north wall at 4,26
+Avatar locations: 0: (20, 10); 1: (4, 26); 2: (29, 11); 3: (21, 19); 
+Avatar 2 moved from 29,11 to 30,11
+Avatar locations: 0: (20, 10); 1: (4, 26); 2: (30, 11); 3: (21, 19); 
+avatar 3 ran into west wall at 21,19
+Avatar locations: 0: (20, 10); 1: (4, 26); 2: (30, 11); 3: (21, 19); 
+avatar 0 ran into south wall at 20,10
+Avatar locations: 0: (20, 10); 1: (4, 26); 2: (30, 11); 3: (21, 19); 
+Avatar 1 moved from 4,26 to 5,26
+Avatar locations: 0: (20, 10); 1: (5, 26); 2: (30, 11); 3: (21, 19); 
+avatar 2 ran into east wall at 30,11
+Avatar locations: 0: (20, 10); 1: (5, 26); 2: (30, 11); 3: (21, 19); 
+Avatar 3 moved from 21,19 to 22,19
+Avatar locations: 0: (20, 10); 1: (5, 26); 2: (30, 11); 3: (22, 19); 
+Avatar 0 moved from 20,10 to 19,10
+Avatar locations: 0: (19, 10); 1: (5, 26); 2: (30, 11); 3: (22, 19); 
+avatar 1 ran into north wall at 5,26
+Avatar locations: 0: (19, 10); 1: (5, 26); 2: (30, 11); 3: (22, 19); 
+Avatar 2 moved from 30,11 to 30,12
+Avatar locations: 0: (19, 10); 1: (5, 26); 2: (30, 12); 3: (22, 19); 
+Avatar 3 moved from 22,19 to 22,18
+Avatar locations: 0: (19, 10); 1: (5, 26); 2: (30, 12); 3: (22, 18); 
+Avatar 0 moved from 19,10 to 19,11
+Avatar locations: 0: (19, 11); 1: (5, 26); 2: (30, 12); 3: (22, 18); 
+Avatar 1 moved from 5,26 to 6,26
+Avatar locations: 0: (19, 11); 1: (6, 26); 2: (30, 12); 3: (22, 18); 
+avatar 2 ran into west wall at 30,12
+Avatar locations: 0: (19, 11); 1: (6, 26); 2: (30, 12); 3: (22, 18); 
+Avatar 3 moved from 22,18 to 23,18
+Avatar locations: 0: (19, 11); 1: (6, 26); 2: (30, 12); 3: (23, 18); 
+avatar 0 ran into east wall at 19,11
+Avatar locations: 0: (19, 11); 1: (6, 26); 2: (30, 12); 3: (23, 18); 
+avatar 1 ran into north wall at 6,26
+Avatar locations: 0: (19, 11); 1: (6, 26); 2: (30, 12); 3: (23, 18); 
+Avatar 2 moved from 30,12 to 31,12
+Avatar locations: 0: (19, 11); 1: (6, 26); 2: (31, 12); 3: (23, 18); 
+Avatar 3 moved from 23,18 to 24,18
+Avatar locations: 0: (19, 11); 1: (6, 26); 2: (31, 12); 3: (24, 18); 
+Avatar 0 moved from 19,11 to 19,12
+Avatar locations: 0: (19, 12); 1: (6, 26); 2: (31, 12); 3: (24, 18); 
+avatar 1 ran into east wall at 6,26
+Avatar locations: 0: (19, 12); 1: (6, 26); 2: (31, 12); 3: (24, 18); 
+Avatar 2 moved from 31,12 to 31,11
+Avatar locations: 0: (19, 12); 1: (6, 26); 2: (31, 11); 3: (24, 18); 
+Avatar 3 moved from 24,18 to 25,18
+Avatar locations: 0: (19, 12); 1: (6, 26); 2: (31, 11); 3: (25, 18); 
+Avatar 0 moved from 19,12 to 20,12
+Avatar locations: 0: (20, 12); 1: (6, 26); 2: (31, 11); 3: (25, 18); 
+Avatar 1 moved from 6,26 to 6,27
+Avatar locations: 0: (20, 12); 1: (6, 27); 2: (31, 11); 3: (25, 18); 
+Avatar 2 moved from 31,11 to 31,12
+Avatar locations: 0: (20, 12); 1: (6, 27); 2: (31, 12); 3: (25, 18); 
+Avatar 3 moved from 25,18 to 26,18
+Avatar locations: 0: (20, 12); 1: (6, 27); 2: (31, 12); 3: (26, 18); 
+Avatar 0 moved from 20,12 to 20,11
+Avatar locations: 0: (20, 11); 1: (6, 27); 2: (31, 12); 3: (26, 18); 
+Avatar 1 moved from 6,27 to 7,27
+Avatar locations: 0: (20, 11); 1: (7, 27); 2: (31, 12); 3: (26, 18); 
+Avatar 2 moved from 31,12 to 30,12
+Avatar locations: 0: (20, 11); 1: (7, 27); 2: (30, 12); 3: (26, 18); 
+Avatar 3 moved from 26,18 to 26,17
+Avatar locations: 0: (20, 11); 1: (7, 27); 2: (30, 12); 3: (26, 17); 
+Avatar 0 moved from 20,11 to 21,11
+Avatar locations: 0: (21, 11); 1: (7, 27); 2: (30, 12); 3: (26, 17); 
+Avatar 1 moved from 7,27 to 7,26
+Avatar locations: 0: (21, 11); 1: (7, 26); 2: (30, 12); 3: (26, 17); 
+Avatar 2 moved from 30,12 to 30,11
+Avatar locations: 0: (21, 11); 1: (7, 26); 2: (30, 11); 3: (26, 17); 
+avatar 3 ran into north wall at 26,17
+Avatar locations: 0: (21, 11); 1: (7, 26); 2: (30, 11); 3: (26, 17); 
+Avatar 0 moved from 21,11 to 21,12
+Avatar locations: 0: (21, 12); 1: (7, 26); 2: (30, 11); 3: (26, 17); 
+Avatar 1 moved from 7,26 to 7,25
+Avatar locations: 0: (21, 12); 1: (7, 25); 2: (30, 11); 3: (26, 17); 
+Avatar 2 moved from 30,11 to 30,10
+Avatar locations: 0: (21, 12); 1: (7, 25); 2: (30, 10); 3: (26, 17); 
+Avatar 3 moved from 26,17 to 27,17
+Avatar locations: 0: (21, 12); 1: (7, 25); 2: (30, 10); 3: (27, 17); 
+avatar 0 ran into west wall at 21,12
+Avatar locations: 0: (21, 12); 1: (7, 25); 2: (30, 10); 3: (27, 17); 
+Avatar 1 moved from 7,25 to 7,24
+Avatar locations: 0: (21, 12); 1: (7, 24); 2: (30, 10); 3: (27, 17); 
+avatar 2 ran into north wall at 30,10
+Avatar locations: 0: (21, 12); 1: (7, 24); 2: (30, 10); 3: (27, 17); 
+Avatar 3 moved from 27,17 to 27,16
+Avatar locations: 0: (21, 12); 1: (7, 24); 2: (30, 10); 3: (27, 16); 
+Avatar 0 moved from 21,12 to 22,12
+Avatar locations: 0: (22, 12); 1: (7, 24); 2: (30, 10); 3: (27, 16); 
+avatar 1 ran into north wall at 7,24
+Avatar locations: 0: (22, 12); 1: (7, 24); 2: (30, 10); 3: (27, 16); 
+Avatar 2 moved from 30,10 to 29,10
+Avatar locations: 0: (22, 12); 1: (7, 24); 2: (29, 10); 3: (27, 16); 
+avatar 3 ran into north wall at 27,16
+Avatar locations: 0: (22, 12); 1: (7, 24); 2: (29, 10); 3: (27, 16); 
+Avatar 0 moved from 22,12 to 23,12
+Avatar locations: 0: (23, 12); 1: (7, 24); 2: (29, 10); 3: (27, 16); 
+avatar 1 ran into east wall at 7,24
+Avatar locations: 0: (23, 12); 1: (7, 24); 2: (29, 10); 3: (27, 16); 
+Avatar 2 moved from 29,10 to 28,10
+Avatar locations: 0: (23, 12); 1: (7, 24); 2: (28, 10); 3: (27, 16); 
+Avatar 3 moved from 27,16 to 28,16
+Avatar locations: 0: (23, 12); 1: (7, 24); 2: (28, 10); 3: (28, 16); 
+Avatar 0 moved from 23,12 to 23,13
+Avatar locations: 0: (23, 13); 1: (7, 24); 2: (28, 10); 3: (28, 16); 
+Avatar 1 moved from 7,24 to 6,24
+Avatar locations: 0: (23, 13); 1: (6, 24); 2: (28, 10); 3: (28, 16); 
+avatar 2 ran into south wall at 28,10
+Avatar locations: 0: (23, 13); 1: (6, 24); 2: (28, 10); 3: (28, 16); 
+Avatar 3 moved from 28,16 to 28,15
+Avatar locations: 0: (23, 13); 1: (6, 24); 2: (28, 10); 3: (28, 15); 
+Avatar 0 moved from 23,13 to 23,14
+Avatar locations: 0: (23, 14); 1: (6, 24); 2: (28, 10); 3: (28, 15); 
+Avatar 1 moved from 6,24 to 6,23
+Avatar locations: 0: (23, 14); 1: (6, 23); 2: (28, 10); 3: (28, 15); 
+Avatar 2 moved from 28,10 to 28,9
+Avatar locations: 0: (23, 14); 1: (6, 23); 2: (28, 9); 3: (28, 15); 
+Avatar 3 moved from 28,15 to 27,15
+Avatar locations: 0: (23, 14); 1: (6, 23); 2: (28, 9); 3: (27, 15); 
+Avatar 0 moved from 23,14 to 24,14
+Avatar locations: 0: (24, 14); 1: (6, 23); 2: (28, 9); 3: (27, 15); 
+avatar 1 ran into north wall at 6,23
+Avatar locations: 0: (24, 14); 1: (6, 23); 2: (28, 9); 3: (27, 15); 
+Avatar 2 moved from 28,9 to 29,9
+Avatar locations: 0: (24, 14); 1: (6, 23); 2: (29, 9); 3: (27, 15); 
+avatar 3 ran into west wall at 27,15
+Avatar locations: 0: (24, 14); 1: (6, 23); 2: (29, 9); 3: (27, 15); 
+avatar 0 ran into east wall at 24,14
+Avatar locations: 0: (24, 14); 1: (6, 23); 2: (29, 9); 3: (27, 15); 
+avatar 1 ran into east wall at 6,23
+Avatar locations: 0: (24, 14); 1: (6, 23); 2: (29, 9); 3: (27, 15); 
+Avatar 2 moved from 29,9 to 30,9
+Avatar locations: 0: (24, 14); 1: (6, 23); 2: (30, 9); 3: (27, 15); 
+Avatar 3 moved from 27,15 to 27,14
+Avatar locations: 0: (24, 14); 1: (6, 23); 2: (30, 9); 3: (27, 14); 
+avatar 0 ran into north wall at 24,14
+Avatar locations: 0: (24, 14); 1: (6, 23); 2: (30, 9); 3: (27, 14); 
+Avatar 1 moved from 6,23 to 5,23
+Avatar locations: 0: (24, 14); 1: (5, 23); 2: (30, 9); 3: (27, 14); 
+Avatar 2 moved from 30,9 to 31,9
+Avatar locations: 0: (24, 14); 1: (5, 23); 2: (31, 9); 3: (27, 14); 
+Avatar 3 moved from 27,14 to 26,14
+Avatar locations: 0: (24, 14); 1: (5, 23); 2: (31, 9); 3: (26, 14); 
+Avatar 0 moved from 24,14 to 24,15
+Avatar locations: 0: (24, 15); 1: (5, 23); 2: (31, 9); 3: (26, 14); 
+avatar 1 ran into north wall at 5,23
+Avatar locations: 0: (24, 15); 1: (5, 23); 2: (31, 9); 3: (26, 14); 
+Avatar 2 moved from 31,9 to 31,10
+Avatar locations: 0: (24, 15); 1: (5, 23); 2: (31, 10); 3: (26, 14); 
+avatar 3 ran into west wall at 26,14
+Avatar locations: 0: (24, 15); 1: (5, 23); 2: (31, 10); 3: (26, 14); 
+avatar 0 ran into east wall at 24,15
+Avatar locations: 0: (24, 15); 1: (5, 23); 2: (31, 10); 3: (26, 14); 
+Avatar 1 moved from 5,23 to 4,23
+Avatar locations: 0: (24, 15); 1: (4, 23); 2: (31, 10); 3: (26, 14); 
+Avatar 2 moved from 31,10 to 32,10
+Avatar locations: 0: (24, 15); 1: (4, 23); 2: (32, 10); 3: (26, 14); 
+avatar 3 ran into south wall at 26,14
+Avatar locations: 0: (24, 15); 1: (4, 23); 2: (32, 10); 3: (26, 14); 
+Avatar 0 moved from 24,15 to 24,16
+Avatar locations: 0: (24, 16); 1: (4, 23); 2: (32, 10); 3: (26, 14); 
+avatar 1 ran into north wall at 4,23
+Avatar locations: 0: (24, 16); 1: (4, 23); 2: (32, 10); 3: (26, 14); 
+Avatar 2 moved from 32,10 to 33,10
+Avatar locations: 0: (24, 16); 1: (4, 23); 2: (33, 10); 3: (26, 14); 
+avatar 3 ran into north wall at 26,14
+Avatar locations: 0: (24, 16); 1: (4, 23); 2: (33, 10); 3: (26, 14); 
+Avatar 0 moved from 24,16 to 25,16
+Avatar locations: 0: (25, 16); 1: (4, 23); 2: (33, 10); 3: (26, 14); 
+Avatar 1 moved from 4,23 to 3,23
+Avatar locations: 0: (25, 16); 1: (3, 23); 2: (33, 10); 3: (26, 14); 
+avatar 2 ran into north wall at 33,10
+Avatar locations: 0: (25, 16); 1: (3, 23); 2: (33, 10); 3: (26, 14); 
+Avatar 3 moved from 26,14 to 27,14
+Avatar locations: 0: (25, 16); 1: (3, 23); 2: (33, 10); 3: (27, 14); 
+avatar 0 ran into north wall at 25,16
+Avatar locations: 0: (25, 16); 1: (3, 23); 2: (33, 10); 3: (27, 14); 
+avatar 1 ran into north wall at 3,23
+Avatar locations: 0: (25, 16); 1: (3, 23); 2: (33, 10); 3: (27, 14); 
+Avatar 2 moved from 33,10 to 34,10
+Avatar locations: 0: (25, 16); 1: (3, 23); 2: (34, 10); 3: (27, 14); 
+avatar 3 ran into north wall at 27,14
+Avatar locations: 0: (25, 16); 1: (3, 23); 2: (34, 10); 3: (27, 14); 
+Avatar 0 moved from 25,16 to 26,16
+Avatar locations: 0: (26, 16); 1: (3, 23); 2: (34, 10); 3: (27, 14); 
+Avatar 1 moved from 3,23 to 2,23
+Avatar locations: 0: (26, 16); 1: (2, 23); 2: (34, 10); 3: (27, 14); 
+Avatar 2 moved from 34,10 to 34,11
+Avatar locations: 0: (26, 16); 1: (2, 23); 2: (34, 11); 3: (27, 14); 
+avatar 3 ran into east wall at 27,14
+Avatar locations: 0: (26, 16); 1: (2, 23); 2: (34, 11); 3: (27, 14); 
+avatar 0 ran into east wall at 26,16
+Avatar locations: 0: (26, 16); 1: (2, 23); 2: (34, 11); 3: (27, 14); 
+Avatar 1 moved from 2,23 to 2,22
+Avatar locations: 0: (26, 16); 1: (2, 22); 2: (34, 11); 3: (27, 14); 
+avatar 2 ran into west wall at 34,11
+Avatar locations: 0: (26, 16); 1: (2, 22); 2: (34, 11); 3: (27, 14); 
+Avatar 3 moved from 27,14 to 27,15
+Avatar locations: 0: (26, 16); 1: (2, 22); 2: (34, 11); 3: (27, 15); 
+Avatar 0 moved from 26,16 to 26,15
+Avatar locations: 0: (26, 15); 1: (2, 22); 2: (34, 11); 3: (27, 15); 
+avatar 1 ran into north wall at 2,22
+Avatar locations: 0: (26, 15); 1: (2, 22); 2: (34, 11); 3: (27, 15); 
+Avatar 2 moved from 34,11 to 34,12
+Avatar locations: 0: (26, 15); 1: (2, 22); 2: (34, 12); 3: (27, 15); 
+Avatar 3 moved from 27,15 to 28,15
+Avatar locations: 0: (26, 15); 1: (2, 22); 2: (34, 12); 3: (28, 15); 
+Avatar 0 moved from 26,15 to 25,15
+Avatar locations: 0: (25, 15); 1: (2, 22); 2: (34, 12); 3: (28, 15); 
+avatar 1 ran into east wall at 2,22
+Avatar locations: 0: (25, 15); 1: (2, 22); 2: (34, 12); 3: (28, 15); 
+Avatar 2 moved from 34,12 to 33,12
+Avatar locations: 0: (25, 15); 1: (2, 22); 2: (33, 12); 3: (28, 15); 
+avatar 3 ran into north wall at 28,15
+Avatar locations: 0: (25, 15); 1: (2, 22); 2: (33, 12); 3: (28, 15); 
+Avatar 0 moved from 25,15 to 25,14
+Avatar locations: 0: (25, 14); 1: (2, 22); 2: (33, 12); 3: (28, 15); 
+Avatar 1 moved from 2,22 to 1,22
+Avatar locations: 0: (25, 14); 1: (1, 22); 2: (33, 12); 3: (28, 15); 
+avatar 2 ran into west wall at 33,12
+Avatar locations: 0: (25, 14); 1: (1, 22); 2: (33, 12); 3: (28, 15); 
+avatar 3 ran into east wall at 28,15
+Avatar locations: 0: (25, 14); 1: (1, 22); 2: (33, 12); 3: (28, 15); 
+Avatar 0 moved from 25,14 to 25,13
+Avatar locations: 0: (25, 13); 1: (1, 22); 2: (33, 12); 3: (28, 15); 
+avatar 1 ran into north wall at 1,22
+Avatar locations: 0: (25, 13); 1: (1, 22); 2: (33, 12); 3: (28, 15); 
+Avatar 2 moved from 33,12 to 33,13
+Avatar locations: 0: (25, 13); 1: (1, 22); 2: (33, 13); 3: (28, 15); 
+Avatar 3 moved from 28,15 to 28,16
+Avatar locations: 0: (25, 13); 1: (1, 22); 2: (33, 13); 3: (28, 16); 
+Avatar 0 moved from 25,13 to 26,13
+Avatar locations: 0: (26, 13); 1: (1, 22); 2: (33, 13); 3: (28, 16); 
+Avatar 1 moved from 1,22 to 0,22
+Avatar locations: 0: (26, 13); 1: (0, 22); 2: (33, 13); 3: (28, 16); 
+avatar 2 ran into west wall at 33,13
+Avatar locations: 0: (26, 13); 1: (0, 22); 2: (33, 13); 3: (28, 16); 
+avatar 3 ran into east wall at 28,16
+Avatar locations: 0: (26, 13); 1: (0, 22); 2: (33, 13); 3: (28, 16); 
+avatar 0 ran into east wall at 26,13
+Avatar locations: 0: (26, 13); 1: (0, 22); 2: (33, 13); 3: (28, 16); 
+Avatar 1 moved from 0,22 to 0,21
+Avatar locations: 0: (26, 13); 1: (0, 21); 2: (33, 13); 3: (28, 16); 
+Avatar 2 moved from 33,13 to 34,13
+Avatar locations: 0: (26, 13); 1: (0, 21); 2: (34, 13); 3: (28, 16); 
+avatar 3 ran into south wall at 28,16
+Avatar locations: 0: (26, 13); 1: (0, 21); 2: (34, 13); 3: (28, 16); 
+Avatar 0 moved from 26,13 to 26,12
+Avatar locations: 0: (26, 12); 1: (0, 21); 2: (34, 13); 3: (28, 16); 
+Avatar 1 moved from 0,21 to 0,20
+Avatar locations: 0: (26, 12); 1: (0, 20); 2: (34, 13); 3: (28, 16); 
+avatar 2 ran into north wall at 34,13
+Avatar locations: 0: (26, 12); 1: (0, 20); 2: (34, 13); 3: (28, 16); 
+Avatar 3 moved from 28,16 to 27,16
+Avatar locations: 0: (26, 12); 1: (0, 20); 2: (34, 13); 3: (27, 16); 
+Avatar 0 moved from 26,12 to 27,12
+Avatar locations: 0: (27, 12); 1: (0, 20); 2: (34, 13); 3: (27, 16); 
+Avatar 1 moved from 0,20 to 0,19
+Avatar locations: 0: (27, 12); 1: (0, 19); 2: (34, 13); 3: (27, 16); 
+Avatar 2 moved from 34,13 to 34,14
+Avatar locations: 0: (27, 12); 1: (0, 19); 2: (34, 14); 3: (27, 16); 
+Avatar 3 moved from 27,16 to 27,17
+Avatar locations: 0: (27, 12); 1: (0, 19); 2: (34, 14); 3: (27, 17); 
+Avatar 0 moved from 27,12 to 27,13
+Avatar locations: 0: (27, 13); 1: (0, 19); 2: (34, 14); 3: (27, 17); 
+Avatar 1 moved from 0,19 to 0,18
+Avatar locations: 0: (27, 13); 1: (0, 18); 2: (34, 14); 3: (27, 17); 
+Avatar 2 moved from 34,14 to 33,14
+Avatar locations: 0: (27, 13); 1: (0, 18); 2: (33, 14); 3: (27, 17); 
+Avatar 3 moved from 27,17 to 28,17
+Avatar locations: 0: (27, 13); 1: (0, 18); 2: (33, 14); 3: (28, 17); 
+Avatar 0 moved from 27,13 to 28,13
+Avatar locations: 0: (28, 13); 1: (0, 18); 2: (33, 14); 3: (28, 17); 
+avatar 1 ran into north wall at 0,18
+Avatar locations: 0: (28, 13); 1: (0, 18); 2: (33, 14); 3: (28, 17); 
+avatar 2 ran into west wall at 33,14
+Avatar locations: 0: (28, 13); 1: (0, 18); 2: (33, 14); 3: (28, 17); 
+Avatar 3 moved from 28,17 to 29,17
+Avatar locations: 0: (28, 13); 1: (0, 18); 2: (33, 14); 3: (29, 17); 
+Avatar 0 moved from 28,13 to 28,14
+Avatar locations: 0: (28, 14); 1: (0, 18); 2: (33, 14); 3: (29, 17); 
+Avatar 1 moved from 0,18 to 1,18
+Avatar locations: 0: (28, 14); 1: (1, 18); 2: (33, 14); 3: (29, 17); 
+avatar 2 ran into north wall at 33,14
+Avatar locations: 0: (28, 14); 1: (1, 18); 2: (33, 14); 3: (29, 17); 
+Avatar 3 moved from 29,17 to 29,16
+Avatar locations: 0: (28, 14); 1: (1, 18); 2: (33, 14); 3: (29, 16); 
+Avatar 0 moved from 28,14 to 29,14
+Avatar locations: 0: (29, 14); 1: (1, 18); 2: (33, 14); 3: (29, 16); 
+avatar 1 ran into north wall at 1,18
+Avatar locations: 0: (29, 14); 1: (1, 18); 2: (33, 14); 3: (29, 16); 
+Avatar 2 moved from 33,14 to 33,15
+Avatar locations: 0: (29, 14); 1: (1, 18); 2: (33, 15); 3: (29, 16); 
+Avatar 3 moved from 29,16 to 29,15
+Avatar locations: 0: (29, 14); 1: (1, 18); 2: (33, 15); 3: (29, 15); 
+Avatar 0 moved from 29,14 to 29,15
+Avatar locations: 0: (29, 15); 1: (1, 18); 2: (33, 15); 3: (29, 15); 
+Avatar 1 moved from 1,18 to 2,18
+Avatar locations: 0: (29, 15); 1: (2, 18); 2: (33, 15); 3: (29, 15); 
+avatar 2 ran into west wall at 33,15
+Avatar locations: 0: (29, 15); 1: (2, 18); 2: (33, 15); 3: (29, 15); 
+Avatar 3 stayed at 29,15
+Avatar locations: 0: (29, 15); 1: (2, 18); 2: (33, 15); 3: (29, 15); 
+avatar 0 ran into east wall at 29,15
+Avatar locations: 0: (29, 15); 1: (2, 18); 2: (33, 15); 3: (29, 15); 
+avatar 1 ran into north wall at 2,18
+Avatar locations: 0: (29, 15); 1: (2, 18); 2: (33, 15); 3: (29, 15); 
+Avatar 2 moved from 33,15 to 34,15
+Avatar locations: 0: (29, 15); 1: (2, 18); 2: (34, 15); 3: (29, 15); 
+Avatar 3 stayed at 29,15
+Avatar locations: 0: (29, 15); 1: (2, 18); 2: (34, 15); 3: (29, 15); 
+Avatar 0 moved from 29,15 to 29,14
+Avatar locations: 0: (29, 14); 1: (2, 18); 2: (34, 15); 3: (29, 15); 
+Avatar 1 moved from 2,18 to 3,18
+Avatar locations: 0: (29, 14); 1: (3, 18); 2: (34, 15); 3: (29, 15); 
+avatar 2 ran into north wall at 34,15
+Avatar locations: 0: (29, 14); 1: (3, 18); 2: (34, 15); 3: (29, 15); 
+Avatar 3 moved from 29,15 to 29,14
+Avatar locations: 0: (29, 14); 1: (3, 18); 2: (34, 15); 3: (29, 14); 
+avatar 0 ran into east wall at 29,14
+Avatar locations: 0: (29, 14); 1: (3, 18); 2: (34, 15); 3: (29, 14); 
+Avatar 1 moved from 3,18 to 3,17
+Avatar locations: 0: (29, 14); 1: (3, 17); 2: (34, 15); 3: (29, 14); 
+Avatar 2 moved from 34,15 to 34,16
+Avatar locations: 0: (29, 14); 1: (3, 17); 2: (34, 16); 3: (29, 14); 
+Avatar 3 stayed at 29,14
+Avatar locations: 0: (29, 14); 1: (3, 17); 2: (34, 16); 3: (29, 14); 
+Avatar 0 moved from 29,14 to 29,15
+Avatar locations: 0: (29, 15); 1: (3, 17); 2: (34, 16); 3: (29, 14); 
+Avatar 1 moved from 3,17 to 3,16
+Avatar locations: 0: (29, 15); 1: (3, 16); 2: (34, 16); 3: (29, 14); 
+avatar 2 ran into west wall at 34,16
+Avatar locations: 0: (29, 15); 1: (3, 16); 2: (34, 16); 3: (29, 14); 
+Avatar 3 moved from 29,14 to 29,15
+Avatar locations: 0: (29, 15); 1: (3, 16); 2: (34, 16); 3: (29, 15); 
+Avatar 0 moved from 29,15 to 29,16
+Avatar locations: 0: (29, 16); 1: (3, 16); 2: (34, 16); 3: (29, 15); 
+Avatar 1 moved from 3,16 to 3,15
+Avatar locations: 0: (29, 16); 1: (3, 15); 2: (34, 16); 3: (29, 15); 
+Avatar 2 moved from 34,16 to 34,17
+Avatar locations: 0: (29, 16); 1: (3, 15); 2: (34, 17); 3: (29, 15); 
+Avatar 3 moved from 29,15 to 29,16
+Avatar locations: 0: (29, 16); 1: (3, 15); 2: (34, 17); 3: (29, 16); 
+avatar 0 ran into east wall at 29,16
+Avatar locations: 0: (29, 16); 1: (3, 15); 2: (34, 17); 3: (29, 16); 
+avatar 1 ran into east wall at 3,15
+Avatar locations: 0: (29, 16); 1: (3, 15); 2: (34, 17); 3: (29, 16); 
+avatar 2 ran into west wall at 34,17
+Avatar locations: 0: (29, 16); 1: (3, 15); 2: (34, 17); 3: (29, 16); 
+Avatar 3 stayed at 29,16
+Avatar locations: 0: (29, 16); 1: (3, 15); 2: (34, 17); 3: (29, 16); 
+Avatar 0 moved from 29,16 to 29,17
+Avatar locations: 0: (29, 17); 1: (3, 15); 2: (34, 17); 3: (29, 16); 
+Avatar 1 moved from 3,15 to 2,15
+Avatar locations: 0: (29, 17); 1: (2, 15); 2: (34, 17); 3: (29, 16); 
+Avatar 2 moved from 34,17 to 34,18
+Avatar locations: 0: (29, 17); 1: (2, 15); 2: (34, 18); 3: (29, 16); 
+Avatar 3 moved from 29,16 to 29,17
+Avatar locations: 0: (29, 17); 1: (2, 15); 2: (34, 18); 3: (29, 17); 
+avatar 0 ran into east wall at 29,17
+Avatar locations: 0: (29, 17); 1: (2, 15); 2: (34, 18); 3: (29, 17); 
+avatar 1 ran into west wall at 2,15
+Avatar locations: 0: (29, 17); 1: (2, 15); 2: (34, 18); 3: (29, 17); 
+Avatar 2 moved from 34,18 to 33,18
+Avatar locations: 0: (29, 17); 1: (2, 15); 2: (33, 18); 3: (29, 17); 
+Avatar 3 stayed at 29,17
+Avatar locations: 0: (29, 17); 1: (2, 15); 2: (33, 18); 3: (29, 17); 
+avatar 0 ran into south wall at 29,17
+Avatar locations: 0: (29, 17); 1: (2, 15); 2: (33, 18); 3: (29, 17); 
+avatar 1 ran into north wall at 2,15
+Avatar locations: 0: (29, 17); 1: (2, 15); 2: (33, 18); 3: (29, 17); 
+avatar 2 ran into west wall at 33,18
+Avatar locations: 0: (29, 17); 1: (2, 15); 2: (33, 18); 3: (29, 17); 
+Avatar 3 stayed at 29,17
+Avatar locations: 0: (29, 17); 1: (2, 15); 2: (33, 18); 3: (29, 17); 
+Avatar 0 moved from 29,17 to 28,17
+Avatar locations: 0: (28, 17); 1: (2, 15); 2: (33, 18); 3: (29, 17); 
+Avatar 1 moved from 2,15 to 2,16
+Avatar locations: 0: (28, 17); 1: (2, 16); 2: (33, 18); 3: (29, 17); 
+avatar 2 ran into north wall at 33,18
+Avatar locations: 0: (28, 17); 1: (2, 16); 2: (33, 18); 3: (29, 17); 
+Avatar 3 moved from 29,17 to 28,17
+Avatar locations: 0: (28, 17); 1: (2, 16); 2: (33, 18); 3: (28, 17); 
+avatar 0 ran into south wall at 28,17
+Avatar locations: 0: (28, 17); 1: (2, 16); 2: (33, 18); 3: (28, 17); 
+avatar 1 ran into east wall at 2,16
+Avatar locations: 0: (28, 17); 1: (2, 16); 2: (33, 18); 3: (28, 17); 
+Avatar 2 moved from 33,18 to 33,19
+Avatar locations: 0: (28, 17); 1: (2, 16); 2: (33, 19); 3: (28, 17); 
+Avatar 3 stayed at 28,17
+Avatar locations: 0: (28, 17); 1: (2, 16); 2: (33, 19); 3: (28, 17); 
+Avatar 0 moved from 28,17 to 29,17
+Avatar locations: 0: (29, 17); 1: (2, 16); 2: (33, 19); 3: (28, 17); 
+avatar 1 ran into west wall at 2,16
+Avatar locations: 0: (29, 17); 1: (2, 16); 2: (33, 19); 3: (28, 17); 
+avatar 2 ran into west wall at 33,19
+Avatar locations: 0: (29, 17); 1: (2, 16); 2: (33, 19); 3: (28, 17); 
+Avatar 3 moved from 28,17 to 29,17
+Avatar locations: 0: (29, 17); 1: (2, 16); 2: (33, 19); 3: (29, 17); 
+Avatar 0 moved from 29,17 to 28,17
+Avatar locations: 0: (28, 17); 1: (2, 16); 2: (33, 19); 3: (29, 17); 
+Avatar 1 moved from 2,16 to 2,17
+Avatar locations: 0: (28, 17); 1: (2, 17); 2: (33, 19); 3: (29, 17); 
+avatar 2 ran into east wall at 33,19
+Avatar locations: 0: (28, 17); 1: (2, 17); 2: (33, 19); 3: (29, 17); 
+Avatar 3 moved from 29,17 to 28,17
+Avatar locations: 0: (28, 17); 1: (2, 17); 2: (33, 19); 3: (28, 17); 
+Avatar 0 moved from 28,17 to 29,17
+Avatar locations: 0: (29, 17); 1: (2, 17); 2: (33, 19); 3: (28, 17); 
+avatar 1 ran into east wall at 2,17
+Avatar locations: 0: (29, 17); 1: (2, 17); 2: (33, 19); 3: (28, 17); 
+Avatar 2 moved from 33,19 to 33,20
+Avatar locations: 0: (29, 17); 1: (2, 17); 2: (33, 20); 3: (28, 17); 
+Avatar 3 moved from 28,17 to 29,17
+Avatar locations: 0: (29, 17); 1: (2, 17); 2: (33, 20); 3: (29, 17); 
+Avatar 0 moved from 29,17 to 28,17
+Avatar locations: 0: (28, 17); 1: (2, 17); 2: (33, 20); 3: (29, 17); 
+Avatar 1 moved from 2,17 to 1,17
+Avatar locations: 0: (28, 17); 1: (1, 17); 2: (33, 20); 3: (29, 17); 
+Avatar 2 moved from 33,20 to 32,20
+Avatar locations: 0: (28, 17); 1: (1, 17); 2: (32, 20); 3: (29, 17); 
+Avatar 3 moved from 29,17 to 28,17
+Avatar locations: 0: (28, 17); 1: (1, 17); 2: (32, 20); 3: (28, 17); 
+Avatar 0 moved from 28,17 to 27,17
+Avatar locations: 0: (27, 17); 1: (1, 17); 2: (32, 20); 3: (28, 17); 
+avatar 1 ran into north wall at 1,17
+Avatar locations: 0: (27, 17); 1: (1, 17); 2: (32, 20); 3: (28, 17); 
+Avatar 2 moved from 32,20 to 31,20
+Avatar locations: 0: (27, 17); 1: (1, 17); 2: (31, 20); 3: (28, 17); 
+Avatar 3 moved from 28,17 to 27,17
+Avatar locations: 0: (27, 17); 1: (1, 17); 2: (31, 20); 3: (27, 17); 
+avatar 0 ran into south wall at 27,17
+Avatar locations: 0: (27, 17); 1: (1, 17); 2: (31, 20); 3: (27, 17); 
+Avatar 1 moved from 1,17 to 0,17
+Avatar locations: 0: (27, 17); 1: (0, 17); 2: (31, 20); 3: (27, 17); 
+avatar 2 ran into west wall at 31,20
+Avatar locations: 0: (27, 17); 1: (0, 17); 2: (31, 20); 3: (27, 17); 
+Avatar 3 stayed at 27,17
+Avatar locations: 0: (27, 17); 1: (0, 17); 2: (31, 20); 3: (27, 17); 
+Avatar 0 moved from 27,17 to 28,17
+Avatar locations: 0: (28, 17); 1: (0, 17); 2: (31, 20); 3: (27, 17); 
+Avatar 1 moved from 0,17 to 0,16
+Avatar locations: 0: (28, 17); 1: (0, 16); 2: (31, 20); 3: (27, 17); 
+avatar 2 ran into north wall at 31,20
+Avatar locations: 0: (28, 17); 1: (0, 16); 2: (31, 20); 3: (27, 17); 
+Avatar 3 moved from 27,17 to 28,17
+Avatar locations: 0: (28, 17); 1: (0, 16); 2: (31, 20); 3: (28, 17); 
+Avatar 0 moved from 28,17 to 29,17
+Avatar locations: 0: (29, 17); 1: (0, 16); 2: (31, 20); 3: (28, 17); 
+Avatar 1 moved from 0,16 to 0,15
+Avatar locations: 0: (29, 17); 1: (0, 15); 2: (31, 20); 3: (28, 17); 
+Avatar 2 moved from 31,20 to 31,21
+Avatar locations: 0: (29, 17); 1: (0, 15); 2: (31, 21); 3: (28, 17); 
+Avatar 3 moved from 28,17 to 29,17
+Avatar locations: 0: (29, 17); 1: (0, 15); 2: (31, 21); 3: (29, 17); 
+Avatar 0 moved from 29,17 to 28,17
+Avatar locations: 0: (28, 17); 1: (0, 15); 2: (31, 21); 3: (29, 17); 
+avatar 1 ran into east wall at 0,15
+Avatar locations: 0: (28, 17); 1: (0, 15); 2: (31, 21); 3: (29, 17); 
+avatar 2 ran into west wall at 31,21
+Avatar locations: 0: (28, 17); 1: (0, 15); 2: (31, 21); 3: (29, 17); 
+Avatar 3 moved from 29,17 to 28,17
+Avatar locations: 0: (28, 17); 1: (0, 15); 2: (31, 21); 3: (28, 17); 
+Avatar 0 moved from 28,17 to 29,17
+Avatar locations: 0: (29, 17); 1: (0, 15); 2: (31, 21); 3: (28, 17); 
+avatar 1 ran into north wall at 0,15
+Avatar locations: 0: (29, 17); 1: (0, 15); 2: (31, 21); 3: (28, 17); 
+avatar 2 ran into east wall at 31,21
+Avatar locations: 0: (29, 17); 1: (0, 15); 2: (31, 21); 3: (28, 17); 
+Avatar 3 moved from 28,17 to 29,17
+Avatar locations: 0: (29, 17); 1: (0, 15); 2: (31, 21); 3: (29, 17); 
+Avatar 0 moved from 29,17 to 28,17
+Avatar locations: 0: (28, 17); 1: (0, 15); 2: (31, 21); 3: (29, 17); 
+Avatar 1 moved from 0,15 to 0,16
+Avatar locations: 0: (28, 17); 1: (0, 16); 2: (31, 21); 3: (29, 17); 
+Avatar 2 moved from 31,21 to 31,22
+Avatar locations: 0: (28, 17); 1: (0, 16); 2: (31, 22); 3: (29, 17); 
+Avatar 3 moved from 29,17 to 28,17
+Avatar locations: 0: (28, 17); 1: (0, 16); 2: (31, 22); 3: (28, 17); 
+Avatar 0 moved from 28,17 to 27,17
+Avatar locations: 0: (27, 17); 1: (0, 16); 2: (31, 22); 3: (28, 17); 
+avatar 1 ran into east wall at 0,16
+Avatar locations: 0: (27, 17); 1: (0, 16); 2: (31, 22); 3: (28, 17); 
+avatar 2 ran into west wall at 31,22
+Avatar locations: 0: (27, 17); 1: (0, 16); 2: (31, 22); 3: (28, 17); 
+Avatar 3 moved from 28,17 to 27,17
+Avatar locations: 0: (27, 17); 1: (0, 16); 2: (31, 22); 3: (27, 17); 
+Avatar 0 moved from 27,17 to 26,17
+Avatar locations: 0: (26, 17); 1: (0, 16); 2: (31, 22); 3: (27, 17); 
+Avatar 1 moved from 0,16 to 0,17
+Avatar locations: 0: (26, 17); 1: (0, 17); 2: (31, 22); 3: (27, 17); 
+avatar 2 ran into east wall at 31,22
+Avatar locations: 0: (26, 17); 1: (0, 17); 2: (31, 22); 3: (27, 17); 
+Avatar 3 moved from 27,17 to 26,17
+Avatar locations: 0: (26, 17); 1: (0, 17); 2: (31, 22); 3: (26, 17); 
+Avatar 0 moved from 26,17 to 26,18
+Avatar locations: 0: (26, 18); 1: (0, 17); 2: (31, 22); 3: (26, 17); 
+Avatar 1 moved from 0,17 to 1,17
+Avatar locations: 0: (26, 18); 1: (1, 17); 2: (31, 22); 3: (26, 17); 
+Avatar 2 moved from 31,22 to 31,23
+Avatar locations: 0: (26, 18); 1: (1, 17); 2: (31, 23); 3: (26, 17); 
+Avatar 3 moved from 26,17 to 26,18
+Avatar locations: 0: (26, 18); 1: (1, 17); 2: (31, 23); 3: (26, 18); 
+Avatar 0 moved from 26,18 to 25,18
+Avatar locations: 0: (25, 18); 1: (1, 17); 2: (31, 23); 3: (26, 18); 
+Avatar 1 moved from 1,17 to 2,17
+Avatar locations: 0: (25, 18); 1: (2, 17); 2: (31, 23); 3: (26, 18); 
+avatar 2 ran into west wall at 31,23
+Avatar locations: 0: (25, 18); 1: (2, 17); 2: (31, 23); 3: (26, 18); 
+Avatar 3 moved from 26,18 to 25,18
+Avatar locations: 0: (25, 18); 1: (2, 17); 2: (31, 23); 3: (25, 18); 
+Avatar 0 moved from 25,18 to 24,18
+Avatar locations: 0: (24, 18); 1: (2, 17); 2: (31, 23); 3: (25, 18); 
+Avatar 1 moved from 2,17 to 2,16
+Avatar locations: 0: (24, 18); 1: (2, 16); 2: (31, 23); 3: (25, 18); 
+avatar 2 ran into east wall at 31,23
+Avatar locations: 0: (24, 18); 1: (2, 16); 2: (31, 23); 3: (25, 18); 
+Avatar 3 moved from 25,18 to 24,18
+Avatar locations: 0: (24, 18); 1: (2, 16); 2: (31, 23); 3: (24, 18); 
+Avatar 0 moved from 24,18 to 23,18
+Avatar locations: 0: (23, 18); 1: (2, 16); 2: (31, 23); 3: (24, 18); 
+Avatar 1 moved from 2,16 to 2,15
+Avatar locations: 0: (23, 18); 1: (2, 15); 2: (31, 23); 3: (24, 18); 
+Avatar 2 moved from 31,23 to 31,24
+Avatar locations: 0: (23, 18); 1: (2, 15); 2: (31, 24); 3: (24, 18); 
+Avatar 3 moved from 24,18 to 23,18
+Avatar locations: 0: (23, 18); 1: (2, 15); 2: (31, 24); 3: (23, 18); 
+Avatar 0 moved from 23,18 to 22,18
+Avatar locations: 0: (22, 18); 1: (2, 15); 2: (31, 24); 3: (23, 18); 
+Avatar 1 moved from 2,15 to 3,15
+Avatar locations: 0: (22, 18); 1: (3, 15); 2: (31, 24); 3: (23, 18); 
+Avatar 2 moved from 31,24 to 30,24
+Avatar locations: 0: (22, 18); 1: (3, 15); 2: (30, 24); 3: (23, 18); 
+Avatar 3 moved from 23,18 to 22,18
+Avatar locations: 0: (22, 18); 1: (3, 15); 2: (30, 24); 3: (22, 18); 
+Avatar 0 moved from 22,18 to 22,19
+Avatar locations: 0: (22, 19); 1: (3, 15); 2: (30, 24); 3: (22, 18); 
+avatar 1 ran into north wall at 3,15
+Avatar locations: 0: (22, 19); 1: (3, 15); 2: (30, 24); 3: (22, 18); 
+avatar 2 ran into west wall at 30,24
+Avatar locations: 0: (22, 19); 1: (3, 15); 2: (30, 24); 3: (22, 18); 
+Avatar 3 moved from 22,18 to 22,19
+Avatar locations: 0: (22, 19); 1: (3, 15); 2: (30, 24); 3: (22, 19); 
+Avatar 0 moved from 22,19 to 21,19
+Avatar locations: 0: (21, 19); 1: (3, 15); 2: (30, 24); 3: (22, 19); 
+Avatar 1 moved from 3,15 to 3,16
+Avatar locations: 0: (21, 19); 1: (3, 16); 2: (30, 24); 3: (22, 19); 
+avatar 2 ran into north wall at 30,24
+Avatar locations: 0: (21, 19); 1: (3, 16); 2: (30, 24); 3: (22, 19); 
+Avatar 3 moved from 22,19 to 21,19
+Avatar locations: 0: (21, 19); 1: (3, 16); 2: (30, 24); 3: (21, 19); 
+Avatar 0 moved from 21,19 to 21,18
+Avatar locations: 0: (21, 18); 1: (3, 16); 2: (30, 24); 3: (21, 19); 
+avatar 1 ran into east wall at 3,16
+Avatar locations: 0: (21, 18); 1: (3, 16); 2: (30, 24); 3: (21, 19); 
+Avatar 2 moved from 30,24 to 30,25
+Avatar locations: 0: (21, 18); 1: (3, 16); 2: (30, 25); 3: (21, 19); 
+Avatar 3 moved from 21,19 to 21,18
+Avatar locations: 0: (21, 18); 1: (3, 16); 2: (30, 25); 3: (21, 18); 
+Avatar 0 moved from 21,18 to 20,18
+Avatar locations: 0: (20, 18); 1: (3, 16); 2: (30, 25); 3: (21, 18); 
+Avatar 1 moved from 3,16 to 3,17
+Avatar locations: 0: (20, 18); 1: (3, 17); 2: (30, 25); 3: (21, 18); 
+Avatar 2 moved from 30,25 to 29,25
+Avatar locations: 0: (20, 18); 1: (3, 17); 2: (29, 25); 3: (21, 18); 
+Avatar 3 moved from 21,18 to 20,18
+Avatar locations: 0: (20, 18); 1: (3, 17); 2: (29, 25); 3: (20, 18); 
+Avatar 0 moved from 20,18 to 20,19
+Avatar locations: 0: (20, 19); 1: (3, 17); 2: (29, 25); 3: (20, 18); 
+Avatar 1 moved from 3,17 to 4,17
+Avatar locations: 0: (20, 19); 1: (4, 17); 2: (29, 25); 3: (20, 18); 
+avatar 2 ran into west wall at 29,25
+Avatar locations: 0: (20, 19); 1: (4, 17); 2: (29, 25); 3: (20, 18); 
+Avatar 3 moved from 20,18 to 20,19
+Avatar locations: 0: (20, 19); 1: (4, 17); 2: (29, 25); 3: (20, 19); 
+Avatar 0 moved from 20,19 to 20,20
+Avatar locations: 0: (20, 20); 1: (4, 17); 2: (29, 25); 3: (20, 19); 
+avatar 1 ran into north wall at 4,17
+Avatar locations: 0: (20, 20); 1: (4, 17); 2: (29, 25); 3: (20, 19); 
+Avatar 2 moved from 29,25 to 29,24
+Avatar locations: 0: (20, 20); 1: (4, 17); 2: (29, 24); 3: (20, 19); 
+Avatar 3 moved from 20,19 to 20,20
+Avatar locations: 0: (20, 20); 1: (4, 17); 2: (29, 24); 3: (20, 20); 
+Avatar 0 moved from 20,20 to 19,20
+Avatar locations: 0: (19, 20); 1: (4, 17); 2: (29, 24); 3: (20, 20); 
+Avatar 1 moved from 4,17 to 5,17
+Avatar locations: 0: (19, 20); 1: (5, 17); 2: (29, 24); 3: (20, 20); 
+Avatar 2 moved from 29,24 to 28,24
+Avatar locations: 0: (19, 20); 1: (5, 17); 2: (28, 24); 3: (20, 20); 
+Avatar 3 moved from 20,20 to 19,20
+Avatar locations: 0: (19, 20); 1: (5, 17); 2: (28, 24); 3: (19, 20); 
+Avatar 0 moved from 19,20 to 19,19
+Avatar locations: 0: (19, 19); 1: (5, 17); 2: (28, 24); 3: (19, 20); 
+avatar 1 ran into east wall at 5,17
+Avatar locations: 0: (19, 19); 1: (5, 17); 2: (28, 24); 3: (19, 20); 
+Avatar 2 moved from 28,24 to 27,24
+Avatar locations: 0: (19, 19); 1: (5, 17); 2: (27, 24); 3: (19, 20); 
+Avatar 3 moved from 19,20 to 19,19
+Avatar locations: 0: (19, 19); 1: (5, 17); 2: (27, 24); 3: (19, 19); 
+Avatar 0 moved from 19,19 to 19,18
+Avatar locations: 0: (19, 18); 1: (5, 17); 2: (27, 24); 3: (19, 19); 
+avatar 1 ran into south wall at 5,17
+Avatar locations: 0: (19, 18); 1: (5, 17); 2: (27, 24); 3: (19, 19); 
+avatar 2 ran into west wall at 27,24
+Avatar locations: 0: (19, 18); 1: (5, 17); 2: (27, 24); 3: (19, 19); 
+Avatar 3 moved from 19,19 to 19,18
+Avatar locations: 0: (19, 18); 1: (5, 17); 2: (27, 24); 3: (19, 18); 
+Avatar 0 moved from 19,18 to 19,17
+Avatar locations: 0: (19, 17); 1: (5, 17); 2: (27, 24); 3: (19, 18); 
+avatar 1 ran into north wall at 5,17
+Avatar locations: 0: (19, 17); 1: (5, 17); 2: (27, 24); 3: (19, 18); 
+Avatar 2 moved from 27,24 to 27,23
+Avatar locations: 0: (19, 17); 1: (5, 17); 2: (27, 23); 3: (19, 18); 
+Avatar 3 moved from 19,18 to 19,17
+Avatar locations: 0: (19, 17); 1: (5, 17); 2: (27, 23); 3: (19, 17); 
+Avatar 0 moved from 19,17 to 19,16
+Avatar locations: 0: (19, 16); 1: (5, 17); 2: (27, 23); 3: (19, 17); 
+Avatar 1 moved from 5,17 to 4,17
+Avatar locations: 0: (19, 16); 1: (4, 17); 2: (27, 23); 3: (19, 17); 
+Avatar 2 moved from 27,23 to 26,23
+Avatar locations: 0: (19, 16); 1: (4, 17); 2: (26, 23); 3: (19, 17); 
+Avatar 3 moved from 19,17 to 19,16
+Avatar locations: 0: (19, 16); 1: (4, 17); 2: (26, 23); 3: (19, 16); 
+Avatar 0 moved from 19,16 to 19,15
+Avatar locations: 0: (19, 15); 1: (4, 17); 2: (26, 23); 3: (19, 16); 
+Avatar 1 moved from 4,17 to 4,18
+Avatar locations: 0: (19, 15); 1: (4, 18); 2: (26, 23); 3: (19, 16); 
+avatar 2 ran into west wall at 26,23
+Avatar locations: 0: (19, 15); 1: (4, 18); 2: (26, 23); 3: (19, 16); 
+Avatar 3 moved from 19,16 to 19,15
+Avatar locations: 0: (19, 15); 1: (4, 18); 2: (26, 23); 3: (19, 15); 
+Avatar 0 moved from 19,15 to 19,14
+Avatar locations: 0: (19, 14); 1: (4, 18); 2: (26, 23); 3: (19, 15); 
+avatar 1 ran into east wall at 4,18
+Avatar locations: 0: (19, 14); 1: (4, 18); 2: (26, 23); 3: (19, 15); 
+avatar 2 ran into north wall at 26,23
+Avatar locations: 0: (19, 14); 1: (4, 18); 2: (26, 23); 3: (19, 15); 
+Avatar 3 moved from 19,15 to 19,14
+Avatar locations: 0: (19, 14); 1: (4, 18); 2: (26, 23); 3: (19, 14); 
+Avatar 0 moved from 19,14 to 20,14
+Avatar locations: 0: (20, 14); 1: (4, 18); 2: (26, 23); 3: (19, 14); 
+avatar 1 ran into west wall at 4,18
+Avatar locations: 0: (20, 14); 1: (4, 18); 2: (26, 23); 3: (19, 14); 
+Avatar 2 moved from 26,23 to 26,24
+Avatar locations: 0: (20, 14); 1: (4, 18); 2: (26, 24); 3: (19, 14); 
+Avatar 3 moved from 19,14 to 20,14
+Avatar locations: 0: (20, 14); 1: (4, 18); 2: (26, 24); 3: (20, 14); 
+Avatar 0 moved from 20,14 to 20,13
+Avatar locations: 0: (20, 13); 1: (4, 18); 2: (26, 24); 3: (20, 14); 
+avatar 1 ran into south wall at 4,18
+Avatar locations: 0: (20, 13); 1: (4, 18); 2: (26, 24); 3: (20, 14); 
+Avatar 2 moved from 26,24 to 25,24
+Avatar locations: 0: (20, 13); 1: (4, 18); 2: (25, 24); 3: (20, 14); 
+Avatar 3 moved from 20,14 to 20,13
+Avatar locations: 0: (20, 13); 1: (4, 18); 2: (25, 24); 3: (20, 13); 
+Avatar 0 moved from 20,13 to 21,13
+Avatar locations: 0: (21, 13); 1: (4, 18); 2: (25, 24); 3: (20, 13); 
+Avatar 1 moved from 4,18 to 4,17
+Avatar locations: 0: (21, 13); 1: (4, 17); 2: (25, 24); 3: (20, 13); 
+Avatar 2 moved from 25,24 to 24,24
+Avatar locations: 0: (21, 13); 1: (4, 17); 2: (24, 24); 3: (20, 13); 
+Avatar 3 moved from 20,13 to 21,13
+Avatar locations: 0: (21, 13); 1: (4, 17); 2: (24, 24); 3: (21, 13); 
+Avatar 0 moved from 21,13 to 22,13
+Avatar locations: 0: (22, 13); 1: (4, 17); 2: (24, 24); 3: (21, 13); 
+Avatar 1 moved from 4,17 to 3,17
+Avatar locations: 0: (22, 13); 1: (3, 17); 2: (24, 24); 3: (21, 13); 
+avatar 2 ran into west wall at 24,24
+Avatar locations: 0: (22, 13); 1: (3, 17); 2: (24, 24); 3: (21, 13); 
+Avatar 3 moved from 21,13 to 22,13
+Avatar locations: 0: (22, 13); 1: (3, 17); 2: (24, 24); 3: (22, 13); 
+Avatar 0 moved from 22,13 to 22,14
+Avatar locations: 0: (22, 14); 1: (3, 17); 2: (24, 24); 3: (22, 13); 
+Avatar 1 moved from 3,17 to 3,18
+Avatar locations: 0: (22, 14); 1: (3, 18); 2: (24, 24); 3: (22, 13); 
+Avatar 2 moved from 24,24 to 24,23
+Avatar locations: 0: (22, 14); 1: (3, 18); 2: (24, 23); 3: (22, 13); 
+Avatar 3 moved from 22,13 to 22,14
+Avatar locations: 0: (22, 14); 1: (3, 18); 2: (24, 23); 3: (22, 14); 
+Avatar 0 moved from 22,14 to 21,14
+Avatar locations: 0: (21, 14); 1: (3, 18); 2: (24, 23); 3: (22, 14); 
+avatar 1 ran into south wall at 3,18
+Avatar locations: 0: (21, 14); 1: (3, 18); 2: (24, 23); 3: (22, 14); 
+avatar 2 ran into west wall at 24,23
+Avatar locations: 0: (21, 14); 1: (3, 18); 2: (24, 23); 3: (22, 14); 
+Avatar 3 moved from 22,14 to 21,14
+Avatar locations: 0: (21, 14); 1: (3, 18); 2: (24, 23); 3: (21, 14); 
+Avatar 0 moved from 21,14 to 21,15
+Avatar locations: 0: (21, 15); 1: (3, 18); 2: (24, 23); 3: (21, 14); 
+Avatar 1 moved from 3,18 to 2,18
+Avatar locations: 0: (21, 15); 1: (2, 18); 2: (24, 23); 3: (21, 14); 
+Avatar 2 moved from 24,23 to 24,22
+Avatar locations: 0: (21, 15); 1: (2, 18); 2: (24, 22); 3: (21, 14); 
+Avatar 3 moved from 21,14 to 21,15
+Avatar locations: 0: (21, 15); 1: (2, 18); 2: (24, 22); 3: (21, 15); 
+Avatar 0 moved from 21,15 to 21,16
+Avatar locations: 0: (21, 16); 1: (2, 18); 2: (24, 22); 3: (21, 15); 
+avatar 1 ran into south wall at 2,18
+Avatar locations: 0: (21, 16); 1: (2, 18); 2: (24, 22); 3: (21, 15); 
+avatar 2 ran into west wall at 24,22
+Avatar locations: 0: (21, 16); 1: (2, 18); 2: (24, 22); 3: (21, 15); 
+Avatar 3 moved from 21,15 to 21,16
+Avatar locations: 0: (21, 16); 1: (2, 18); 2: (24, 22); 3: (21, 16); 
+Avatar 0 moved from 21,16 to 20,16
+Avatar locations: 0: (20, 16); 1: (2, 18); 2: (24, 22); 3: (21, 16); 
+Avatar 1 moved from 2,18 to 1,18
+Avatar locations: 0: (20, 16); 1: (1, 18); 2: (24, 22); 3: (21, 16); 
+Avatar 2 moved from 24,22 to 24,21
+Avatar locations: 0: (20, 16); 1: (1, 18); 2: (24, 21); 3: (21, 16); 
+Avatar 3 moved from 21,16 to 20,16
+Avatar locations: 0: (20, 16); 1: (1, 18); 2: (24, 21); 3: (20, 16); 
+Avatar 0 moved from 20,16 to 20,15
+Avatar locations: 0: (20, 15); 1: (1, 18); 2: (24, 21); 3: (20, 16); 
+avatar 1 ran into south wall at 1,18
+Avatar locations: 0: (20, 15); 1: (1, 18); 2: (24, 21); 3: (20, 16); 
+Avatar 2 moved from 24,21 to 23,21
+Avatar locations: 0: (20, 15); 1: (1, 18); 2: (23, 21); 3: (20, 16); 
+Avatar 3 moved from 20,16 to 20,15
+Avatar locations: 0: (20, 15); 1: (1, 18); 2: (23, 21); 3: (20, 15); 
+Avatar 0 moved from 20,15 to 20,16
+Avatar locations: 0: (20, 16); 1: (1, 18); 2: (23, 21); 3: (20, 15); 
+Avatar 1 moved from 1,18 to 0,18
+Avatar locations: 0: (20, 16); 1: (0, 18); 2: (23, 21); 3: (20, 15); 
+avatar 2 ran into west wall at 23,21
+Avatar locations: 0: (20, 16); 1: (0, 18); 2: (23, 21); 3: (20, 15); 
+Avatar 3 moved from 20,15 to 20,16
+Avatar locations: 0: (20, 16); 1: (0, 18); 2: (23, 21); 3: (20, 16); 
+Avatar 0 moved from 20,16 to 21,16
+Avatar locations: 0: (21, 16); 1: (0, 18); 2: (23, 21); 3: (20, 16); 
+Avatar 1 moved from 0,18 to 0,19
+Avatar locations: 0: (21, 16); 1: (0, 19); 2: (23, 21); 3: (20, 16); 
+avatar 2 ran into north wall at 23,21
+Avatar locations: 0: (21, 16); 1: (0, 19); 2: (23, 21); 3: (20, 16); 
+Avatar 3 moved from 20,16 to 21,16
+Avatar locations: 0: (21, 16); 1: (0, 19); 2: (23, 21); 3: (21, 16); 
+Avatar 0 moved from 21,16 to 21,15
+Avatar locations: 0: (21, 15); 1: (0, 19); 2: (23, 21); 3: (21, 16); 
+Avatar 1 moved from 0,19 to 1,19
+Avatar locations: 0: (21, 15); 1: (1, 19); 2: (23, 21); 3: (21, 16); 
+Avatar 2 moved from 23,21 to 23,22
+Avatar locations: 0: (21, 15); 1: (1, 19); 2: (23, 22); 3: (21, 16); 
+Avatar 3 moved from 21,16 to 21,15
+Avatar locations: 0: (21, 15); 1: (1, 19); 2: (23, 22); 3: (21, 15); 
+Avatar 0 moved from 21,15 to 21,14
+Avatar locations: 0: (21, 14); 1: (1, 19); 2: (23, 22); 3: (21, 15); 
+avatar 1 ran into east wall at 1,19
+Avatar locations: 0: (21, 14); 1: (1, 19); 2: (23, 22); 3: (21, 15); 
+Avatar 2 moved from 23,22 to 22,22
+Avatar locations: 0: (21, 14); 1: (1, 19); 2: (22, 22); 3: (21, 15); 
+Avatar 3 moved from 21,15 to 21,14
+Avatar locations: 0: (21, 14); 1: (1, 19); 2: (22, 22); 3: (21, 14); 
+Avatar 0 moved from 21,14 to 22,14
+Avatar locations: 0: (22, 14); 1: (1, 19); 2: (22, 22); 3: (21, 14); 
+Avatar 1 moved from 1,19 to 1,20
+Avatar locations: 0: (22, 14); 1: (1, 20); 2: (22, 22); 3: (21, 14); 
+avatar 2 ran into north wall at 22,22
+Avatar locations: 0: (22, 14); 1: (1, 20); 2: (22, 22); 3: (21, 14); 
+Avatar 3 moved from 21,14 to 22,14
+Avatar locations: 0: (22, 14); 1: (1, 20); 2: (22, 22); 3: (22, 14); 
+Avatar 0 moved from 22,14 to 22,13
+Avatar locations: 0: (22, 13); 1: (1, 20); 2: (22, 22); 3: (22, 14); 
+Avatar 1 moved from 1,20 to 2,20
+Avatar locations: 0: (22, 13); 1: (2, 20); 2: (22, 22); 3: (22, 14); 
+Avatar 2 moved from 22,22 to 21,22
+Avatar locations: 0: (22, 13); 1: (2, 20); 2: (21, 22); 3: (22, 14); 
+Avatar 3 moved from 22,14 to 22,13
+Avatar locations: 0: (22, 13); 1: (2, 20); 2: (21, 22); 3: (22, 13); 
+Avatar 0 moved from 22,13 to 21,13
+Avatar locations: 0: (21, 13); 1: (2, 20); 2: (21, 22); 3: (22, 13); 
+avatar 1 ran into east wall at 2,20
+Avatar locations: 0: (21, 13); 1: (2, 20); 2: (21, 22); 3: (22, 13); 
+avatar 2 ran into west wall at 21,22
+Avatar locations: 0: (21, 13); 1: (2, 20); 2: (21, 22); 3: (22, 13); 
+Avatar 3 moved from 22,13 to 21,13
+Avatar locations: 0: (21, 13); 1: (2, 20); 2: (21, 22); 3: (21, 13); 
+Avatar 0 moved from 21,13 to 20,13
+Avatar locations: 0: (20, 13); 1: (2, 20); 2: (21, 22); 3: (21, 13); 
+avatar 1 ran into south wall at 2,20
+Avatar locations: 0: (20, 13); 1: (2, 20); 2: (21, 22); 3: (21, 13); 
+avatar 2 ran into north wall at 21,22
+Avatar locations: 0: (20, 13); 1: (2, 20); 2: (21, 22); 3: (21, 13); 
+Avatar 3 moved from 21,13 to 20,13
+Avatar locations: 0: (20, 13); 1: (2, 20); 2: (21, 22); 3: (20, 13); 
+Avatar 0 moved from 20,13 to 20,14
+Avatar locations: 0: (20, 14); 1: (2, 20); 2: (21, 22); 3: (20, 13); 
+Avatar 1 moved from 2,20 to 2,19
+Avatar locations: 0: (20, 14); 1: (2, 19); 2: (21, 22); 3: (20, 13); 
+Avatar 2 moved from 21,22 to 21,23
+Avatar locations: 0: (20, 14); 1: (2, 19); 2: (21, 23); 3: (20, 13); 
+Avatar 3 moved from 20,13 to 20,14
+Avatar locations: 0: (20, 14); 1: (2, 19); 2: (21, 23); 3: (20, 14); 
+Avatar 0 moved from 20,14 to 19,14
+Avatar locations: 0: (19, 14); 1: (2, 19); 2: (21, 23); 3: (20, 14); 
+Avatar 1 moved from 2,19 to 3,19
+Avatar locations: 0: (19, 14); 1: (3, 19); 2: (21, 23); 3: (20, 14); 
+avatar 2 ran into west wall at 21,23
+Avatar locations: 0: (19, 14); 1: (3, 19); 2: (21, 23); 3: (20, 14); 
+Avatar 3 moved from 20,14 to 19,14
+Avatar locations: 0: (19, 14); 1: (3, 19); 2: (21, 23); 3: (19, 14); 
+Avatar 0 moved from 19,14 to 19,15
+Avatar locations: 0: (19, 15); 1: (3, 19); 2: (21, 23); 3: (19, 14); 
+Avatar 1 moved from 3,19 to 4,19
+Avatar locations: 0: (19, 15); 1: (4, 19); 2: (21, 23); 3: (19, 14); 
+avatar 2 ran into south wall at 21,23
+Avatar locations: 0: (19, 15); 1: (4, 19); 2: (21, 23); 3: (19, 14); 
+Avatar 3 moved from 19,14 to 19,15
+Avatar locations: 0: (19, 15); 1: (4, 19); 2: (21, 23); 3: (19, 15); 
+Avatar 0 moved from 19,15 to 19,16
+Avatar locations: 0: (19, 16); 1: (4, 19); 2: (21, 23); 3: (19, 15); 
+Avatar 1 moved from 4,19 to 5,19
+Avatar locations: 0: (19, 16); 1: (5, 19); 2: (21, 23); 3: (19, 15); 
+Avatar 2 moved from 21,23 to 22,23
+Avatar locations: 0: (19, 16); 1: (5, 19); 2: (22, 23); 3: (19, 15); 
+Avatar 3 moved from 19,15 to 19,16
+Avatar locations: 0: (19, 16); 1: (5, 19); 2: (22, 23); 3: (19, 16); 
+Avatar 0 moved from 19,16 to 19,17
+Avatar locations: 0: (19, 17); 1: (5, 19); 2: (22, 23); 3: (19, 16); 
+Avatar 1 moved from 5,19 to 5,18
+Avatar locations: 0: (19, 17); 1: (5, 18); 2: (22, 23); 3: (19, 16); 
+avatar 2 ran into north wall at 22,23
+Avatar locations: 0: (19, 17); 1: (5, 18); 2: (22, 23); 3: (19, 16); 
+Avatar 3 moved from 19,16 to 19,17
+Avatar locations: 0: (19, 17); 1: (5, 18); 2: (22, 23); 3: (19, 17); 
+Avatar 0 moved from 19,17 to 19,18
+Avatar locations: 0: (19, 18); 1: (5, 18); 2: (22, 23); 3: (19, 17); 
+Avatar 1 moved from 5,18 to 6,18
+Avatar locations: 0: (19, 18); 1: (6, 18); 2: (22, 23); 3: (19, 17); 
+avatar 2 ran into east wall at 22,23
+Avatar locations: 0: (19, 18); 1: (6, 18); 2: (22, 23); 3: (19, 17); 
+Avatar 3 moved from 19,17 to 19,18
+Avatar locations: 0: (19, 18); 1: (6, 18); 2: (22, 23); 3: (19, 18); 
+Avatar 0 moved from 19,18 to 19,19
+Avatar locations: 0: (19, 19); 1: (6, 18); 2: (22, 23); 3: (19, 18); 
+avatar 1 ran into east wall at 6,18
+Avatar locations: 0: (19, 19); 1: (6, 18); 2: (22, 23); 3: (19, 18); 
+Avatar 2 moved from 22,23 to 22,24
+Avatar locations: 0: (19, 19); 1: (6, 18); 2: (22, 24); 3: (19, 18); 
+Avatar 3 moved from 19,18 to 19,19
+Avatar locations: 0: (19, 19); 1: (6, 18); 2: (22, 24); 3: (19, 19); 
+Avatar 0 moved from 19,19 to 19,20
+Avatar locations: 0: (19, 20); 1: (6, 18); 2: (22, 24); 3: (19, 19); 
+avatar 1 ran into south wall at 6,18
+Avatar locations: 0: (19, 20); 1: (6, 18); 2: (22, 24); 3: (19, 19); 
+avatar 2 ran into west wall at 22,24
+Avatar locations: 0: (19, 20); 1: (6, 18); 2: (22, 24); 3: (19, 19); 
+Avatar 3 moved from 19,19 to 19,20
+Avatar locations: 0: (19, 20); 1: (6, 18); 2: (22, 24); 3: (19, 20); 
+Avatar 0 moved from 19,20 to 19,21
+Avatar locations: 0: (19, 21); 1: (6, 18); 2: (22, 24); 3: (19, 20); 
+Avatar 1 moved from 6,18 to 6,17
+Avatar locations: 0: (19, 21); 1: (6, 17); 2: (22, 24); 3: (19, 20); 
+avatar 2 ran into south wall at 22,24
+Avatar locations: 0: (19, 21); 1: (6, 17); 2: (22, 24); 3: (19, 20); 
+Avatar 3 moved from 19,20 to 19,21
+Avatar locations: 0: (19, 21); 1: (6, 17); 2: (22, 24); 3: (19, 21); 
+Avatar 0 moved from 19,21 to 20,21
+Avatar locations: 0: (20, 21); 1: (6, 17); 2: (22, 24); 3: (19, 21); 
+Avatar 1 moved from 6,17 to 6,16
+Avatar locations: 0: (20, 21); 1: (6, 16); 2: (22, 24); 3: (19, 21); 
+Avatar 2 moved from 22,24 to 23,24
+Avatar locations: 0: (20, 21); 1: (6, 16); 2: (23, 24); 3: (19, 21); 
