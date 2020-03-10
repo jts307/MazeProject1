@@ -326,15 +326,15 @@ void* avatar_play(void *avatar_p)
 	     // if their were still unknowns along this direction and it is a connection
 	     if (unknowns != 0 && directionState == 3) {
 	       // if the avatar has backtracked a few times
-	       if ((pervSpot == startNeighbor) && (back_tracked >= 10)) {
-		 // then give its previous place the highest priority in the queue of possible destinations
-                 priority_queue_insert(maybeVisit, startNeighbor, get_L1_distance(startNeighbor, goal)+2000);	
-		 back_tracked++;
-		 
-		 // keep doing this a few more times
-		 if (back_tracked >= 30) {
-		   back_tracked = 0;  
-		 }
+	       if ((pervSpot == startNeighbor) && (back_tracked >= 3)) {
+		  // then give its previous place the highest priority in the queue of possible destinations
+                  priority_queue_insert(maybeVisit, startNeighbor, get_L1_distance(startNeighbor, goal)+2000);	
+		  back_tracked++;
+	       } else if (back_tracked >= 4) {
+		   back_tracked++;  
+                   priority_queue_insert(maybeVisit, startNeighbor, get_L1_distance(startNeighbor, goal)+2000);	
+	       } else if (back_tracked >= 8) {
+		   back_tracked=0;
 	       // otherwise give the direction higher priority in the queue
 	       } else {
                  priority_queue_insert(maybeVisit, startNeighbor, get_L1_distance(startNeighbor, goal)+1000);	       
