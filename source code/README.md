@@ -31,7 +31,7 @@ Possible Failures:
 - Not aware of any. Program will exit if invalid parameter is passed.
 
 ### Compilation and Execution
-To compile, cd into the project-maze-challenge-we_free directory, type `make` into the terminal and press enter.
+To compile, cd into the source code directory, type `make` into the terminal and press enter.
 
 To run the program:
 `./AMStartup.c -n nAvatars -d Difficulty -h Hostname`

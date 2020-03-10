@@ -33,7 +33,7 @@ The repository is organized as follows:
 - Makefile
 
 ### Compiling
-To compile, cd into the project-maze-challenge-we_free directory, type `make` into the terminal and press enter.
+To compile, cd into the source code directory, type `make` into the terminal and press enter.
 
 To clean the directory, type `make clean` into the terminal and press enter.
 
