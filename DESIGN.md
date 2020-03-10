@@ -15,15 +15,11 @@ The user interacts with the program on the command-line, it must always have thr
 
 `./AMStartup -n nAvatars -d Difficulty -h Hostname`
 
-- nAvatars must be an integer 1-10 inclusive
-- Difficulty must be an integer 0-9 inclusive
-- Hostname must be flume.cs.dartmouth.edu 
-
 For example: 
 
 `./AMStartup -n 3 -d 4 -h flume.cs.dartmouth.edu`
 
-##### In amazing_client.c:
+##### In avatar.c:
 
 ASCII User Interface:
 	A drawing of the maze structure is drawn at the end of each avatar’s move, where each node structure within the maze is represented by a drawing of each of its four cardinal directions. If the cardinal direction is in a state of ‘having a connection’ then a line is drawn from that node to its neighbor node in that direction, if the state is ‘no connection’ then a line is drawn separating the node and its neighbor node, and lastly if the state is ‘unknown’ then nothing is drawn between the node and its neighbor node. `AvatarId`s for each of the avatar threads is drawn into the node that the avatars occupy.
@@ -37,20 +33,15 @@ Inputs:
 - Messages from the server including `AM_INIT_OK`, `AM_INIT_FAILED`, etc. These can be found in [amazing.h](amazing.h).
 
 Output(s): 
-- one file to log the actions of all avatars, in the form of: Amazing_$USER_N_D.log, where $USER is the current user id, N is the value of nAvatars and D is the value of Difficulty.
+- one file to log the actions of all avatars, in the form of:
+- The name will be in the form: Amazing_$USER_N_D.log, where $USER is the current user id, N is the value of nAvatars and D is the value of Difficulty.
 - The first line of the file should contain $USER, the `MazePort`, and the date & time.
 - Messages to the server: `AM_INIT` which can be found in [amazing.h](amazing.h).
 
-##### In amazing_client.c:
+##### In avatar.c:
 
 Inputs: 
-- The program takes the following command line arguments, given by *AMStartup.c*:
-  - `AvatarId`
-  - `nAvatars`
-  - `Difficulty`
-  - Host name or IP address of the server
-  - `MazePort`
-- The log file listed in the outputs for *AMStartup.c*.
+- No inputs directly from the user 
 - The program takes input from the maze server in the form of the messages defined in [amazing.h](amazing.h). These include `AM_MAZE_SOLVED`, `AM_UNKNOWN_MSG_TYPE`, `AM_UNEXPECTED_MSG_TYPE`, `AM_AVATAR_OUT_OF_TURN`, `AM_TOO_MANY_MOVES`, `AM_SERVER_TIMEOUT`, `AM_SERVER_DISK_QUOTA`, and `AM_SERVER_OUT_OF_MEM`.
 
 Outputs:
@@ -63,9 +54,9 @@ Outputs:
 We anticipate the following modules or functions:
 
 ##### In AMStartup.c:
-1. *main*, which validates arguments, establishes a connection with the server, creates a log file, and creates/initializes avatar threads. Also closes threads and frees memory when the maze has been solved. 
-##### In amazing_client.c:
-2. *main*, which communicates with the server, sending and receiving messages, initializes data structures and writes to the log file.
+1. *main*, which validates arguments, establishes a connection with the server, creates a log file, and creates/initializes avatar threads.
+##### In avatar.c:
+2. *avatar_play*, which communicates with the server, sending and receiving messages, initializes data structures and writes to the log file. It also determines each avatar's move, checks when the game is over and frees allocated memory and closes the socket when finished. *avatar_play* is concurrently run by every thread. 
 3. *determine_goal*, which determines the goal for an avatar at the beginning of its turn.
 4. *calculate_next_move*, which determines, based on an avatar’s current position and heuristics, which move, north, south, west or east, is best.
 5. *maze* module, which defines the maze structure and its methods.
@@ -76,20 +67,9 @@ We anticipate the following modules or functions:
 ### Major data structures
 
 ##### In AMStartup.c:
-AMStartup initializes the contents of the *Avatar* struct which is passes to the `avatar_play function`. The *Avatar* struct is defined in [Amazing.h](../avatar.h). This struct contains: 
-- `int fd`, for the socket number
-- `XYpos pos`, for the avatar's position
-- `char *program`, for the programs name
-- `int AvatarId`, for the avatars turnId
-- `int nAvatars`
-- `int Difficulty`
-- `char *hostname`
-- `int MazePort`, for the server port containin the maze to be solved
-- `char* logfilename`, for the logfile that the results will be written to
-- `bool endgame`, which keeps track of whether the game is over 
-- `XYPos  avatarsPos[AM_MAX_AVATAR]`, containing an array of pointers to each avatars position
+No major data structures.
 
-##### In amazing_client.c:
+##### In avatar.c:
 
 The *maze* module provides two structures, the maze and the node…
 
@@ -127,7 +107,7 @@ The *priority_queue* module provides the *priority_queue* structure…
   - N is the value of nAvatars and
   - D is the value of Difficulty.
   - The first line of the file should contain $USER, the `MazePort`, and the date & time.
-- Create N copies of the avatar client (as threads), with the parameters that they need:
+- Create N copies of the avatar client (as threads) using *avatar_new*, with the parameters that they need:
   - `AvatarId`
   - `nAvatars`
   - `Difficulty`
@@ -135,23 +115,27 @@ The *priority_queue* module provides the *priority_queue* structure…
   - `MazePort`
   - Filename of the log the avatar should open for writing in append mode
   - NOTE: The client program is not really meant to be run by people, so the parameters can be simply positional and required.
+  - Each thread runs *avatar_play* when it's created 
 
-#### In amazing_client.c:
-- Extract the maze port, maze height, and maze width from `MazePort` using `ntohl()`
-- If `AvatarId` equals 0 then initialize a new *maze* structure using the maze height and maze width. 
+#### In avatar.c:
+- initialize an Avatar struct from the parameter
+- initialize: the mutex1 lock, the number of moves made, the previous position of the avatar, how many times an avatar          repeated a move. 
+- allocate space for `avatarsPos` and `goals` 
+- give each Avatar a valid goal   
 - Attempt to connect to the maze server through the maze port. 
-  - If failure, kill the amazing_client and all its processes.
+  - If failure, kill the avatar_play and all its processes.
   - If successful, send an `AM_AVATAR_READY` message to the server containing this thread’s `AvatarId` using `htonl()`.
-- Continue in a loop:
+- Continue in a loop while the game is not over using the helper function `is_end_game(void)` 
   - Wait for a message from the server.
-    - If the message is `AM_AVATAR_TURN`, extract the `TurnID` and Avatar Positions using `nothl()`
-    - If the message is `AM_TOO_MANY_MOVES`, print a losing message, and break from the loop
-    - If the message is `AM_SERVER_TIMEOUT`, print an error message, and break from the loop
-    - If the message is `AM_MAZE_SOLVED`, then…
-      - If this thread’s `AvatarId` equals 0 then write the `AM_MAZE_SOLVED` message to the log file after decoding it using `ntohl()`.
-      - Break from the loop
-    - If the thread’s connection to the server is broken, print an error message, and break the loop.
-    - If `AM_SERVER_DISK_QUOTA` and `AM_SERVER_OUT_OF_MEM` messages are read then print an error message, and break the loop.
+    - using `static bool error_msgs(AM_Message resp)` and `static bool end_program(AM_Message resp)`: 
+      - If the message is `AM_AVATAR_TURN`, extract the `TurnID` and Avatar Positions using `nothl()`
+      - If the message is `AM_TOO_MANY_MOVES`, print a losing message, and break from the loop
+      - If the message is `AM_SERVER_TIMEOUT`, print an error message, and break from the loop
+      - If the message is `AM_MAZE_SOLVED`, then…
+        - If this thread’s `AvatarId` equals 0 then write the `AM_MAZE_SOLVED` message to the log file after decoding it using `ntohl()`.
+        - Break from the loop
+      - If the thread’s connection to the server is broken, print an error message, and break the loop.
+      - If `AM_SERVER_DISK_QUOTA` and `AM_SERVER_OUT_OF_MEM` messages are read then print an error message, and break the loop.
     
   - If the priority queue containing possible avatar goals for this thread’s avatar does not exist then…
     - Write to the log file indicating that this avatar was inserted at its current position.
@@ -197,14 +181,14 @@ The *priority_queue* module provides the *priority_queue* structure…
 ### Dataflow through modules
 #### In AMStartup.c:
 - Only one function, *main*, which validates arguments, establishes a connection with the server, creates a log file, and creates/initializes avatar threads.  
-#### In amazing_client.c:
-1. Main will take arguments from *AM_Startup.c*, opens the log file, and initializes the maze structure through calling an appropriate function from the *maze* module. It will then wait for a message from the server.
+#### In avatar.c:
+1. *Avatar_play* will take the Avatar struct argument from *AM_Startup.c*. It will then wait for a message from the server.
 2. If the message received is `AM_AVATAR_TURN` then *main* calls methods from the *maze* module which will handle all logic that pertains to updating nodes within the maze structure and guessing which directions must exist. The *maze* functions will return control to *main*.
-3. *main* will write any updates of the avatars’ positions to the log file.
-4. *main* will call functions from the *graphics* module, two to be exact. One will draw to standard output the current maze structure and another will draw the avatars within that maze structure. They both will return control to *main*.
+3. *avatar_play* will write any updates of the avatars’ positions to the log file.
+4. *avatar_play* will call functions from the *graphics* module, two to be exact. One will draw to standard output the current maze structure and another will draw the avatars within that maze structure. They both will return control to *main*.
 5. *main* then calls the *determine_goal* function which will find the closest node out of the other avatars and center point, and set that as an avatar’s goal node. After this, the function returns control to *main*.
 6. *main* then calls *calculate_next_move* which will calculate an avatar’s next ‘best’ move given an avatar, its goal node and the maze structure. This returns control to *main*, which sends this best move to the server.
-7. If *main* receives any error messages or `AM_MAZE_SOLVED`, it will do any necessary clean up to free up memory used by the priority queues and maze structures, and close the log file. 
+7. If *avatar_play* receives any error messages or `AM_MAZE_SOLVED`, it will do any necessary clean up to free up memory used by the priority queues and maze structures, and close the log file. 
 
 ### Testing Plan
 #### *Unit Testing*
@@ -213,8 +197,8 @@ The *priority_queue* module provides the *priority_queue* structure…
 2. Test to see if the program is able to connect to the server and receive the appropriate messages, by printing them to the standard output as they are received and sent.
 3. Test to see if the program is able to create a log file of the proper format and name by doing a run of the program and killing it just after it starts up the avatar threads. Then manually checking if the log file is in the proper format.
 4. Test to see if the program is able to create multiple avatar threads by calling print statements within the avatar threads and counting how many print statements occured and see if they meet expectations given any amount of threads we might create. Ideally, this would be done with the code to communicate with the server, calculate the next move, etc. within the `avatar_client.c` commented out.
-#### In avatar_client.c:
-1. Test to see if *main* is sending and receiving the proper messages by printing the messages to standard output right before they get sent or right after they are received. 
+#### In avatar.c:
+1. Test to see if *avatar_play* is sending and receiving the proper messages by printing the messages to standard output right before they get sent or right after they are received. 
 2. Test the *maze* module by manually creating a maze structure and using all its methods, and printing it out in a human friendly format. Then seeing if the printed out maze structures meet expectations. 
 3. Do the same thing for the *priority_queue* module, i.e. use all its methods and print out a queue in a human friendly format to make sure all its methods and such work.
 4. Run the program on the level 0 maze with 2 avatars while printing to standard output the current positions of the avatars each time they are received. Compare this to what the ASCII UI is outputting and what is in the log file to see if these are displaying information properly, i.e. test the *graphics* module.
@@ -222,6 +206,6 @@ The *priority_queue* module provides the *priority_queue* structure…
 6. Test to see if the move calculation algorithm works by creating a game with 2 avatars on the level 0 maze. Run through the algorithm by hand and see if it follows exactly how the program runs it. Determine if the algorithm succeeded or failed the maze game, i.e. test the *calculate_next_move* function.
 7. Do the same test as test 2 but with 3 avatars instead.
 8. Do the same test as test 2 but on the level 1 maze. 
-#### *Integration Testing (includes both AM_Startup.c and avatar_client.c)*
+#### *Integration Testing (includes both AM_Startup.c and avatar.c)*
 1. Since avatars spawn in the mazes randomly, to get an idea of whether or not our program works we must do several tests on each difficulty level. As a completely random guess, we will say that if our program makes it successfully through a maze at difficulty n 30 times without any errors and with the `AM_MAZED_SOLVED` message written to the log file each time then it works at that difficulty. We will do these tests starting at difficulty 0 with 0-4 avatars and work our way up to each progressively harder difficulty.
 

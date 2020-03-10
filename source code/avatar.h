@@ -9,15 +9,16 @@
 #include <netdb.h>	      // socket-related structures
 #include <sys/socket.h> 
 #include "amazing.h"
+#include "maze.h"
 
 /********* avatar_new ********
- * takes the program name, avatarID, number of avatars, level of difficulty, hostname, port number, logfilename and socket number
- *  as parameters
+ * takes the program name, avatarID, number of avatars, level of difficulty, hostname, port number, logfilename, socket number,
+ *  maze data module, and two mutexes as parameters
  * creates a new Avatar struct and initializes its stored vars to these parameters 
  * mallocs space for the new avatar struct and returns NULL if it couldnt not be malloc'd otherwise
  *  it returns the new Avatar struct 
  */ 
-Avatar *avatar_new(char* p, int aID, int nAv, int diff, char *host, int mPort, char* log, int sock); 
+Avatar *avatar_new(char* p, int aID, int nAv, int diff, char *host, int mPort, char* log, int sock, maze_t *maze, pthread_mutex_t *mutex1, pthread_mutex_t *mutex2); 
 
 /******** avatar_play *******
  * the main program that every thread runs 
