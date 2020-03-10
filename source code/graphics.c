@@ -14,7 +14,7 @@
 void direction_print(maze_t *maze, int x, int y, int dir);
 
 
-/** global functions **/
+/*********** global functions *************/
 /**************** maze_draw() ****************/
 void maze_draw(maze_t *maze) 
 {
@@ -23,6 +23,7 @@ void maze_draw(maze_t *maze)
   int h = get_height(maze);
   int w = get_width(maze);
 
+  // print the x axis of the maze with value of each column
   printf("   ");
   for (int i=0; i < w; i++) {
   	printf("%3d ", i);
@@ -34,6 +35,7 @@ void maze_draw(maze_t *maze)
   }
   printf("+\n");
 
+  // print the y axis with the value of each row
   for (int i=0; i < h; i++) {
      printf("%3d", i);
      direction_print(maze, 0, i, 0);
@@ -57,26 +59,51 @@ void maze_draw(maze_t *maze)
   printf("******************************\n");
 }
 
+/************** global functions *************/
 
+/**************** direction_print() ****************/
+/* Purpose: 
+ *  This helper function determines whether to draw
+ *  a "?", "|", or " ", based on the server's response 
+ *  to the avatars move. Uses check_noode_dir from  
+ *  maze.h.
+ * Input:
+ *  A pointer to a maze struct
+ *  Int's x, y, and dir (to represent directions)
+ * Output:
+ *  Nothing (void)
+ */
 void direction_print(maze_t *maze, int x, int y, int dir)
 {
  node_t *node = get_node(maze, x, y);
  // east and west
  if (dir == 0 || dir == 2) {
+
+   // pointing to unknown placeholder node
    if (check_node_dir(maze, node, dir) == 1) {
 	printf("?");   
-   } else if (check_node_dir(maze, node, dir) == 2) {
+   } 
+   // pointing to wall placeholder node
+   else if (check_node_dir(maze, node, dir) == 2) {
       printf("|");
-   } else if (check_node_dir(maze, node, dir) == 3) {
+   }
+   // connection to another node that we already discovered/inferred
+   else if (check_node_dir(maze, node, dir) == 3) {
       printf(" ");
    }
  // north and south
  } else if (dir == 1 || dir == 3) {
+
+    // pointing to unknown placeholder node
    if (check_node_dir(maze, node, dir) == 1) {
       printf("+ ? ");
-   } else if (check_node_dir(maze, node, dir) == 2) {
+   }
+   // pointing to wall placeholder node 
+   else if (check_node_dir(maze, node, dir) == 2) {
       printf("+---");
-   } else if (check_node_dir(maze, node, dir) == 3) {
+   } 
+   // connection to another node that we already discovered/inferred
+   else if (check_node_dir(maze, node, dir) == 3) {
       printf("+   ");
    }
  }
