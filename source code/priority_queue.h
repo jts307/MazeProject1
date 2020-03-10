@@ -24,7 +24,7 @@ typedef struct priority_queue priority_queue_t;
 *  Input: Nothing
 *  Output: priority queue structure
 */
-priority_queue_t* priority_queue_new(void)
+priority_queue_t* priority_queue_new(void);
 
 /* Add new item to the queue with a priority where lower priority are put 
 *  closer to the front of the queue; a NULL queue is ignored; a NULL item is ignored. 
@@ -36,7 +36,7 @@ priority_queue_t* priority_queue_new(void)
 *  Output:
 *     -returns nothing
 */
-void priority_queue_insert(priority_queue_t *pq, void *item, int priority);
+void priority_queue_insert(priority_queue_t *pq, void *item, double priority);
 
 /* Returns the item in the front of the queue, i.e. the item with the lowest priority; 
 *  return NULL if bag is NULL or empty. Removes item from queue upon inspection.

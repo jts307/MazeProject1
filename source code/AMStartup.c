@@ -4,7 +4,8 @@
  * Handles the startup process, validating parameters, 
  * creating a connection to the server, creating a log 
  * file, and starting up threads with the parameters
- * they need. 
+ * they need. This fuction also makes sure that the program 
+ * doesn't terminate until each thread is finished.
  * 
  * usage: ./AMStartup -n nAvatars -d Difficulty -h Hostname 
  * 
@@ -26,6 +27,8 @@
 #include "amazing.h"          // for communicating with server
 #include "getopt.h"           // to parse command line by options
 #include "avatar.h"           // contains function to store avatar info
+#include "maze.h"
+#include "memory.h"
 
 /**************** file-local constants ****************/
 #define BUFSIZE 1024     // read/write buffer size
@@ -36,7 +39,9 @@
  *  and that is main(). Main validates parameters, 
  *  creates a connection to the server, creates a 
  *  log file, and starts up threads, passing them 
- *  the parameters that they need. 
+ *  the parameters that they need. Main also makes
+ *  sure that the program doesn't terminate until
+ *  each thread is finished
  * 
  * Input:
  *  This function takes its input from the command
@@ -88,13 +93,13 @@ main(const int argc, char *argv[]) {
 
 /************************** validate parameters **************************/
 
-  // nAvatars must be an integer 1-10 inclusive
+  // nAvatars must be an integer less than a set value
   if ( nAvatars > AM_MAX_AVATAR || nAvatars < 1 ) {
-    fprintf(stderr, "error: the nAvatars must be less than %d, and greater than 0", AM_MAX_AVATAR);
+    fprintf(stderr, "error: the nAvatars must be less than %d", AM_MAX_AVATAR);
     exit(2);
   }
 
-  // Difficulty must be an integer 0-9 inclusive
+  // Difficulty must be an integer greater than 0 and less than 10
   if ( Difficulty < 0 || Difficulty > 9 ) { 
     fprintf(stderr, "error: Difficulty must be an integer greater than 0 and less than 10");
     exit(3);
@@ -200,15 +205,21 @@ main(const int argc, char *argv[]) {
   // first close the old socket
   close(comm_sock);
 
-  pthread_t avatars[nAvatars];    // an array of threads
-  int num_threads = 0;            // keep track of number of threads
+  pthread_t avatars[nAvatars];                  // an array of threads
+  int num_threads = 0;                          // keep track of number of threads
   int iret1;
-  Avatar *avatar; 
+  Avatar *avatar;                                // initializing avatar
+  maze_t *maze=maze_new(MazeHeight, MazeWidth);  // initializing maze structure
+  assertp(maze, "Failure to allocate memory for maze struct");
 
+  // locks used by avatars
+  pthread_mutex_t mutex1 = PTHREAD_MUTEX_INITIALIZER;   
+  pthread_mutex_t mutex2 = PTHREAD_MUTEX_INITIALIZER;
+  
   for ( int i = 0; i < nAvatars; i++ ) {
 
     // initialize the contents of the avatar struct
-    avatar = avatar_new(program, i, nAvatars, Difficulty, Hostname, MazePort, logfile, comm_sock);
+    avatar = avatar_new(program, i, nAvatars, Difficulty, Hostname, MazePort, logfile, comm_sock, maze, &mutex1, &mutex2);
 
     // create a thread for the avatar
     iret1 = pthread_create(&avatars[i], NULL, avatar_play, avatar);
@@ -222,10 +233,9 @@ main(const int argc, char *argv[]) {
       exit(iret1);
     }
   }
-
-  // detatch threads to get rid of warning in valgrind 
+  // get rid of warning in valgrind by waiting for threads to finish
   for ( int i = 0; i < nAvatars; i++ ) {
-    if ( pthread_detach(avatars[i]) == 0 ) {
+    if ( pthread_join(avatars[i], NULL) == 0 ) {
     }
     else {
       fprintf(stderr, "error: could not detatch avatar thread");
