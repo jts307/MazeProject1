@@ -18,7 +18,7 @@ void direction_print(maze_t *maze, int x, int y, int dir);
 /**************** maze_draw() ****************/
 void maze_draw(maze_t *maze) 
 {
-  printf("******************************\n");
+//  printf("******************************\n");
 
   int h = get_height(maze);
   int w = get_width(maze);
@@ -56,7 +56,7 @@ void maze_draw(maze_t *maze)
      }
      printf("+\n");
   }
-  printf("******************************\n");
+  //printf("******************************\n");
 }
 
 /************** global functions *************/
