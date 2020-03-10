@@ -42,6 +42,8 @@ Avatar *avatar_new(char* p, int aID, int nAv, int diff, char *host, int mPort, c
     avatar->mutex1 = mutex1;
     avatar->mutex2 = mutex2;
     avatar->avatarsPos = NULL;
+    avatar->back_tracked = 0;
+    avatar->trap = 0;
 
     if (avatar == NULL) {
         return NULL; 
@@ -68,10 +70,6 @@ void* avatar_play(void *avatar_p)
   pthread_mutex_t *mutex1 = avatar->mutex1;
   int a = 1; 
   void *p = (void*)&a;
-  int trap=0;
-
-  // how many times did this avatar repeat a move.
-  int back_tracked=0;
 
   // the pervious position in the maze the avatar is in.
   node_t *pervSpot = NULL;
@@ -185,7 +183,7 @@ void* avatar_play(void *avatar_p)
 
       // the goal an avatar will try to move towards
       node_t *goal = NULL;
- 
+
       // insert possible goals into priority queue
       // with priority based off of their L1 distance from this avatar
       if (avatar->leader == -1) {
@@ -326,15 +324,15 @@ void* avatar_play(void *avatar_p)
 	     }
 	     // if their were still unknowns along this direction and it is a connection
 	     if (unknowns != 0 && directionState == 3) {
-	       if (trap > 0) {
-		 trap--;
+	       if ((avatar->trap > 0) && (pervSpot == startNeighbor)) {
+		 avatar->trap--;
 	         priority_queue_insert(maybeVisit, startNeighbor, get_L1_distance(startNeighbor, goal)+2000);
 	       // if the avatar has backtracked a few times
-	       } else if ((pervSpot == startNeighbor) && (back_tracked >= 3)) {
+	       } else if ((pervSpot == startNeighbor) && (avatar->back_tracked >= 3)) {
 		 // then give its previous place the highest priority in the queue of possible destinations
                  priority_queue_insert(maybeVisit, startNeighbor, get_L1_distance(startNeighbor, goal)+2000);	
-		 back_tracked=0;
-		 trap=15;
+		 avatar->back_tracked=0;
+		 avatar->trap=get_width(avatar->maze)/2;
 	       // otherwise give the direction higher priority in the queue
 	       } else {
                  priority_queue_insert(maybeVisit, startNeighbor, get_L1_distance(startNeighbor, goal)+1000);	       
@@ -354,9 +352,9 @@ void* avatar_play(void *avatar_p)
 	  // if its the same as the pervious 
 	  // one this avatar was at then take note of it
           if (pervSpot == node) {
-	    back_tracked++;
+	    avatar->back_tracked++;
           } else {
-	    back_tracked = 0;
+	    avatar->back_tracked = 0;
           }
 	  // go in the direction of this node
           if (get_neighbor(avatar->maze, start, 2) == node) {

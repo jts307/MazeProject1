@@ -92,7 +92,9 @@ typedef struct Avatar
     int centerY;
     pthread_mutex_t *mutex1;
     pthread_mutex_t *mutex2;
-    XYPos *avatarsPos; 
+    XYPos *avatarsPos;
+    int trap;
+    int back_tracked; 
 } Avatar;
 
 /* AM Message description */
