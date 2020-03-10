@@ -4,7 +4,8 @@
  * Handles the startup process, validating parameters, 
  * creating a connection to the server, creating a log 
  * file, and starting up threads with the parameters
- * they need. 
+ * they need. This fuction also makes sure that the program 
+ * doesn't terminate until each thread is finished.
  * 
  * usage: ./AMStartup -n nAvatars -d Difficulty -h Hostname 
  * 
@@ -36,7 +37,9 @@
  *  and that is main(). Main validates parameters, 
  *  creates a connection to the server, creates a 
  *  log file, and starts up threads, passing them 
- *  the parameters that they need. 
+ *  the parameters that they need. Main also makes
+ *  sure that the program doesn't terminate until
+ *  each thread is finished
  * 
  * Input:
  *  This function takes its input from the command
