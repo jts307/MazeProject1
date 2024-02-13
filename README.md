@@ -1,5 +1,6 @@
-# project_maze_challenge
-# CS50 Winter 2020, Final Project
+### Overview
+
+The overall goals of the project are to design, implement and test a client application that simulates players --avatars-- searching for each other in a maze generated and managed by a server. The application should be able to solve mazes of varying difficulty without any prior knowledge. In addition, the application should create a visual user interface and a log file to provide the avatars’ success/failures. 
 
 ## Team name: We_free
 ## Team Members: Jacob Werzinsky, Sebastian Saker, Chris Sykes, Ben Matejka
@@ -9,10 +10,6 @@ GitHub usernames: jts307, chriscsykes
 To build, run `make`.
 
 To clean up, run `make clean`.
-
-### Overview
-
-The overall goals of the project are to design, implement and test a client application that simulates players --avatars-- searching for each other in a maze generated and managed by a server. The application should be able to solve mazes of varying difficulty without any prior knowledge. In addition, the application should create a visual user interface and a log file to provide the avatars’ success/failures. 
 
 ### User Interface 
 
