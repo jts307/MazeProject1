@@ -6,8 +6,11 @@ The overall goals of the project are to design, implement and test a client appl
 ### Team Members: 
 
 Jacob Werzinsky (jts307)
+
 Sebastian Saker (chriscsykes)
+
 Chris Sykes
+
 Ben Matejka
 
 To build, run `make`.
