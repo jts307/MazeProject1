@@ -5,13 +5,13 @@ The overall goals of the project are to design, implement and test a client appl
 ### Team name: We_free
 ### Team Members: 
 
-Jacob Werzinsky (jts307)
+- Jacob Werzinsky (jts307)
 
-Sebastian Saker (chriscsykes)
+- Sebastian Saker (chriscsykes)
 
-Chris Sykes
+- Chris Sykes
 
-Ben Matejka
+- Ben Matejka
 
 To build, run `make`.
 
