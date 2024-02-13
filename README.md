@@ -3,9 +3,12 @@
 The overall goals of the project are to design, implement and test a client application that simulates players --avatars-- searching for each other in a maze generated and managed by a server. The application should be able to solve mazes of varying difficulty without any prior knowledge. In addition, the application should create a visual user interface and a log file to provide the avatars’ success/failures. 
 
 ### Team name: We_free
-### Team Members: Jacob Werzinsky, Sebastian Saker, Chris Sykes, Ben Matejka
+### Team Members: 
 
-GitHub usernames: jts307, chriscsykes
+Jacob Werzinsky (jts307)
+Sebastian Saker (chriscsykes)
+Chris Sykes
+Ben Matejka
 
 To build, run `make`.
 
